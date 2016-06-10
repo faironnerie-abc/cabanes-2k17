@@ -1,0 +1,101 @@
+<!--
+Rendering test.
+Generates an array of 10 x 10 cabins painted with random stripes.
+The only constraints respected for each cabin are:
+  - all stripe colors of a cabin are different
+  - there are the 6 different stripe widths + 2 repeating widths
+-->
+
+<html>
+	<head>
+		<title>Cabins test</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="../lib/three.min.js"></script>
+		<script src="../lib/TrackballControls.js"></script>
+        <script src = "cabin.js"></script>
+		<script>
+
+            var camera, renderer, scene;
+            init();
+            render();
+            animate();
+
+            function init() {
+                camera = new THREE.PerspectiveCamera(75,
+                    window.innerWidth/window.innerHeight, 0.1, 1000);
+                camera.position.z = 20;
+
+                renderer = new THREE.WebGLRenderer();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                //renderer.setClearColor(0x808080);
+                document.body.appendChild(renderer.domElement);
+
+                scene = new THREE.Scene();
+                var group = new THREE.Group();
+                for (var x = -5; x < 5; x++) {
+                    for (var z = -5; z < 5; z++) {
+                        var stripes = randomStripes();
+                        var cab = cabin(stripes);
+                        cab.position.x = 1.5 * x;
+                        cab.position.z = 1.5 * z;
+                        cab.matrixAutoUpdate = false;
+                        cab.updateMatrix();
+                        group.add(cab);
+                    }
+                }
+                scene.add(group);
+
+                var axisHelper = new THREE.AxisHelper(2);
+                scene.add(axisHelper);
+
+                controls = new THREE.TrackballControls(camera);
+                controls.rotateSpeed = 2.0;
+                controls.zoomSpeed = 1.2;
+                controls.panSpeed = 0.8;
+                controls.noZoom = false;
+                controls.noPan = false;
+                controls.staticMoving = true;
+                controls.dynamicDampingFactor = 0.3;
+                controls.addEventListener('change', render);
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                controls.update();
+            }
+
+            function render() {
+                renderer.render(scene, camera);
+            }
+
+            function randomStripes() {
+                var c = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+                var w = [0, 1, 2, 3, 4, 5];
+                var x1 = rnd(w.length);
+                var x2 = rnd(w.length - 1);
+                if (x2 >= x1) x2++;
+                w.push(x1); w.push(x2);
+                var stripes = [];
+                for (var i = 0; i < 8; i++) {
+                    var j = rnd(c.length);
+                    var s = c[j];
+                    c.splice(j, 1);
+                    j = rnd(w.length);
+                    s += 10 * w[j];
+                    w.splice(j, 1);
+                    stripes.push(s);
+                }
+                return stripes;
+            }
+
+            function rnd(n) {
+                return Math.floor(Math.random() * n);
+            }
+		</script>
+	</body>
+</html>
