@@ -1,3 +1,5 @@
+'use strict';
+
 // 10 different colors as defined by the artist
 var colors = [
     "#e53517", "#ff9f00", "#ffed00", "#4df18c", "#00acff",
@@ -67,3 +69,5 @@ function canvasMaterial(canvas) {
     map.needsUpdate = true;
     return new THREE.MeshBasicMaterial({map : map});
 }
+
+module.exports = cabin;
