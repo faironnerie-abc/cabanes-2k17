@@ -2,8 +2,9 @@
   "name": "cabanes-2k17",
   "version": "1.0.0",
   "description": "",
-  "main": "bundle.js",
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack --progress --colors",
     "build-production": "./node_modules/.bin/webpack --progress --colors -p --define process.env.NODE_ENV='\"production\"'"
@@ -16,6 +17,7 @@
   ],
   "license": "BSD",
   "dependencies": {
+    "express": "^4.13.4",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
   },
