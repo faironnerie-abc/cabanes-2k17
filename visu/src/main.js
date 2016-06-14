@@ -1,81 +1,158 @@
 'use strict';
 
+require('./main.scss');
+
 const cabin = require('./cabin.js');
-
-function randomStripes() {
-    var c = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    var w = [0, 1, 2, 3, 4, 5];
-    var x1 = rnd(w.length);
-    var x2 = rnd(w.length - 1);
-    if (x2 >= x1) x2++;
-    w.push(x1); w.push(x2);
-    var stripes = [];
-    for (var i = 0; i < 8; i++) {
-        var j = rnd(c.length);
-        var s = c[j];
-        c.splice(j, 1);
-        j = rnd(w.length);
-        s += 10 * w[j];
-        w.splice(j, 1);
-        stripes.push(s);
-    }
-    return stripes;
-}
-
-function rnd(n) {
-    return Math.floor(Math.random() * n);
-}
+const Cabane = require('./cabane.js');
+import { randomStripes } from './util.js';
 
 class Renderer {
   constructor() {
     this.animate = this.animate.bind(this);
     this.render = this.render.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
 
-    this.camera = new THREE.PerspectiveCamera(75,
-        window.innerWidth/window.innerHeight, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     this.camera.position.z = 20;
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     //renderer.setClearColor(0x808080);
-    document.body.appendChild(this.renderer.domElement);
+
+    this._container = document.querySelector('#container');
+    this._container.appendChild(this.renderer.domElement);
+
+    this._progress = this._container.querySelector('.progress');
 
     this.scene = new THREE.Scene();
-    var group = new THREE.Group();
-    for (var x = -5; x < 5; x++) {
-        for (var z = -5; z < 5; z++) {
-            var stripes = randomStripes();
-            var cab = cabin(stripes);
-            cab.position.x = 1.5 * x;
-            cab.position.z = 1.5 * z;
-            cab.matrixAutoUpdate = false;
-            cab.updateMatrix();
-            group.add(cab);
-        }
-    }
-    this.scene.add(group);
+    this._cabanes = new THREE.Group();
+    this.loadCabanes();
+
+    this.scene.add(this._cabanes);
 
     var axisHelper = new THREE.AxisHelper(2);
     this.scene.add(axisHelper);
 
-    this.controls = new THREE.TrackballControls(this.camera);
+    /*this.controls = new THREE.TrackballControls(this.camera);
     this.controls.rotateSpeed = 2.0;
     this.controls.zoomSpeed = 1.2;
     this.controls.panSpeed = 0.8;
     this.controls.noZoom = false;
     this.controls.noPan = false;
     this.controls.staticMoving = true;
-    this.controls.dynamicDampingFactor = 0.3;
+    this.controls.dynamicDampingFactor = 0.3;*/
+
+    this.controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
+    this.controls.enableDamping = true;
+    this.controls.dampingFactor = 0.25;
+    this.controls.enableZoom = true;
+
     this.controls.addEventListener('change', this.render);
+
+    window.addEventListener( 'resize', this.onWindowResize, false );
+  }
+
+  set progress(text) {
+    this._progress.innerHTML = text;
+  }
+
+  loadCabanes() {
+    /*for (var x = -5; x < 5; x++) {
+      for (var z = -5; z < 5; z++) {
+        var stripes = randomStripes();
+
+        let c = new Cabane({x: x, y:z, colors: stripes});
+        this._cabanes.add(c.mesh);
+      }
+    }*/
+
+    let req = new XMLHttpRequest();
+    req.open('GET', '/cabanes.json', true);
+
+    req.onprogress = (e) => {
+      let percentComplete = Math.floor((e.position / e.totalSize) * 100);
+      this.progress = `Downloading cabanes list... [${percentComplete}%]`;
+    };
+
+    req.onreadystatechange = () => {
+      if (req.readyState == 4) {
+        if (req.status == 200) {
+          this.progress = "Creating cabanes mesh...";
+
+          let cabanes = JSON.parse(req.responseText).cabins
+            , i       = 0;
+
+          cabanes.forEach((cabane) => {
+            this.progress = `Creating cabanes mesh... ${++i}/${cabanes.length}`;
+            cabane.colors = randomStripes();
+
+            let c = new Cabane(cabane);
+            this._cabanes.add(c.mesh);
+
+            requestAnimationFrame(this.render);
+          });
+
+
+          this.progress = "";
+
+          //
+          // Load colors
+          //
+
+          this.loadColors();
+        }
+        else {
+          console.log("Impossible de télécharger la liste des cabanes.");
+        }
+      }
+    };
+
+    req.send(null);
+  }
+
+  loadColors() {
+    let req = new XMLHttpRequest();
+    req.open('GET', '/cabanes.json', true);
+
+    req.onreadystatechange = () => {
+      if (req.readyState == 4) {
+        if (req.status == 200) {
+          let colors = JSON.parse(req.responseText).colors;
+
+          colors.forEach((cabane) => {
+            cabane.colors = randomStripes();
+
+            let c = new Cabane(cabane);
+            this._cabanes.add(c.mesh);
+
+            requestAnimationFrame(this.render);
+          });
+
+        }
+        else {
+          console.log("Impossible de télécharger la liste des couleurs.");
+        }
+      }
+    };
+
+    req.send(null);
   }
 
   animate() {
-      requestAnimationFrame(this.animate);
+      requestAnimationFrame( this.animate );
       this.controls.update();
   }
 
   render() {
       this.renderer.render(this.scene, this.camera);
+  }
+
+  onWindowResize() {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize( window.innerWidth, window.innerHeight );
+
+    this.render();
   }
 }
 
