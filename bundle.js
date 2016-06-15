@@ -136,7 +136,7 @@
 	      document.querySelector('#container .loader').classList.add('active');
 
 	      var req = new XMLHttpRequest();
-	      req.open('GET', '/cabins.json', true);
+	      req.open('GET', 'cabins.json', true);
 
 	      req.onprogress = function (e) {
 	        var percentComplete = Math.floor(e.position / e.totalSize * 100);
@@ -209,7 +209,7 @@
 	      var _this2 = this;
 
 	      var req = new XMLHttpRequest();
-	      req.open('GET', '/colors.json', true);
+	      req.open('GET', 'colors.json', true);
 
 	      req.onreadystatechange = function () {
 	        if (req.readyState == 4) {
