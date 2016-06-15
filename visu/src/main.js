@@ -18,7 +18,7 @@ class Renderer {
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     this.camera.position.z = 20;
 
-    this.renderer = new THREE.WebGLRenderer();
+    this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setClearColor(0x111111);
 
@@ -126,7 +126,7 @@ class Renderer {
     document.querySelector('#container .loader').classList.add('active');
 
     let req = new XMLHttpRequest();
-    req.open('GET', '/cabins.json', true);
+    req.open('GET', 'cabins.json', true);
 
     req.onprogress = (e) => {
       let percentComplete = Math.floor((e.position / e.totalSize) * 100);
@@ -195,7 +195,7 @@ class Renderer {
 
   loadColors() {
     let req = new XMLHttpRequest();
-    req.open('GET', '/colors.json', true);
+    req.open('GET', 'colors.json', true);
 
     req.onreadystatechange = () => {
       if (req.readyState == 4) {
