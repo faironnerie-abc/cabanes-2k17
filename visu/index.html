@@ -1,11 +1,3 @@
-<!--
-Rendering test.
-Generates an array of 10 x 10 cabins painted with random stripes.
-The only constraints respected for each cabin are:
-  - all stripe colors of a cabin are different
-  - there are the 6 different stripe widths + 2 repeating widths
--->
-
 <html>
 	<head>
 		<title>Cabins test</title>
@@ -20,9 +12,20 @@ The only constraints respected for each cabin are:
 						<i class="fa fa-ellipsis-h fa-stack-1x fa-inverse"></i>
 					</span>
 				</a>
+				<div class="loader">
+						<i class="fa fa-cog fa-spin fa-2x fa-inverse"></i>
+				</div>
 				<ul class="finder-content">
-					<li><button class="action" data-action="unfolder">Unfold cabins</button></li>
-					<li><button class="action" data-action="top-view">Top View</button></li>
+					<li><button class="action" data-type="click" data-action="unfolder">Unfold cabins</button></li>
+					<li><button class="action" data-type="click" data-action="top-view">Top View</button></li>
+					<li><button class="action" data-type="click" data-action="reset-camera">Reset Camera</button></li>
+					<li>
+						<button class="action" data-type="click" data-action="toggle-display">
+							<span class="on-normal-display">Grid Display</span>
+							<span class="on-grid-display">Normal Display</span>
+						</button>
+					</li>
+					<li><input class="action" data-type="change" type="range" data-action="set-grid-factor" min="1" max="25"/></li>
 					<li>
 						<div class="search-box">
 							<i class="fa fa-search"></i>
@@ -37,6 +40,7 @@ The only constraints respected for each cabin are:
 		<script src="lib/threejs/three.min.js"></script>
 		<script src="lib/threejs/OrbitControls.js"></script>
 		<script src="lib/threejs/TrackballControls.js"></script>
+		<script src="lib/tweenjs.min.js"></script>
 		<script src="bundle.js"></script>
 	</body>
 </html>
