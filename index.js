@@ -6,7 +6,8 @@ const express        = require('express')
     , SERVER_PORT    = 8000;
 
 
-app.use('/cabanes.json', express.static('modeles/data/all_cabins.json'));
+app.use('/cabins.json', express.static('modeles/data/all_cabins.json'));
+app.use('/colors.json', express.static('modeles/decret2/colors.json'));
 app.use(express.static('visu/'));
 
 app.listen(SERVER_PORT, () => {

@@ -22,10 +22,13 @@ class Renderer {
     this._container = document.querySelector('#container');
     this._container.appendChild(this.renderer.domElement);
 
-    this._progress = this._container.querySelector('.progress');
+    this._progress = document.createElement('canvas');
+    this._progress.classList.add('progress');
+    this._container.appendChild(this._progress);
 
     this.scene = new THREE.Scene();
     this._cabanes = new THREE.Group();
+    this._cabanesObject = {};
     this.loadCabanes();
 
     this.scene.add(this._cabanes);
@@ -53,21 +56,15 @@ class Renderer {
   }
 
   set progress(text) {
-    this._progress.innerHTML = text;
+    let ctx = this._progress.getContext('2d');
+    ctx.textAlign = "left";
+    ctx.fontStyle = "red";
+    ctx.fillText(text, this._progress.width - 5, this._progress.height / 2);
   }
 
   loadCabanes() {
-    /*for (var x = -5; x < 5; x++) {
-      for (var z = -5; z < 5; z++) {
-        var stripes = randomStripes();
-
-        let c = new Cabane({x: x, y:z, colors: stripes});
-        this._cabanes.add(c.mesh);
-      }
-    }*/
-
     let req = new XMLHttpRequest();
-    req.open('GET', '/cabanes.json', true);
+    req.open('GET', '/cabins.json', true);
 
     req.onprogress = (e) => {
       let percentComplete = Math.floor((e.position / e.totalSize) * 100);
@@ -82,18 +79,25 @@ class Renderer {
           let cabanes = JSON.parse(req.responseText).cabins
             , i       = 0;
 
+          this.scene.remove(this._cabanes);
+          this._cabanes = new THREE.Group();
+          this.scene.add(this._cabanes);
+
+          this._cabanesObject = {};
+
           cabanes.forEach((cabane) => {
             this.progress = `Creating cabanes mesh... ${++i}/${cabanes.length}`;
             cabane.colors = randomStripes();
 
             let c = new Cabane(cabane);
+            this._cabanesObject[c.id] = c;
             this._cabanes.add(c.mesh);
 
             requestAnimationFrame(this.render);
           });
 
 
-          this.progress = "";
+          //this.progress = "";
 
           //
           // Load colors
@@ -112,22 +116,25 @@ class Renderer {
 
   loadColors() {
     let req = new XMLHttpRequest();
-    req.open('GET', '/cabanes.json', true);
+    req.open('GET', '/colors.json', true);
 
     req.onreadystatechange = () => {
       if (req.readyState == 4) {
         if (req.status == 200) {
           let colors = JSON.parse(req.responseText).colors;
 
-          colors.forEach((cabane) => {
-            cabane.colors = randomStripes();
+          for (let k in this._cabanesObject) {
+            let color = colors [k];
 
-            let c = new Cabane(cabane);
-            this._cabanes.add(c.mesh);
+            if (color) {
+              this._cabanesObject [k].colors = color.stripes;
+            }
+            else {
+              console.log("Missing color for cabin", k);
+            }
+          }
 
-            requestAnimationFrame(this.render);
-          });
-
+          requestAnimationFrame(this.render);
         }
         else {
           console.log("Impossible de télécharger la liste des couleurs.");
