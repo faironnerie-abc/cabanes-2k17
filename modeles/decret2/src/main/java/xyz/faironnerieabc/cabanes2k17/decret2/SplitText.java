@@ -53,21 +53,10 @@ public class SplitText {
         ps.close();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.printf("Splitting text for %d cabins in %d groups...%n", CABIN_COUNT, GROUP_COUNT);
-        SplitText st = null;
-        try {
-            st = new SplitText(args[0]);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return;
-        }
+        SplitText st = new SplitText(args[0]);
         System.out.println("... done");
-        try {
-            st.writeChunks(args[1]);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return;
-        }
+        st.writeChunks(args[1]);
     }
 }
