@@ -64,6 +64,8 @@ class Renderer {
     }
 
     this.render();
+
+    document.getElementById('container').classList.toggle('fold');
   }
 
   set gridFactor(factor) {
@@ -71,6 +73,9 @@ class Renderer {
 
     if (this._gridDisplay) {
       this.gridDisplay();
+    }
+    else {
+      this.normalDisplay();
     }
   }
 
@@ -234,7 +239,7 @@ class Renderer {
 
   normalDisplay() {
     for (let k in this._cabanesObject) {
-      this._cabanesObject[k].resetPosition();
+      this._cabanesObject[k].resetPosition(this._gridFactor / 5.0);
     }
 
     this.render();
