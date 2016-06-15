@@ -2,8 +2,7 @@
 
 require('./main.scss');
 
-const cabin = require('./cabin.js');
-const Cabane = require('./cabane.js');
+const Cabin = require('./cabin.js');
 import { randomStripes } from './util.js';
 
 class Renderer {
@@ -29,7 +28,7 @@ class Renderer {
     this.scene = new THREE.Scene();
     this._cabanes = new THREE.Group();
     this._cabanesObject = {};
-    this.loadCabanes();
+    this.loadCabins();
 
     this.scene.add(this._cabanes);
 
@@ -53,6 +52,43 @@ class Renderer {
     this.controls.addEventListener('change', this.render);
 
     window.addEventListener( 'resize', this.onWindowResize, false );
+
+    document.querySelector('#container .finder').addEventListener('keypress', (e) => {
+      if (e.key == 'Enter') {
+        let cabinId = e.target.value;
+        this.trackedCabin = (cabinId.length == 0 ? null : cabinId);
+      }
+    });
+  }
+
+  set trackedCabin(cabinId) {
+    if (cabinId == null || !cabinId) {
+      for (let k in this._cabanesObject) {
+        this._cabanesObject[k].transparent = 1;
+      }
+    }
+    else if (this._cabanesObject[cabinId]) {
+      let cabin = this._cabanesObject[cabinId];
+      console.log("Cabin found");
+
+      this.camera.position.set(cabin.x, 10, cabin.z + 20);
+      this.camera.up = new THREE.Vector3(0, 1, 0);
+      this.camera.updateProjectionMatrix();
+
+      this.controls.target = new THREE.Vector3(cabin.x, 0, cabin.z);
+      this.controls.update();
+
+      for (let k in this._cabanesObject) {
+        this._cabanesObject[k].transparent = 0.25;
+      }
+
+      cabin.transparent = 1;
+
+      requestAnimationFrame(this.render);
+    }
+    else {
+      console.log("Can not find cabin");
+    }
   }
 
   set progress(text) {
@@ -62,7 +98,7 @@ class Renderer {
     ctx.fillText(text, this._progress.width - 5, this._progress.height / 2);
   }
 
-  loadCabanes() {
+  loadCabins() {
     let req = new XMLHttpRequest();
     req.open('GET', '/cabins.json', true);
 
@@ -89,7 +125,7 @@ class Renderer {
             this.progress = `Creating cabanes mesh... ${++i}/${cabanes.length}`;
             cabane.colors = randomStripes();
 
-            let c = new Cabane(cabane);
+            let c = new Cabin(cabane);
             this._cabanesObject[c.id] = c;
             this._cabanes.add(c.mesh);
 

@@ -23,4 +23,18 @@
     font-size: 16px;
     font-weight: bold;
   }
+
+  .finder {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    input {
+      border: 1px solid #efefef;
+      background-color: transparent;
+      color: #efefef;
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
 }

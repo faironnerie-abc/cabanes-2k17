@@ -1,73 +1,130 @@
 'use strict';
 
-// 10 different colors as defined by the artist
-var colors = [
-    "#e53517", "#ff9f00", "#ffed00", "#4df18c", "#00acff",
-    "#6e1ec7", "#bee1e9", "#fadde4", "#97adc5", "#4b575f"
-];
+import { createUnfoldCube, UnfoldCube } from './util.js';
 
-// 6 different width ratios as defined by the artist
-var widths = [2 / 11.0, 3 / 11.0, 5 / 11.0, 7 / 11.0, 9 / 11.0, 1];
+const COLORS        = require('./colors.json').colors
+    , WIDTHS        = [2 / 11.0, 3 / 11.0, 5 / 11.0, 7 / 11.0, 9 / 11.0, 1]
+    , cube          = new THREE.BoxGeometry(1.75, 1.75, 1.75)
+    //, openCabin     = createUnfoldCube(1, 0.05)
+    , whiteMaterial = new THREE.MeshBasicMaterial({color: 0xFFFFFF})
+    , redMaterial = new THREE.MeshBasicMaterial({color: 0xFF0000}); //canvasMaterial(whiteCanvas());
 
-var cube = new THREE.BoxGeometry(1, 1, 1);
+let materials = {};
 
-var whiteMaterial = canvasMaterial(whiteCanvas());
+function getFaceMaterial(s1, s2) {
+  let id = `${s1}_${s2}`;
 
-/*
-Generates a cube paint with 8 stripes
-stripes is array of 8 elements encoding the color and the width
-of each stripe in the following order:
-+---> x
-|   54
-|   +--+
-V  6|  |3
-z  7|  |2
-    +--+
-     01
-Each element of the array is of the form 10 * w + c where:
- - w is the index of the width (in widths array)
- - c is the index of the color (in colors array)
-*/
-function cabin(stripes) {
-    var materials = [
-            faceMaterial(stripes[2], stripes[3]),
-            faceMaterial(stripes[6], stripes[7]),
-            whiteMaterial,
-            whiteMaterial,
-            faceMaterial(stripes[0], stripes[1]),
-            faceMaterial(stripes[4], stripes[5])
-    ];
-    var cab = new THREE.Mesh(cube, new THREE.MeshFaceMaterial(materials));
-    return cab;
+  if (!materials[id]) {
+    materials[id] = faceMaterial(s1, s2);
+  }
+
+  return materials[id];
 }
 
 function faceMaterial(s1, s2) {
-    var c1 = s1 % colors.length;
-    var w1 = Math.floor(s1 / colors.length);
-    var c2 = s2 % colors.length;
-    var w2 = Math.floor(s2 / colors.length);
-    var canvas = whiteCanvas();
-    var ctx = canvas.getContext("2d");
-    ctx.fillStyle = colors[c1];
-    ctx.fillRect(64 * (1 - widths[w1]), 0, 128 * widths[w1], 256);
-    ctx.fillStyle = colors[c2];
-    ctx.fillRect(128 + 64 * (1 - widths[w2]), 0, 128 * widths[w2], 256);
+    let c1      = s1 % COLORS.length
+      , w1      = Math.floor(s1 / COLORS.length)
+      , c2      = s2 % COLORS.length
+      , w2      = Math.floor(s2 / COLORS.length)
+      , canvas  = whiteCanvas()
+      , ctx     = canvas.getContext("2d");
+
+    ctx.fillStyle = COLORS[c1];
+    ctx.fillRect(64 * (1 - WIDTHS[w1]), 0, 128 * WIDTHS[w1], 256);
+    ctx.fillStyle = COLORS[c2];
+    ctx.fillRect(128 + 64 * (1 - WIDTHS[w2]), 0, 128 * WIDTHS[w2], 256);
+
     return canvasMaterial(canvas);
 }
 
- function whiteCanvas() {
-     var canvas = document.createElement("canvas");
-     canvas.width = canvas.height = 256;
-     var ctx = canvas.getContext("2d");
-     ctx.fillStyle = "#fff";
-     ctx.fillRect(0, 0, 256, 256);
-     return canvas;
- }
+function whiteCanvas() {
+   let canvas = document.createElement("canvas");
+   let ctx = canvas.getContext("2d");
 
-function canvasMaterial(canvas) {
-    var map = new THREE.Texture(canvas);
-    map.needsUpdate = true;
-    return new THREE.MeshBasicMaterial({map : map});
+   canvas.width = canvas.height = 256;
+   ctx.fillStyle = "#fff";
+   ctx.fillRect(0, 0, 256, 256);
+
+   return canvas;
 }
 
-module.exports = cabin;
+function canvasMaterial(canvas) {
+   let map = new THREE.Texture(canvas);
+   map.needsUpdate = true;
+
+   return new THREE.MeshBasicMaterial({map : map});
+}
+
+function convertColorsToMaterial(colors) {
+  let w = whiteMaterial.clone();
+
+  let materials = [
+    faceMaterial(colors[2], colors[3]),
+    faceMaterial(colors[6], colors[7]),
+    w,
+    w,
+    faceMaterial(colors[0], colors[1]),
+    faceMaterial(colors[4], colors[5])
+  ];
+
+  return new THREE.MultiMaterial(materials);
+}
+
+class Cabin {
+  constructor(data) {
+    this._id = data.id;
+    this._x = data.x;
+    this._z = data.y;
+
+    this._mesh = new THREE.Mesh(cube, whiteMaterial);//convertColorsToMaterial(data.colors));
+    this._mesh.position.x = this._x;
+    this._mesh.position.z = this._z;
+    this._mesh.rotation.y = data.angle * Math.PI / 180;
+    this._mesh.matrixAutoUpdate = false;
+    this._mesh.updateMatrix();
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  get mesh() {
+    return this._mesh;
+  }
+
+  get x() {
+    return this._x;
+  }
+
+  get z() {
+    return this._z;
+  }
+
+  set colors(colors) {
+    let material = convertColorsToMaterial(colors);
+    material.needsUpdate = true;
+
+    this._colors = colors;
+    this._mesh.material = material;
+  }
+
+  set transparent(v) {
+    let t = true
+      , o = v;
+
+    if (v >= 1) {
+      t = false;
+      o = 1;
+    }
+
+    for (let material of this._mesh.material.materials) {
+      material.transparent = t;
+      material.opacity = o;
+      material.needsUpdate = true;
+    }
+
+    this._mesh.material.needsUpdate = true;
+  }
+}
+
+module.exports = Cabin;
