@@ -18,7 +18,7 @@ class Renderer {
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setClearColor(0x222222);
+    this.renderer.setClearColor(0x111111);
 
     this._container = document.querySelector('#container');
     this._container.appendChild(this.renderer.domElement);
