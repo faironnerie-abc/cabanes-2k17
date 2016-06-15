@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Cabins test</title>
+		<link rel="stylesheet" href="/lib/font-awesome/font-awesome.min.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<div class="finder">
+				<a href="#" class="open-finder">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-ellipsis-h fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+				<div class="loader">
+						<i class="fa fa-cog fa-spin fa-2x fa-inverse"></i>
+				</div>
+				<ul class="finder-content">
+					<li>
+						<button class="action" data-type="click" data-action="unfolder">
+							<span class="on-fold">Unfold cabins</span>
+							<span class="on-unfold">Fold cabins</span>
+						</button>
+					</li>
+					<li><button class="action" data-type="click" data-action="top-view">Top View</button></li>
+					<li><button class="action" data-type="click" data-action="reset-camera">Reset Camera</button></li>
+					<li>
+						<button class="action" data-type="click" data-action="toggle-display">
+							<span class="on-normal-display">Grid Display</span>
+							<span class="on-grid-display">Normal Display</span>
+						</button>
+					</li>
+					<li><input class="action" data-type="change" type="range" data-action="set-grid-factor" value="3" min="1" max="25"/></li>
+					<li>
+						<div class="search-box">
+							<i class="fa fa-search"></i>
+							<input type="text" placeholder="Find your cabin"/>
+							<a href="#" class="action clear" data-action="clear-tracked-cabin"><i class="fa fa-times"></i></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="lib/threejs/three.min.js"></script>
+		<script src="lib/threejs/OrbitControls.js"></script>
+		<script src="lib/threejs/TrackballControls.js"></script>
+		<script src="lib/tweenjs.min.js"></script>
+		<script src="bundle.js"></script>
+	</body>
+</html>
