@@ -180,11 +180,11 @@ class Cabin {
     this._mesh.updateMatrix();*/
   }
 
-  resetPosition() {
+  resetPosition(factor = 1) {
     createjs.Tween.get(this._mesh.rotation).to({y:this._angle}, 1000);
     createjs.Tween.get(this._mesh.position).to({
-      x:this._x,
-      z:this._z
+      x:factor * this._x,
+      z:factor * this._z
     }, 1000).addEventListener("change", () => {
       this._mesh.matrixAutoUpdate = false;
       this._mesh.updateMatrix();
