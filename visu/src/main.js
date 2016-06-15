@@ -64,6 +64,8 @@ class Renderer {
     }
 
     this.render();
+
+    document.getElementById('container').classList.toggle('fold');
   }
 
   set gridFactor(factor) {

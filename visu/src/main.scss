@@ -35,6 +35,24 @@ html, body {
     }
   }
 
+  .on-unfold {
+    display: none;
+  }
+
+  .on-fold {
+    display: block;
+  }
+
+  &.fold {
+    .on-unfold {
+      display: block;
+    }
+
+    .on-fold {
+      display: none;
+    }
+  }
+
   canvas {
     width: 100%;
     height: 100%;
