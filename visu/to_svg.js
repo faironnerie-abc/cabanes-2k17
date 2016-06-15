@@ -74,7 +74,7 @@ function getStripes(s1, s2) {
 cabins.forEach(c => {
   let stripes = colors[c.id].stripes;
 
-  out.write(`<g id="cabin${c.id}" transform="translate(${c.x * factor}, ${c.y * factor}) rotate(${c.angle})">`);
+  out.write(`<g id="cabin${c.id}" transform="translate(${c.x * factor}, ${c.y * factor}) rotate(${-c.angle})">`);
 
   [
     [ factor / 4,   factor / 4,  0,   stripes[0], stripes[1]],
