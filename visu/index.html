@@ -9,21 +9,34 @@ The only constraints respected for each cabin are:
 <html>
 	<head>
 		<title>Cabins test</title>
-		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100% }
-		</style>
+		<link rel="stylesheet" href="/lib/font-awesome/font-awesome.min.css"/>
 	</head>
 	<body>
 		<div id="container">
 			<div class="finder">
-				<input type="text" placeholder="Find your cabin"/>
+				<a href="#" class="open-finder">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-ellipsis-h fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+				<ul class="finder-content">
+					<li><button class="action" data-action="unfolder">Unfold cabins</button></li>
+					<li><button class="action" data-action="top-view">Top View</button></li>
+					<li>
+						<div class="search-box">
+							<i class="fa fa-search"></i>
+							<input type="text" placeholder="Find your cabin"/>
+							<a href="#" class="action clear" data-action="clear-tracked-cabin"><i class="fa fa-times"></i></a>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 
-		<script src="lib/three.min.js"></script>
-		<script src="lib/OrbitControls.js"></script>
-		<script src="lib/TrackballControls.js"></script>
+		<script src="lib/threejs/three.min.js"></script>
+		<script src="lib/threejs/OrbitControls.js"></script>
+		<script src="lib/threejs/TrackballControls.js"></script>
 		<script src="bundle.js"></script>
 	</body>
 </html>

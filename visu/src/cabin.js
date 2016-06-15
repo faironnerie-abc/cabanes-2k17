@@ -1,10 +1,11 @@
 'use strict';
 
-import { createUnfoldCube, UnfoldCube } from './util.js';
+import { createUnfoldCube, UnfoldCubeGeometry } from './util.js';
 
 const COLORS        = require('./colors.json').colors
     , WIDTHS        = [2 / 11.0, 3 / 11.0, 5 / 11.0, 7 / 11.0, 9 / 11.0, 1]
     , cube          = new THREE.BoxGeometry(1.75, 1.75, 1.75)
+    , unfoldCube    = new UnfoldCubeGeometry(0.5, 0.05)
     //, openCabin     = createUnfoldCube(1, 0.05)
     , whiteMaterial = new THREE.MeshBasicMaterial({color: 0xFFFFFF})
     , redMaterial = new THREE.MeshBasicMaterial({color: 0xFF0000}); //canvasMaterial(whiteCanvas());
@@ -75,7 +76,9 @@ class Cabin {
     this._id = data.id;
     this._x = data.x;
     this._z = data.y;
+    this._unfold = false;
 
+    //this._mesh = new THREE.Mesh(unfoldCube, whiteMaterial);
     this._mesh = new THREE.Mesh(cube, whiteMaterial);//convertColorsToMaterial(data.colors));
     this._mesh.position.x = this._x;
     this._mesh.position.z = this._z;
@@ -124,6 +127,19 @@ class Cabin {
     }
 
     this._mesh.material.needsUpdate = true;
+  }
+
+  toggleUnfold() {
+    this._unfold = !this._unfold;
+
+    if (this._unfold) {
+      this._mesh.geometry = unfoldCube;
+    }
+    else {
+      this._mesh.geometry = cube;
+    }
+
+    this._mesh.geometry.needsUpdate = true;
   }
 }
 

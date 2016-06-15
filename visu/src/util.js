@@ -4,11 +4,16 @@ function rnd(n) {
     return Math.floor(Math.random() * n);
 }
 
-class UnfoldCube extends THREE.BufferGeometry {
+const uvs = [
+  [[0, 0], [0, 1], [1, 0], [1, 1]],
+  [[0, 1], [1, 1], [0, 0], [1, 0]]
+];
+
+class UnfoldCubeBufferGeometry extends THREE.BufferGeometry {
   constructor(base = 1, thickness = 0.1) {
     super();
 
-    this.type = 'UnfoldCubeGeometry';
+    this.type = 'UnfoldCubeBufferGeometry';
 
     let points = [
       [-base / 2,    1.5 * base], // 0
@@ -25,8 +30,9 @@ class UnfoldCube extends THREE.BufferGeometry {
       [ base / 2,   -1.5 * base] // 11
     ];
 
-    let vertexCount = points.length * 2
-      , indexCount  = 22 * 6;
+    let faceCount = 22
+      , vertexCount = faceCount * 4//points.length * 2
+      , indexCount  = faceCount * 6;//22 * 6;
 
     this.vertexBufferOffset = 0;
     this.uvBufferOffset = 0;
@@ -39,8 +45,34 @@ class UnfoldCube extends THREE.BufferGeometry {
     this.normals  = new Float32Array(vertexCount * 3)
     this.uvs      = new Float32Array(vertexCount * 2);
 
-    this.buildFace(-base / 2, thickness, base / 2, base, base, 0);
-    this.buildFace(-base / 2, thickness, base / 2, base, base, 0);
+    this.buildFace('x', 'y', 'z', -base / 2,    thickness,  base / 2,   base, base, 0, 0);
+    this.buildFace('x', 'y', 'z', -base / 2,   -thickness,  base / 2,   base, base, 0, 0);
+    this.buildFace('x', 'z', 'y', -base / 2,   1.5 * base,  -thickness,   base, 2 * thickness, 0, 0, true);
+
+    this.buildFace('x', 'y', 'z', -1.5 * base,  thickness, -base / 2,   base, base, 1, 1);
+    this.buildFace('x', 'y', 'z', -1.5 * base, -thickness, -base / 2,   base, base, 1, 1);
+    this.buildFace('z', 'x', 'y', -base / 2,   -1.5 * base,  -thickness,   base, 2 * thickness, 1, 0);
+
+    this.buildFace('x', 'y', 'z', -base / 2,    thickness, -base / 2,   base, base, 2, 0);
+    this.buildFace('x', 'y', 'z', -base / 2,   -thickness, -base / 2,   base, base, 3, 0);
+
+    this.buildFace('x', 'z', 'y', -1.5 * base,   -base / 2,  -thickness,   base, 2 * thickness, 2, 0, true);
+    this.buildFace('x', 'z', 'y',  0.5 * base,   -base / 2,  -thickness,   base, 2 * thickness, 2, 0, true);
+    this.buildFace('x', 'z', 'y', -1.5 * base,   base / 2,  -thickness,   base, 2 * thickness, 2, 0, true);
+    this.buildFace('x', 'z', 'y',  0.5 * base,   base / 2,  -thickness,   base, 2 * thickness, 2, 0, true);
+
+    this.buildFace('z', 'x', 'y', -1.5 * base,   -base / 2,  -thickness,  base, 2 * thickness, 2, 0);
+    this.buildFace('z', 'x', 'y',  0.5 * base,   -base / 2,  -thickness,  base, 2 * thickness, 2, 0);
+    this.buildFace('z', 'x', 'y', -1.5 * base,   base / 2,  -thickness,  base, 2 * thickness, 2, 0);
+    this.buildFace('z', 'x', 'y',  0.5 * base,   base / 2,  -thickness,  base, 2 * thickness, 2, 0);
+
+    this.buildFace('x', 'y', 'z',  base / 2,    thickness, -base / 2,   base, base, 4, 1);
+    this.buildFace('x', 'y', 'z',  base / 2,   -thickness, -base / 2,   base, base, 4, 1);
+    this.buildFace('z', 'x', 'y', -base / 2,   1.5 * base,  -thickness,   base, 2 * thickness, 4, 0);
+
+    this.buildFace('x', 'y', 'z', -base / 2,    thickness, -1.5 * base, base, base, 5, 0);
+    this.buildFace('x', 'y', 'z', -base / 2,   -thickness, -1.5 * base, base, base, 5, 0);
+    this.buildFace('x', 'z', 'y', -base / 2,   -1.5 * base,  -thickness,   base, 2 * thickness, 5, 0, true);
 
     this.setIndex( new THREE.BufferAttribute( this.indices, 1 ) );
   	this.addAttribute( 'position', new THREE.BufferAttribute( this.vertices, 3 ) );
@@ -48,22 +80,31 @@ class UnfoldCube extends THREE.BufferGeometry {
   	this.addAttribute( 'uv', new THREE.BufferAttribute( this.uvs, 2 ) );
   }
 
-  buildFace(x, y, z, w, h, mat) {
+  buildFace(ax, ay, az, x, y, z, w, h, mat, uvo=0, forceNormal = false) {
     let vertexCounter = 0
-      , groupCount = 0;
+      , groupCount = 0
+      , vector = new THREE.Vector3();
 
     [x, x + w].forEach((ix) => {
       [z, z + h].forEach((iz) => {
-        this.vertices[this.vertexBufferOffset + 0] = ix;
-        this.vertices[this.vertexBufferOffset + 1] = y;
-        this.vertices[this.vertexBufferOffset + 2] = iz;
+        vector[ax] = ix;
+        vector[ay] = y;
+        vector[az] = iz;
 
-        this.normals[this.vertexBufferOffset + 0] = 0;
-        this.normals[this.vertexBufferOffset + 1] = (y > 0 ? 1 : -1);
-        this.normals[this.vertexBufferOffset + 2] = 0;
+        this.vertices[this.vertexBufferOffset + 0] = vector.x;
+        this.vertices[this.vertexBufferOffset + 1] = vector.y;
+        this.vertices[this.vertexBufferOffset + 2] = vector.z;
 
-        this.uvs[this.uvBufferOffset + 0] = (ix - x) / w;
-        this.uvs[this.uvBufferOffset + 1] = (iz - z) / h;
+        vector[ax] = 0;
+        vector[ay] = (y > 0 ? 1 : -1);
+        vector[az] = 0;
+
+        this.normals[this.vertexBufferOffset + 0] = vector.x;
+        this.normals[this.vertexBufferOffset + 1] = vector.y;
+        this.normals[this.vertexBufferOffset + 2] = vector.z;
+
+        this.uvs[this.uvBufferOffset + 0] = uvs[uvo][vertexCounter][0];//(ix - x) / w;
+        this.uvs[this.uvBufferOffset + 1] = uvs[uvo][vertexCounter][1];//(iz - z) / h;
 
         this.vertexBufferOffset += 3;
         this.uvBufferOffset += 2;
@@ -77,6 +118,11 @@ class UnfoldCube extends THREE.BufferGeometry {
       , c = this.numberOfVertices + 2
       , d = this.numberOfVertices + 3;
 
+    if ((y < 0 && !forceNormal) || (y > 0 && forceNormal)) {
+      c = this.numberOfVertices + 1;
+      b = this.numberOfVertices + 2;
+    }
+
     this.indices[this.indexBufferOffset + 0] = a;
     this.indices[this.indexBufferOffset + 1] = b;
     this.indices[this.indexBufferOffset + 2] = c;
@@ -86,11 +132,20 @@ class UnfoldCube extends THREE.BufferGeometry {
     this.indices[this.indexBufferOffset + 5] = d;
 
     this.indexBufferOffset += 6;
-    this.groupCount += 6;
+    groupCount += 6;
     this.numberOfVertices += vertexCounter;
 
-    this.addGroup(this.groupStart, this.groupCount, mat);
-    this.groupStart += this.groupCount;
+    this.addGroup(this.groupStart, groupCount, mat);
+    this.groupStart += groupCount;
+  }
+}
+
+class UnfoldCubeGeometry extends THREE.Geometry {
+  constructor(base = 1, thickness = 0.1) {
+    super();
+
+    this.fromBufferGeometry(new UnfoldCubeBufferGeometry(base, thickness));
+    this.mergeVertices();
   }
 }
 
@@ -121,9 +176,9 @@ module.exports = {
       return stripes;
   },
 
-  UnfoldCube: UnfoldCube,
+  UnfoldCubeGeometry: UnfoldCubeGeometry,
 
-  createUnfoldCube: function(base = 1, thickness = 0.1) {
+  createUnfoldCube2: function(base = 1, thickness = 0.1) {
     let openedCube = new THREE.Geometry();
 
     let vertices = [

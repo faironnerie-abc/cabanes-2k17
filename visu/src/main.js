@@ -52,13 +52,14 @@ class Renderer {
     this.controls.addEventListener('change', this.render);
 
     window.addEventListener( 'resize', this.onWindowResize, false );
+  }
 
-    document.querySelector('#container .finder').addEventListener('keypress', (e) => {
-      if (e.key == 'Enter') {
-        let cabinId = e.target.value;
-        this.trackedCabin = (cabinId.length == 0 ? null : cabinId);
-      }
-    });
+  unfoldCabins() {
+    for (let k in this._cabanesObject) {
+      this._cabanesObject[k].toggleUnfold();
+    }
+
+    this.render();
   }
 
   set trackedCabin(cabinId) {
@@ -66,6 +67,8 @@ class Renderer {
       for (let k in this._cabanesObject) {
         this._cabanesObject[k].transparent = 1;
       }
+
+      requestAnimationFrame(this.render);
     }
     else if (this._cabanesObject[cabinId]) {
       let cabin = this._cabanesObject[cabinId];
@@ -96,6 +99,10 @@ class Renderer {
     ctx.textAlign = "left";
     ctx.fontStyle = "red";
     ctx.fillText(text, this._progress.width - 5, this._progress.height / 2);
+  }
+
+  get rendererDomElement() {
+    return this.renderer.domElement;
   }
 
   loadCabins() {
@@ -202,3 +209,33 @@ class Renderer {
 let renderer = new Renderer();
 renderer.render();
 renderer.animate();
+
+document.querySelector('#container .finder').addEventListener('keypress', (e) => {
+  if (e.key == 'Enter') {
+    let cabinId = e.target.value;
+    console.log("tracked cabin", cabinId, cabinId.length);
+    renderer.trackedCabin = (cabinId.length == 0 ? null : cabinId);
+  }
+});
+
+function actionListener(e) {
+  switch(this.dataset.action) {
+  case 'unfolder':
+    renderer.unfoldCabins();
+    break;
+  case 'clear-tracked-cabin':
+    document.querySelector('#container .search-box input').value = '';
+    renderer.trackedCabin = null;
+    break;
+  }
+}
+
+document.querySelectorAll('#container .action').forEach(action => {
+  action.addEventListener('click', actionListener.bind(action));
+});
+
+document.querySelector('#container .open-finder').addEventListener('click', e => {
+  document.querySelector('#container .finder').classList.toggle('opened');
+});
+
+renderer.rendererDomElement.focus();
