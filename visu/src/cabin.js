@@ -72,17 +72,19 @@ function convertColorsToMaterial(colors) {
 }
 
 class Cabin {
-  constructor(data) {
+  constructor(data, renderer) {
     this._id = data.id;
     this._x = data.x;
     this._z = data.y;
+    this._angle = data.angle * Math.PI / 180;
     this._unfold = false;
+    this._renderer = renderer;
 
     //this._mesh = new THREE.Mesh(unfoldCube, whiteMaterial);
     this._mesh = new THREE.Mesh(cube, whiteMaterial);//convertColorsToMaterial(data.colors));
     this._mesh.position.x = this._x;
     this._mesh.position.z = this._z;
-    this._mesh.rotation.y = data.angle * Math.PI / 180;
+    this._mesh.rotation.y = this._angle;
     this._mesh.matrixAutoUpdate = false;
     this._mesh.updateMatrix();
   }
@@ -109,6 +111,22 @@ class Cabin {
 
     this._colors = colors;
     this._mesh.material = material;
+  }
+
+  set gridX(gridX) {
+    this._gridX = gridX;
+  }
+
+  set gridY(gridY) {
+    this._gridY = gridY;
+  }
+
+  get gridX() {
+    return this._gridX;
+  }
+
+  get gridY() {
+    return this._gridY;
   }
 
   set transparent(v) {
@@ -140,6 +158,45 @@ class Cabin {
     }
 
     this._mesh.geometry.needsUpdate = true;
+  }
+
+  goOnGrid(factor = 3) {
+    createjs.Tween.get(this._mesh.rotation).to({y:0}, 1000);
+    createjs.Tween.get(this._mesh.position).to({
+      x:this.gridX * factor,
+      z:this.gridY * factor
+    }, 1000).addEventListener("change", () => {
+      this._mesh.matrixAutoUpdate = false;
+      this._mesh.updateMatrix();
+
+      this._renderer.askForRendering();
+    });
+
+    /*this._mesh.position.x = this.gridX * factor;
+    this._mesh.position.z = this.gridY * factor;
+
+    this._mesh.rotation.y = 0;
+    this._mesh.matrixAutoUpdate = false;
+    this._mesh.updateMatrix();*/
+  }
+
+  resetPosition() {
+    createjs.Tween.get(this._mesh.rotation).to({y:this._angle}, 1000);
+    createjs.Tween.get(this._mesh.position).to({
+      x:this._x,
+      z:this._z
+    }, 1000).addEventListener("change", () => {
+      this._mesh.matrixAutoUpdate = false;
+      this._mesh.updateMatrix();
+
+      this._renderer.askForRendering();
+    });
+
+    /*this._mesh.position.x = this._x;
+    this._mesh.position.z = this._z;
+    this._mesh.rotation.y = this._angle;
+    this._mesh.matrixAutoUpdate = false;
+    this._mesh.updateMatrix();*/
   }
 }
 

@@ -12,6 +12,8 @@ class Renderer {
     this.onWindowResize = this.onWindowResize.bind(this);
 
     this._center = new THREE.Vector3(0, 0, 0);
+    this._gridDisplay = false;
+    this._gridFactor = 3;
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     this.camera.position.z = 20;
@@ -62,6 +64,14 @@ class Renderer {
     }
 
     this.render();
+  }
+
+  set gridFactor(factor) {
+    this._gridFactor = factor;
+
+    if (this._gridDisplay) {
+      this.gridDisplay();
+    }
   }
 
   set trackedCabin(cabinId) {
@@ -137,6 +147,8 @@ class Renderer {
             , minY = cabanes[0].y
             , maxY = cabanes[0].y;
 
+          let count = 0;
+
           cabanes.forEach((cabane) => {
             this.progress = `Creating cabanes mesh... ${++i}/${cabanes.length}`;
             cabane.colors = randomStripes();
@@ -146,9 +158,13 @@ class Renderer {
             minY = Math.min(minY, cabane.y);
             maxY = Math.max(maxY, cabane.y);
 
-            let c = new Cabin(cabane);
+            let c = new Cabin(cabane, this);
             this._cabanesObject[c.id] = c;
             this._cabanes.add(c.mesh);
+
+            c.gridX = count % 10;
+            c.gridY = Math.floor(count / 10);
+            count++;
 
             requestAnimationFrame(this.render);
           });
@@ -205,6 +221,54 @@ class Renderer {
     req.send(null);
   }
 
+  gridDisplay() {
+    for (let k in this._cabanesObject) {
+      this._cabanesObject[k].goOnGrid(this._gridFactor, this);
+    }
+
+    this.render();
+    this._gridDisplay = true;
+
+    document.getElementById('container').classList.add('grid-display');
+  }
+
+  normalDisplay() {
+    for (let k in this._cabanesObject) {
+      this._cabanesObject[k].resetPosition();
+    }
+
+    this.render();
+    this._gridDisplay = false;
+
+    document.getElementById('container').classList.remove('grid-display');
+  }
+
+  toggleDisplay() {
+    if (this._gridDisplay) {
+      this.normalDisplay();
+    }
+    else {
+      this.gridDisplay();
+    }
+  }
+
+  resetCamera() {
+    if (this._gridDisplay) {
+      this.camera.position.set(this._gridFactor * 5, 10, 5);
+      this.camera.up = new THREE.Vector3(0, 1, 0);
+      this.camera.updateProjectionMatrix();
+
+      this.controls.target = new THREE.Vector3(this._gridFactor * 5, 0, 5);
+      this.controls.update();
+    }
+    else {
+      this.camera.position.set(0, 0, 20);
+      this.camera.updateProjectionMatrix();
+      this.controls.target = new THREE.Vector3(0, 0, 0);
+      this.controls.update();
+    }
+  }
+
   animate() {
       requestAnimationFrame( this.animate );
       this.controls.update();
@@ -229,6 +293,17 @@ class Renderer {
     this.renderer.setSize( window.innerWidth, window.innerHeight );
 
     this.render();
+  }
+
+  askForRendering() {
+    if (!this._willRender) {
+      this._willRender = true;
+
+      requestAnimationFrame(() => {
+        this.render();
+        this._willRender = false;
+      });
+    }
   }
 }
 
@@ -256,13 +331,25 @@ function actionListener(e) {
   case 'top-view':
     renderer.topView();
     break;
+  case 'toggle-display':
+    renderer.toggleDisplay();
+    break;
+  case 'set-grid-factor':
+    renderer.gridFactor = parseInt(this.value);
+    break;
+  case 'reset-camera':
+    renderer.resetCamera();
+    break;
+  default:
+    console.log("Unknown action", this.dataset.action);
+    break;
   }
 }
 
 let actioners = document.querySelectorAll('#container .action');
 
 for (let i = 0; i < actioners.length; i++) {
-  actioners[i].addEventListener('click', actionListener.bind(actioners[i]));
+  actioners[i].addEventListener(actioners[i].dataset.type || 'click', actionListener.bind(actioners[i]));
 }
 
 document.querySelector('#container .open-finder').addEventListener('click', e => {
