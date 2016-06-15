@@ -3,6 +3,7 @@ $hl-color-fg: #efefef;
 
 html, body {
   margin: 0px;
+  background-color: #222222;
 }
 
 #container {
@@ -41,13 +42,23 @@ html, body {
     top: 15px;
     right: 15px;
 
-    .open-finder {
+    .open-finder, .loader {
       position: absolute;
       right: 0px;
       top: 0px;
 
       .fa-circle {
         color: darken($hl-color-bg, 15%);
+      }
+    }
+
+    .loader {
+      top: 4px;
+      right: 3em;
+      display: none;
+
+      &.active {
+        display: block;
       }
     }
 
