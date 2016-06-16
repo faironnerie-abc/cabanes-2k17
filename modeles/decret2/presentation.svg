@@ -26,14 +26,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="412.23296"
-     inkscape:cy="129.5161"
+     inkscape:cx="406.45376"
+     inkscape:cy="260.83593"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1056"
+     inkscape:window-height="1176"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1">
@@ -223,16 +223,16 @@
        id="text4605"
        y="604.12268"
        x="643.84546"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#e53517;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#e53517;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          sodipodi:role="line"
-         id="tspan4615"
+         id="tspan20219"
          x="643.84546"
-         y="604.12268">Map each cunk to</tspan><tspan
+         y="604.12268">Map each chunk to</tspan><tspan
          sodipodi:role="line"
-         id="tspan4617"
          x="643.84546"
-         y="641.62268">a group of cabins</tspan></text>
+         y="641.62268"
+         id="tspan20223">a group of cabins</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#e53517;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -14662,7 +14662,7 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.49999994px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.5px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="326.97598"
        y="836.60626"
        id="text109507"
@@ -14674,19 +14674,19 @@
          sodipodi:role="line"
          id="tspan109513"
          x="326.97598"
-         y="841.06732">• impossible to invert except by trying all possible messages</tspan><tspan
+         y="840.98126">• Impossible to invert except by trying all possible messages</tspan><tspan
          sodipodi:role="line"
          id="tspan109515"
          x="326.97598"
-         y="845.52838">• Small changes to the message changes completely the hash</tspan><tspan
+         y="845.35626">• Small changes to the message changes completely the hash</tspan><tspan
          sodipodi:role="line"
          id="tspan109517"
          x="326.97598"
-         y="849.98944">• Infeasible to find two messages with the same hash</tspan><tspan
+         y="849.73126">• Infeasible to find two messages with the same hash</tspan><tspan
          sodipodi:role="line"
          id="tspan109519"
          x="326.97598"
-         y="854.4505">• The workhorse of the modern cryptography (Bruce Schneier)</tspan></text>
+         y="854.10626">• The workhorse of the modern cryptography (Bruce Schneier)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -14717,7 +14717,7 @@
          sodipodi:role="line"
          id="tspan109555"
          x="41.008877"
-         y="993.31506"></tspan></text>
+         y="993.31506" /></text>
   </g>
   <script
      sozi:version="14.10-05142318"
