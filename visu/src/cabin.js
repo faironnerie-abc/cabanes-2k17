@@ -1,5 +1,6 @@
 'use strict';
 
+const animate = require('./animate.js');
 import { createUnfoldCube, UnfoldCubeGeometry } from './util.js';
 
 const COLORS        = require('./colors.json').colors
@@ -161,11 +162,12 @@ class Cabin {
   }
 
   goOnGrid() {
-    createjs.Tween.get(this._mesh.rotation).to({y:0}, 1000);
-    createjs.Tween.get(this._mesh.position).to({
+    animate(this._mesh.rotation, {y:0});
+
+    animate(this._mesh.position, {
       x:this.gridX * this._renderer.gridFactor,
       z:this.gridY * this._renderer.gridFactor
-    }, 1000).addEventListener("change", () => {
+    }, () => {
       this._mesh.matrixAutoUpdate = false;
       this._mesh.updateMatrix();
 
@@ -174,11 +176,12 @@ class Cabin {
   }
 
   resetPosition() {
-    createjs.Tween.get(this._mesh.rotation).to({y:this._angle}, 1000);
-    createjs.Tween.get(this._mesh.position).to({
+    animate(this._mesh.rotation, {y:this._angle});
+
+    animate(this._mesh.position, {
       x:this._renderer.normalFactor * this._x,
       z:this._renderer.normalFactor * this._z
-    }, 1000).addEventListener("change", () => {
+    }, () => {
       this._mesh.matrixAutoUpdate = false;
       this._mesh.updateMatrix();
 

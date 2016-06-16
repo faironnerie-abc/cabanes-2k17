@@ -73,6 +73,12 @@ html, body {
     font-weight: bold;
   }
 
+  .action-stack-icon {
+    .fa-stack-2x {
+      color: darken($hl-color-bg, 15%);
+    }
+  }
+
   .finder {
     position: absolute;
     top: 15px;
@@ -82,10 +88,6 @@ html, body {
       position: absolute;
       right: 0px;
       top: 0px;
-
-      .fa-circle {
-        color: darken($hl-color-bg, 15%);
-      }
     }
 
     .loader {

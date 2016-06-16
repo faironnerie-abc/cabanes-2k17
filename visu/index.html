@@ -6,7 +6,7 @@
 	<body>
 		<div id="container">
 			<div class="finder">
-				<a href="#" class="action open-finder" data-action="toggle-finder" data-type="click">
+				<a href="#" class="action open-finder action-stack-icon" data-action="toggle-finder" data-type="click">
 					<span class="fa-stack fa-lg">
 						<i class="fa fa-circle fa-stack-2x"></i>
 						<i class="fa fa-ellipsis-h fa-stack-1x fa-inverse"></i>
@@ -23,13 +23,6 @@
 						</button>
 					</li>
 					<li><button class="action" data-type="click" data-action="top-view">Top View</button></li>
-					<li><button class="action" data-type="click" data-action="reset-camera">Reset Camera</button></li>
-					<li>
-						<button class="action" data-type="click" data-action="toggle-display">
-							<span class="on-normal-display">Grid Display</span>
-							<span class="on-grid-display">Normal Display</span>
-						</button>
-					</li>
 					<li><input class="action" data-type="change" type="range" data-action="set-grid-factor" value="5" min="1" max="25"/></li>
 					<li>
 						<div class="search-box">
@@ -37,6 +30,21 @@
 							<input class="action" data-type="keypress" data-action="track-cabin" type="text" placeholder="Find your cabin"/>
 							<a href="#" class="action clear" data-action="clear-tracked-cabin"><i class="fa fa-times"></i></a>
 						</div>
+					</li>
+					<li class="icons-row">
+						<a href="#" class="action action-stack-icon" data-action="toggle-display" data-type="click">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-th fa-stack-1x fa-inverse on-normal-display"></i>
+								<i class="fa fa-align-left fa-stack-1x fa-inverse on-grid-display"></i>
+							</span>
+						</a>
+						<a href="#" class="action action-stack-icon" data-action="reset-camera" data-type="click">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-refresh fa-stack-2x"></i>
+								<i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
 					</li>
 				</ul>
 			</div>

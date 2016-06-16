@@ -1,6 +1,7 @@
 'use strict';
 
 const Cabin = require('./cabin.js');
+const animate = require('./animate.js');
 
 import { randomStripes } from './util.js';
 
@@ -13,9 +14,11 @@ class Renderer {
     this._center = new THREE.Vector3(0, 0, 0);
     this._gridDisplay = false;
     this._gridFactor = 5;
+    this._meshToCabin = {};
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     this.camera.position.z = 20;
+    this.camera.up = new THREE.Vector3(0, 1, 0);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -28,15 +31,15 @@ class Renderer {
     this._progress.classList.add('progress');
     this._container.appendChild(this._progress);
 
-    this.scene = new THREE.Scene();
+    this._scene = new THREE.Scene();
     this._cabanes = new THREE.Group();
     this._cabanesObject = {};
     this.loadCabins();
 
-    this.scene.add(this._cabanes);
+    this._scene.add(this._cabanes);
 
     /*var axisHelper = new THREE.AxisHelper(2);
-    this.scene.add(axisHelper);*/
+    this._scene.add(axisHelper);*/
 
     /*this.controls = new THREE.TrackballControls(this.camera);
     this.controls.rotateSpeed = 2.0;
@@ -96,18 +99,43 @@ class Renderer {
     }
     else if (this._cabanesObject[cabinId]) {
       let cabin = this._cabanesObject[cabinId];
-      console.log("Cabin found");
 
       if (this._gridDisplay) {
-        this.camera.position.set(cabin.gridX * this.gridFactor, 10, (cabin.gridY + 1) * this.gridFactor);
-        this.controls.target = new THREE.Vector3(cabin.gridX * this.gridFactor, 0, cabin.gridY * this.gridFactor);
+        animate(this.camera.position, {
+          x: cabin.gridX * this.gridFactor,
+          y: 10,
+          z: (cabin.gridY + 1) * this.gridFactor
+        }, () => {
+          this.camera.updateProjectionMatrix();
+        });
+
+        animate(this.controls.target, {
+          x: cabin.gridX * this.gridFactor,
+          y: 0,
+          z: cabin.gridY * this.gridFactor
+        }, () => {
+          this.controls.update();
+        });
       }
       else {
-        this.camera.position.set(cabin.x * this.normalFactor, 10, (cabin.z + 10) * this.normalFactor);
-        this.controls.target = new THREE.Vector3(cabin.x * this.normalFactor, 0, cabin.z * this.normalFactor);
+        animate(this.camera.position, {
+          x: cabin.x * this.normalFactor,
+          y: 10,
+          z: (cabin.z + 10) * this.normalFactor
+        }, () => {
+          this.camera.updateProjectionMatrix();
+        });
+
+        animate(this.controls.target, {
+          x: cabin.x * this.normalFactor,
+          y: 0,
+          z: cabin.z * this.normalFactor
+        }, () => {
+          this.controls.update();
+        });
       }
 
-      this.camera.up = new THREE.Vector3(0, 1, 0);
+      //this.camera.up = new THREE.Vector3(0, 1, 0);
       this.camera.updateProjectionMatrix();
 
       this.controls.update();
@@ -155,11 +183,12 @@ class Renderer {
           let cabanes = JSON.parse(req.responseText).cabins
             , i       = 0;
 
-          this.scene.remove(this._cabanes);
+          this._scene.remove(this._cabanes);
           this._cabanes = new THREE.Group();
-          this.scene.add(this._cabanes);
+          this._scene.add(this._cabanes);
 
           this._cabanesObject = {};
+          this._meshToCabin = {};
 
           let minX = cabanes[0].x
             , maxX = cabanes[0].x
@@ -180,6 +209,8 @@ class Renderer {
             let c = new Cabin(cabane, this);
             this._cabanesObject[c.id] = c;
             this._cabanes.add(c.mesh);
+
+            this._meshToCabin[c.mesh.uuid] = c;
 
             c.gridX = count % 10;
             c.gridY = Math.floor(count / 10);
@@ -273,18 +304,38 @@ class Renderer {
 
   resetCamera() {
     if (this._gridDisplay) {
-      this.camera.position.set(this._gridFactor * 5, 10, 5);
-      this.camera.up = new THREE.Vector3(0, 1, 0);
-      this.camera.updateProjectionMatrix();
+      animate(this.camera.position, {
+        x:this._gridFactor * 5,
+        y:10,
+        z:5
+      }, () => {
+        this.camera.updateProjectionMatrix();
+      });
 
-      this.controls.target = new THREE.Vector3(this._gridFactor * 5, 0, 5);
-      this.controls.update();
+      animate(this.controls.target, {
+        x:this._gridFactor * 5,
+        y:0,
+        z:5
+      }, () => {
+        this.controls.update();
+      });
     }
     else {
-      this.camera.position.set(0, 0, 20);
-      this.camera.updateProjectionMatrix();
-      this.controls.target = new THREE.Vector3(0, 0, 0);
-      this.controls.update();
+      animate(this.camera.position, {
+        x:0,
+        y:0,
+        z:20
+      }, () => {
+        this.camera.updateProjectionMatrix();
+      });
+
+      animate(this.controls.target, {
+        x:0,
+        y:0,
+        z:0
+      }, () => {
+        this.controls.update();
+      });
     }
   }
 
@@ -294,7 +345,7 @@ class Renderer {
   }
 
   render() {
-      this.renderer.render(this.scene, this.camera);
+      this.renderer.render(this._scene, this.camera);
   }
 
   topView() {
@@ -322,6 +373,23 @@ class Renderer {
         this.render();
         this._willRender = false;
       });
+    }
+  }
+
+  getCabinAt(x, y) {
+    let raycaster = new THREE.Raycaster()
+      , position  = new THREE.Vector2(x, y);
+
+    raycaster.setFromCamera(position, this.camera);
+
+    let intersects = raycaster.intersectObjects(this._scene.children, true);
+
+    if (intersects.length > 0) {
+      return this._meshToCabin[intersects[0].object.uuid];
+    }
+    else {
+      console.log("no cabin found");
+      return null;
     }
   }
 }

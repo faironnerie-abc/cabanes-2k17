@@ -10,9 +10,22 @@ class ActionListener {
     for (let i = 0; i < actioners.length; i++) {
       actioners[i].addEventListener(actioners[i].dataset.type || 'click', this.actionPerformed.bind(this, actioners[i]));
     }
+
+    this._renderer.rendererDomElement.addEventListener('click', (e) => {
+      let cabin = this._renderer.getCabinAt(
+         (e.clientX / window.innerWidth)  * 2 - 1,
+        -(e.clientY / window.innerHeight) * 2 + 1
+      );
+
+      if (cabin != null) {
+        this._renderer.trackedCabin = cabin.id;
+      }
+    });
   }
 
   actionPerformed(target, e) {
+    let found = true;
+
     switch(target.dataset.action) {
     case 'toggle-finder':
       this._container.querySelector('.finder').classList.toggle('opened');
@@ -45,7 +58,12 @@ class ActionListener {
       break;
     default:
       console.log("Unknown action", target.dataset.action);
+      found = false;
       break;
+    }
+
+    if(found) {
+      e.preventDefault();
     }
   }
 }
