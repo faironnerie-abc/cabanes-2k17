@@ -79,6 +79,14 @@ class Renderer {
     }
   }
 
+  get gridFactor() {
+    return this._gridFactor;
+  }
+
+  get normalFactor() {
+    return this._gridFactor / 5.0;
+  }
+
   set trackedCabin(cabinId) {
     if (cabinId == null || !cabinId) {
       for (let k in this._cabanesObject) {
@@ -91,11 +99,18 @@ class Renderer {
       let cabin = this._cabanesObject[cabinId];
       console.log("Cabin found");
 
-      this.camera.position.set(cabin.x, 10, cabin.z + 20);
+      if (this._gridDisplay) {
+        this.camera.position.set(cabin.gridX * this.gridFactor, 10, (cabin.gridY + 1) * this.gridFactor);
+        this.controls.target = new THREE.Vector3(cabin.gridX * this.gridFactor, 0, cabin.gridY * this.gridFactor);
+      }
+      else {
+        this.camera.position.set(cabin.x * this.normalFactor, 10, (cabin.z + 10) * this.normalFactor);
+        this.controls.target = new THREE.Vector3(cabin.x * this.normalFactor, 0, cabin.z * this.normalFactor);
+      }
+
       this.camera.up = new THREE.Vector3(0, 1, 0);
       this.camera.updateProjectionMatrix();
 
-      this.controls.target = new THREE.Vector3(cabin.x, 0, cabin.z);
       this.controls.update();
 
       for (let k in this._cabanesObject) {
@@ -228,7 +243,7 @@ class Renderer {
 
   gridDisplay() {
     for (let k in this._cabanesObject) {
-      this._cabanesObject[k].goOnGrid(this._gridFactor, this);
+      this._cabanesObject[k].goOnGrid(this.gridFactor);
     }
 
     this.render();
@@ -239,7 +254,7 @@ class Renderer {
 
   normalDisplay() {
     for (let k in this._cabanesObject) {
-      this._cabanesObject[k].resetPosition(this._gridFactor / 5.0);
+      this._cabanesObject[k].resetPosition(this.normalFactor);
     }
 
     this.render();
