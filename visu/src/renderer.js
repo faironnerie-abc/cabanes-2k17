@@ -15,6 +15,8 @@ class Renderer {
     this._gridDisplay = false;
     this._gridFactor = 5;
     this._meshToCabin = {};
+    this._cabinPerRow = 30;
+    this._cabinCount = 0;
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     this.camera.position.z = 20;
@@ -189,13 +191,12 @@ class Renderer {
 
           this._cabanesObject = {};
           this._meshToCabin = {};
+          this._cabinCount = 0;
 
           let minX = cabanes[0].x
             , maxX = cabanes[0].x
             , minY = cabanes[0].y
             , maxY = cabanes[0].y;
-
-          let count = 0;
 
           cabanes.forEach((cabane) => {
             this.progress = `Creating cabanes mesh... ${++i}/${cabanes.length}`;
@@ -212,9 +213,9 @@ class Renderer {
 
             this._meshToCabin[c.mesh.uuid] = c;
 
-            c.gridX = count % 10;
-            c.gridY = Math.floor(count / 10);
-            count++;
+            c.gridX = this._cabinCount % this._cabinPerRow;
+            c.gridY = Math.floor(this._cabinCount / this._cabinPerRow);
+            this._cabinCount++;
 
             requestAnimationFrame(this.render);
           });
@@ -349,12 +350,24 @@ class Renderer {
   }
 
   topView() {
-    this.camera.position.set(this._center.x, 300, this._center.z);
-    this.camera.up = new THREE.Vector3(0, 1, 0);
-    this.camera.updateProjectionMatrix();
+    let x = this._gridDisplay ? this._cabinPerRow / 2 * this.gridFactor : this._center.x * this.normalFactor
+      , z = this._gridDisplay ? (this._cabinCount / this._cabinPerRow) / 2 * this.gridFactor : this._center.z * this.normalFactor;
 
-    this.controls.target = this._center.clone();
-    this.controls.update();
+    animate(this.camera.position, {
+      x: x,
+      y: this._gridDisplay ? 150 : 300,
+      z: z
+    }, () => {
+      this.camera.updateProjectionMatrix();
+    });
+
+    animate(this.controls.target, {
+      x: x,
+      y: 0,
+      z: z
+    }, () => {
+      this.controls.update();
+    });
   }
 
   onWindowResize() {
