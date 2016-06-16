@@ -82,8 +82,8 @@ class Cabin {
 
     //this._mesh = new THREE.Mesh(unfoldCube, whiteMaterial);
     this._mesh = new THREE.Mesh(cube, whiteMaterial);//convertColorsToMaterial(data.colors));
-    this._mesh.position.x = this._x;
-    this._mesh.position.z = this._z;
+    this._mesh.position.x = this._x * renderer.normalFactor;
+    this._mesh.position.z = this._z * renderer.normalFactor;
     this._mesh.rotation.y = this._angle;
     this._mesh.matrixAutoUpdate = false;
     this._mesh.updateMatrix();
@@ -160,43 +160,30 @@ class Cabin {
     this._mesh.geometry.needsUpdate = true;
   }
 
-  goOnGrid(factor = 3) {
+  goOnGrid() {
     createjs.Tween.get(this._mesh.rotation).to({y:0}, 1000);
     createjs.Tween.get(this._mesh.position).to({
-      x:this.gridX * factor,
-      z:this.gridY * factor
+      x:this.gridX * this._renderer.gridFactor,
+      z:this.gridY * this._renderer.gridFactor
     }, 1000).addEventListener("change", () => {
       this._mesh.matrixAutoUpdate = false;
       this._mesh.updateMatrix();
 
       this._renderer.askForRendering();
     });
-
-    /*this._mesh.position.x = this.gridX * factor;
-    this._mesh.position.z = this.gridY * factor;
-
-    this._mesh.rotation.y = 0;
-    this._mesh.matrixAutoUpdate = false;
-    this._mesh.updateMatrix();*/
   }
 
-  resetPosition(factor = 1) {
+  resetPosition() {
     createjs.Tween.get(this._mesh.rotation).to({y:this._angle}, 1000);
     createjs.Tween.get(this._mesh.position).to({
-      x:factor * this._x,
-      z:factor * this._z
+      x:this.renderer.normalFactor * this._x,
+      z:this.renderer.normalFactor * this._z
     }, 1000).addEventListener("change", () => {
       this._mesh.matrixAutoUpdate = false;
       this._mesh.updateMatrix();
 
       this._renderer.askForRendering();
     });
-
-    /*this._mesh.position.x = this._x;
-    this._mesh.position.z = this._z;
-    this._mesh.rotation.y = this._angle;
-    this._mesh.matrixAutoUpdate = false;
-    this._mesh.updateMatrix();*/
   }
 }
 

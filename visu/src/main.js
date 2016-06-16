@@ -243,7 +243,7 @@ class Renderer {
 
   gridDisplay() {
     for (let k in this._cabanesObject) {
-      this._cabanesObject[k].goOnGrid(this.gridFactor);
+      this._cabanesObject[k].goOnGrid();
     }
 
     this.render();
@@ -254,7 +254,7 @@ class Renderer {
 
   normalDisplay() {
     for (let k in this._cabanesObject) {
-      this._cabanesObject[k].resetPosition(this.normalFactor);
+      this._cabanesObject[k].resetPosition();
     }
 
     this.render();
