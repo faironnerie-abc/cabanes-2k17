@@ -6,7 +6,7 @@
 	<body>
 		<div id="container">
 			<div class="finder">
-				<a href="#" class="open-finder">
+				<a href="#" class="action open-finder" data-action="toggle-finder" data-type="click">
 					<span class="fa-stack fa-lg">
 						<i class="fa fa-circle fa-stack-2x"></i>
 						<i class="fa fa-ellipsis-h fa-stack-1x fa-inverse"></i>
@@ -34,7 +34,7 @@
 					<li>
 						<div class="search-box">
 							<i class="fa fa-search"></i>
-							<input type="text" placeholder="Find your cabin"/>
+							<input class="action" data-type="keypress" data-action="track-cabin" type="text" placeholder="Find your cabin"/>
 							<a href="#" class="action clear" data-action="clear-tracked-cabin"><i class="fa fa-times"></i></a>
 						</div>
 					</li>
