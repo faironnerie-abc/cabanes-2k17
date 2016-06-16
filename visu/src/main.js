@@ -13,7 +13,7 @@ class Renderer {
 
     this._center = new THREE.Vector3(0, 0, 0);
     this._gridDisplay = false;
-    this._gridFactor = 3;
+    this._gridFactor = 5;
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     this.camera.position.z = 20;
