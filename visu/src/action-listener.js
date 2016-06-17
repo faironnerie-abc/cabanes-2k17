@@ -12,6 +12,10 @@ class ActionListener {
     }
 
     this._renderer.rendererDomElement.addEventListener('click', (e) => {
+      if (this._disableClick) {
+        return;
+      }
+
       let cabin = this._renderer.getCabinAt(
          (e.clientX / window.innerWidth)  * 2 - 1,
         -(e.clientY / window.innerHeight) * 2 + 1
@@ -20,6 +24,19 @@ class ActionListener {
       if (cabin != null) {
         this._renderer.trackedCabin = cabin.id;
       }
+    });
+
+    let cb = () => {
+      this._disableClick = true;
+    };
+
+    this._renderer.rendererDomElement.addEventListener('mousedown', (e) => {
+      this._renderer.rendererDomElement.addEventListener('mousemove', cb);
+    });
+
+    this._renderer.rendererDomElement.addEventListener('mouseup', (e) => {
+      this._renderer.rendererDomElement.removeEventListener('mousemove', cb);
+      setTimeout(() => { this._disableClick = false; }, 250);
     });
   }
 

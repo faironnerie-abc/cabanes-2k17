@@ -160,7 +160,9 @@ class Renderer {
     let minX = cabanes[0].x
       , maxX = cabanes[0].x
       , minY = cabanes[0].y
-      , maxY = cabanes[0].y;
+      , maxY = cabanes[0].y
+      , gridFactor = 2
+      , dGridY   = -(cabanes.length / this._cabinPerRow) / 2;
 
     cabanes.forEach((cabane) => {
       cabane.colors = randomStripes();
@@ -176,8 +178,11 @@ class Renderer {
 
       this._meshToCabin[c.mesh.uuid] = c;
 
-      c.gridX = this._cabinCount % this._cabinPerRow;
-      c.gridY = Math.floor(this._cabinCount / this._cabinPerRow);
+      c.gridX = -this._cabinPerRow / 2 + this._cabinCount % this._cabinPerRow;
+      c.gridY = dGridY + Math.floor(this._cabinCount / this._cabinPerRow);
+      c.gridX *= gridFactor;
+      c.gridY *= gridFactor;
+
       this._cabinCount++;
     });
 
@@ -232,27 +237,9 @@ class Renderer {
   }
 
   resetCamera() {
-    if (this._gridDisplay) {
-      animate(this.camera.position, {
-        x: 5,
-        y: 10,
-        z: 5
-      }, () => {
-        this.camera.updateProjectionMatrix();
-      });
-
-      animate(this.controls.target, {
-        x: 5,
-        y: 0,
-        z: 5
-      }, () => {
-        this.controls.update();
-      });
-    }
-    else {
       animate(this.camera.position, {
         x:0,
-        y:0,
+        y:10,
         z:20
       }, () => {
         this.camera.updateProjectionMatrix();
@@ -265,7 +252,6 @@ class Renderer {
       }, () => {
         this.controls.update();
       });
-    }
   }
 
   animate() {
