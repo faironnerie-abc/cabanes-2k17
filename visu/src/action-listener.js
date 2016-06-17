@@ -8,7 +8,9 @@ class ActionListener {
     let actioners = container.querySelectorAll('.action');
 
     for (let i = 0; i < actioners.length; i++) {
-      actioners[i].addEventListener(actioners[i].dataset.type || 'click', this.actionPerformed.bind(this, actioners[i]));
+      let type = actioners[i].dataset.type || 'click';
+      console.log(type);
+      actioners[i].addEventListener(type, this.actionPerformed.bind(this, actioners[i]));
     }
 
     this._renderer.rendererDomElement.addEventListener('click', (e) => {
@@ -41,7 +43,7 @@ class ActionListener {
   }
 
   actionPerformed(target, e) {
-    let found = true;
+    let preventDefault = true;
 
     switch(target.dataset.action) {
     case 'toggle-finder':
@@ -61,7 +63,6 @@ class ActionListener {
       this._renderer.toggleDisplay();
       break;
     case 'set-grid-factor':
-      //this._renderer.gridFactor = parseInt(target.value);
       this._renderer.scale = parseFloat(target.value);
       break;
     case 'reset-camera':
@@ -73,14 +74,18 @@ class ActionListener {
         console.log("tracked cabin", cabinId, cabinId.length);
         this._renderer.trackedCabin = (cabinId.length == 0 ? null : cabinId);
       }
+      else {
+        preventDefault = false;
+      }
+
       break;
     default:
       console.log("Unknown action", target.dataset.action);
-      found = false;
+      preventDefault = false;
       break;
     }
 
-    if(found) {
+    if(preventDefault) {
       e.preventDefault();
     }
   }

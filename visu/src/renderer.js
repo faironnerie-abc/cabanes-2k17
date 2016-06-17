@@ -213,7 +213,7 @@ class Renderer {
     this.render();
     this._gridDisplay = true;
 
-    document.getElementById('container').classList.add('grid-display');
+    this._container.classList.add('grid-display');
   }
 
   normalDisplay() {
@@ -224,7 +224,7 @@ class Renderer {
     this.render();
     this._gridDisplay = false;
 
-    document.getElementById('container').classList.remove('grid-display');
+    this._container.classList.remove('grid-display');
   }
 
   toggleDisplay() {
