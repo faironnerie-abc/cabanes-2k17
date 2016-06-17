@@ -53,11 +53,14 @@
 
 	var container = document.querySelector('#container'),
 	    renderer = new Renderer(container),
-	    actionListener = new ActionListener(renderer, container);
+	    actionListener = new ActionListener(renderer, container),
+	    CabinsLoader = __webpack_require__(102);
+
+	var loader = new CabinsLoader(renderer);
+	loader.load();
 
 	renderer.render();
 	renderer.animate();
-	renderer.rendererDomElement.focus();
 
 /***/ },
 /* 1 */
@@ -94,7 +97,7 @@
 
 
 	// module
-	exports.push([module.id, "html, body {\n  margin: 0px;\n  background-color: #111111; }\n\n#container {\n  min-height: 100%;\n  min-width: 100%;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  position: relative; }\n  #container .on-grid-display {\n    display: none; }\n  #container .on-normal-display {\n    display: block; }\n  #container.grid-display .on-grid-display {\n    display: block; }\n  #container.grid-display .on-normal-display {\n    display: none; }\n  #container .on-unfold {\n    display: none; }\n  #container .on-fold {\n    display: block; }\n  #container.fold .on-unfold {\n    display: block; }\n  #container.fold .on-fold {\n    display: none; }\n  #container canvas {\n    width: 100%;\n    height: 100%; }\n  #container .progress {\n    position: absolute;\n    bottom: 15px;\n    right: 15px;\n    width: 256px;\n    height: 64px;\n    background-color: transparent;\n    color: #efefef;\n    font-size: 16px;\n    font-weight: bold; }\n  #container .action-stack-icon .fa-stack-2x {\n    color: #2e0e4b; }\n  #container .finder {\n    position: absolute;\n    top: 15px;\n    right: 15px; }\n    #container .finder .open-finder, #container .finder .loader {\n      position: absolute;\n      right: 0px;\n      top: 0px; }\n    #container .finder .loader {\n      top: 4px;\n      right: 3em;\n      display: none; }\n      #container .finder .loader.active {\n        display: block; }\n    #container .finder .finder-content {\n      display: none;\n      background-color: rgba(85, 26, 139, 0.75);\n      color: #efefef;\n      border-radius: 6px;\n      padding: 10px;\n      padding-top: 40px;\n      list-style-type: none; }\n      #container .finder .finder-content li {\n        margin: 5px; }\n    #container .finder.opened .finder-content {\n      display: block; }\n    #container .finder input, #container .finder button {\n      padding: 10px;\n      font-size: 16px;\n      width: 100%;\n      border: 1px solid #2e0e4b;\n      border-radius: 4px;\n      color: #efefef; }\n    #container .finder input {\n      background-color: #481676; }\n    #container .finder input::-webkit-input-placeholder {\n      color: #200a35; }\n    #container .finder button {\n      background-color: #2e0e4b; }\n      #container .finder button:hover {\n        background-color: #481676; }\n    #container .finder .search-box {\n      position: relative; }\n      #container .finder .search-box .fa-search {\n        position: absolute;\n        top: 10px;\n        left: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box .action.clear {\n        position: absolute;\n        top: 10px;\n        right: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box input {\n        padding-left: 26px;\n        padding-right: 26px; }\n    #container .finder input[type=\"range\"] {\n      -webkit-appearance: none !important;\n      /*Needed to reset default slider styles */\n      width: 100%;\n      height: 15px;\n      background-color: #481676;\n      border: 1px solid #2e0e4b;\n      border-radius: 10px;\n      margin: auto;\n      transition: all 0.3s ease; }\n      #container .finder input[type=\"range\"]:hover {\n        background-color: #3b1260; }\n    #container .finder input[type=\"range\"]::-webkit-slider-thumb {\n      -webkit-appearance: none !important;\n      width: 20px;\n      height: 20px;\n      background-color: #2e0e4b;\n      border-radius: 30px;\n      box-shadow: 0px 0px 3px #2e0e4b;\n      transition: all 0.5s ease; }\n      #container .finder input[type=\"range\"]::-webkit-slider-thumb:hover {\n        background-color: #200a35; }\n", ""]);
+	exports.push([module.id, "html, body {\n  margin: 0px;\n  background-color: #111111; }\n\n#container {\n  min-height: 100%;\n  min-width: 100%;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  position: relative; }\n  #container .on-grid-display {\n    display: none; }\n  #container .on-normal-display {\n    display: block; }\n  #container.grid-display .on-grid-display {\n    display: block; }\n  #container.grid-display .on-normal-display {\n    display: none; }\n  #container .on-unfold {\n    display: none; }\n  #container .on-fold {\n    display: block; }\n  #container.fold .on-unfold {\n    display: block; }\n  #container.fold .on-fold {\n    display: none; }\n  #container canvas {\n    width: 100%;\n    height: 100%; }\n  #container .progress {\n    position: absolute;\n    bottom: 15px;\n    right: 15px;\n    width: 256px;\n    height: 64px;\n    background-color: transparent;\n    color: #efefef;\n    font-size: 16px;\n    font-weight: bold; }\n  #container .action-stack-icon .fa-stack-2x {\n    color: #2e0e4b; }\n  #container .finder {\n    position: absolute;\n    top: 15px;\n    right: 15px; }\n    #container .finder .open-finder, #container .finder .loader {\n      position: absolute;\n      right: 0px;\n      top: 0px; }\n    #container .finder .loader {\n      top: 4px;\n      right: 3em;\n      display: none; }\n      #container .finder .loader.active {\n        display: block; }\n    #container .finder .finder-content {\n      display: none;\n      background-color: rgba(85, 26, 139, 0.75);\n      color: #efefef;\n      border-radius: 6px;\n      padding: 10px;\n      padding-top: 40px;\n      list-style-type: none; }\n      #container .finder .finder-content li {\n        margin: 5px; }\n    #container .finder.opened .finder-content {\n      display: block; }\n    #container .finder input, #container .finder button {\n      padding: 10px;\n      font-size: 16px;\n      width: 100%;\n      border: 1px solid #2e0e4b;\n      border-radius: 4px;\n      color: #efefef; }\n    #container .finder input {\n      background-color: rgba(98, 30, 160, 0.5); }\n    #container .finder input::-webkit-input-placeholder {\n      color: #200a35; }\n    #container .finder button {\n      background-color: #2e0e4b; }\n      #container .finder button:hover {\n        background-color: #481676; }\n    #container .finder .search-box {\n      position: relative; }\n      #container .finder .search-box .fa-search {\n        position: absolute;\n        top: 10px;\n        left: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box .action.clear {\n        position: absolute;\n        top: 10px;\n        right: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box input {\n        padding-left: 26px;\n        padding-right: 26px; }\n    #container .finder input[type=\"range\"] {\n      -webkit-appearance: none !important;\n      /*Needed to reset default slider styles */\n      width: 100%;\n      height: 15px;\n      background-color: rgba(98, 30, 160, 0.5);\n      border: 1px solid #2e0e4b;\n      border-radius: 10px;\n      margin: auto;\n      transition: all 0.3s ease; }\n      #container .finder input[type=\"range\"]:hover {\n        background-color: #3b1260; }\n    #container .finder input[type=\"range\"]::-webkit-slider-thumb {\n      -webkit-appearance: none !important;\n      width: 20px;\n      height: 20px;\n      background-color: #2e0e4b;\n      border-radius: 30px;\n      box-shadow: 0px 0px 3px #2e0e4b;\n      transition: all 0.5s ease; }\n      #container .finder input[type=\"range\"]::-webkit-slider-thumb:hover {\n        background-color: #200a35; }\n", ""]);
 
 	// exports
 
@@ -438,13 +441,12 @@
 
 	    this._center = new THREE.Vector3(0, 0, 0);
 	    this._gridDisplay = false;
-	    this._gridFactor = 5;
 	    this._meshToCabin = {};
 	    this._cabinPerRow = 30;
 	    this._cabinCount = 0;
 
-	    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-	    this.camera.position.z = 20;
+	    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 500);
+	    this.camera.position.set(0, 5, 20);
 	    this.camera.up = new THREE.Vector3(0, 1, 0);
 
 	    this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -454,14 +456,9 @@
 	    this._container = container;
 	    this._container.appendChild(this.renderer.domElement);
 
-	    this._progress = document.createElement('canvas');
-	    this._progress.classList.add('progress');
-	    this._container.appendChild(this._progress);
-
 	    this._scene = new THREE.Scene();
 	    this._cabanes = new THREE.Group();
 	    this._cabanesObject = {};
-	    this.loadCabins();
 
 	    this._scene.add(this._cabanes);
 
@@ -496,118 +493,7 @@
 
 	      this.render();
 
-	      document.getElementById('container').classList.toggle('fold');
-	    }
-	  }, {
-	    key: 'loadCabins',
-	    value: function loadCabins() {
-	      var _this = this;
-
-	      document.querySelector('#container .loader').classList.add('active');
-
-	      var req = new XMLHttpRequest();
-	      req.open('GET', 'cabins.json', true);
-
-	      req.onprogress = function (e) {
-	        var percentComplete = Math.floor(e.position / e.totalSize * 100);
-	        _this.progress = 'Downloading cabanes list... [' + percentComplete + '%]';
-	      };
-
-	      req.onreadystatechange = function () {
-	        if (req.readyState == 4) {
-	          if (req.status == 200) {
-	            (function () {
-	              _this.progress = "Creating cabanes mesh...";
-
-	              var cabanes = JSON.parse(req.responseText).cabins,
-	                  i = 0;
-
-	              _this._scene.remove(_this._cabanes);
-	              _this._cabanes = new THREE.Group();
-	              _this._scene.add(_this._cabanes);
-
-	              _this._cabanesObject = {};
-	              _this._meshToCabin = {};
-	              _this._cabinCount = 0;
-
-	              var minX = cabanes[0].x,
-	                  maxX = cabanes[0].x,
-	                  minY = cabanes[0].y,
-	                  maxY = cabanes[0].y;
-
-	              cabanes.forEach(function (cabane) {
-	                _this.progress = 'Creating cabanes mesh... ' + ++i + '/' + cabanes.length;
-	                cabane.colors = (0, _util.randomStripes)();
-
-	                minX = Math.min(minX, cabane.x);
-	                maxX = Math.max(maxX, cabane.x);
-	                minY = Math.min(minY, cabane.y);
-	                maxY = Math.max(maxY, cabane.y);
-
-	                var c = new Cabin(cabane, _this);
-	                _this._cabanesObject[c.id] = c;
-	                _this._cabanes.add(c.mesh);
-
-	                _this._meshToCabin[c.mesh.uuid] = c;
-
-	                c.gridX = _this._cabinCount % _this._cabinPerRow;
-	                c.gridY = Math.floor(_this._cabinCount / _this._cabinPerRow);
-	                _this._cabinCount++;
-
-	                requestAnimationFrame(_this.render);
-	              });
-
-	              _this._center.set((minX + maxX) / 2, 0, (minY + maxY) / 2);
-
-	              //this.progress = "";
-
-	              //
-	              // Load colors
-	              //
-
-	              _this.loadColors();
-	            })();
-	          } else {
-	            console.log("Impossible de télécharger la liste des cabanes.");
-	          }
-	        }
-	      };
-
-	      req.send(null);
-	    }
-	  }, {
-	    key: 'loadColors',
-	    value: function loadColors() {
-	      var _this2 = this;
-
-	      var req = new XMLHttpRequest();
-	      req.open('GET', 'colors.json', true);
-
-	      req.onreadystatechange = function () {
-	        if (req.readyState == 4) {
-	          if (req.status == 200) {
-	            var colors = JSON.parse(req.responseText).colors;
-
-	            for (var k in _this2._cabanesObject) {
-	              var color = colors[k];
-
-	              if (color) {
-	                _this2._cabanesObject[k].colors = color.stripes;
-	              } else {
-	                console.log("Missing color for cabin", k);
-	              }
-	            }
-
-	            requestAnimationFrame(_this2.render);
-	          } else {
-	            console.log("Impossible de télécharger la liste des couleurs.");
-	          }
-	        }
-
-	        document.querySelector('#container .loader').classList.remove('active');
-	      };
-
-	      req.send(null);
+	      this._container.classList.toggle('fold');
 	    }
 	  }, {
 	    key: 'gridDisplay',
@@ -645,41 +531,23 @@
 	  }, {
 	    key: 'resetCamera',
 	    value: function resetCamera() {
-	      var _this3 = this;
+	      var _this = this;
 
-	      if (this._gridDisplay) {
-	        animate(this.camera.position, {
-	          x: this._gridFactor * 5,
-	          y: 10,
-	          z: 5
-	        }, function () {
-	          _this3.camera.updateProjectionMatrix();
-	        });
+	      animate(this.camera.position, {
+	        x: 0,
+	        y: 10,
+	        z: 20
+	      }, function () {
+	        _this.camera.updateProjectionMatrix();
+	      });
 
-	        animate(this.controls.target, {
-	          x: this._gridFactor * 5,
-	          y: 0,
-	          z: 5
-	        }, function () {
-	          _this3.controls.update();
-	        });
-	      } else {
-	        animate(this.camera.position, {
-	          x: 0,
-	          y: 0,
-	          z: 20
-	        }, function () {
-	          _this3.camera.updateProjectionMatrix();
-	        });
-
-	        animate(this.controls.target, {
-	          x: 0,
-	          y: 0,
-	          z: 0
-	        }, function () {
-	          _this3.controls.update();
-	        });
-	      }
+	      animate(this.controls.target, {
+	        x: 0,
+	        y: 0,
+	        z: 0
+	      }, function () {
+	        _this.controls.update();
+	      });
 	    }
 	  }, {
 	    key: 'animate',
@@ -695,17 +563,17 @@
 	  }, {
 	    key: 'topView',
 	    value: function topView() {
-	      var _this4 = this;
+	      var _this2 = this;
 
-	      var x = this._gridDisplay ? this._cabinPerRow / 2 * this.gridFactor : this._center.x * this.normalFactor,
-	          z = this._gridDisplay ? this._cabinCount / this._cabinPerRow / 2 * this.gridFactor : this._center.z * this.normalFactor;
+	      var x = this._gridDisplay ? this._cabinPerRow / 2 : this._center.x,
+	          z = this._gridDisplay ? this._cabinCount / this._cabinPerRow / 2 : this._center.z;
 
 	      animate(this.camera.position, {
 	        x: x,
 	        y: this._gridDisplay ? 150 : 300,
 	        z: z
 	      }, function () {
-	        _this4.camera.updateProjectionMatrix();
+	        _this2.camera.updateProjectionMatrix();
 	      });
 
 	      animate(this.controls.target, {
@@ -713,7 +581,7 @@
 	        y: 0,
 	        z: z
 	      }, function () {
-	        _this4.controls.update();
+	        _this2.controls.update();
 	      });
 	    }
 	  }, {
@@ -728,14 +596,14 @@
 	  }, {
 	    key: 'askForRendering',
 	    value: function askForRendering() {
-	      var _this5 = this;
+	      var _this3 = this;
 
 	      if (!this._willRender) {
 	        this._willRender = true;
 
 	        requestAnimationFrame(function () {
-	          _this5.render();
-	          _this5._willRender = false;
+	          _this3.render();
+	          _this3._willRender = false;
 	        });
 	      }
 	    }
@@ -757,28 +625,18 @@
 	      }
 	    }
 	  }, {
-	    key: 'gridFactor',
+	    key: 'scale',
 	    set: function set(factor) {
-	      this._gridFactor = factor;
-
-	      if (this._gridDisplay) {
-	        this.gridDisplay();
-	      } else {
-	        this.normalDisplay();
+	      for (var k in this._cabanesObject) {
+	        this._cabanesObject[k].scale = factor;
 	      }
-	    },
-	    get: function get() {
-	      return this._gridFactor;
-	    }
-	  }, {
-	    key: 'normalFactor',
-	    get: function get() {
-	      return this._gridFactor / 5.0;
+
+	      requestAnimationFrame(this.render);
 	    }
 	  }, {
 	    key: 'trackedCabin',
 	    set: function set(cabinId) {
-	      var _this6 = this;
+	      var _this4 = this;
 
 	      if (cabinId == null || !cabinId) {
 	        for (var k in this._cabanesObject) {
@@ -791,35 +649,35 @@
 
 	        if (this._gridDisplay) {
 	          animate(this.camera.position, {
-	            x: cabin.gridX * this.gridFactor,
+	            x: cabin.gridX,
 	            y: 10,
-	            z: (cabin.gridY + 1) * this.gridFactor
+	            z: cabin.gridY + 1
 	          }, function () {
-	            _this6.camera.updateProjectionMatrix();
+	            _this4.camera.updateProjectionMatrix();
 	          });
 
 	          animate(this.controls.target, {
-	            x: cabin.gridX * this.gridFactor,
+	            x: cabin.gridX,
 	            y: 0,
-	            z: cabin.gridY * this.gridFactor
+	            z: cabin.gridY
 	          }, function () {
-	            _this6.controls.update();
+	            _this4.controls.update();
 	          });
 	        } else {
 	          animate(this.camera.position, {
-	            x: cabin.x * this.normalFactor,
+	            x: cabin.x,
 	            y: 10,
-	            z: (cabin.z + 10) * this.normalFactor
+	            z: cabin.z + 10
 	          }, function () {
-	            _this6.camera.updateProjectionMatrix();
+	            _this4.camera.updateProjectionMatrix();
 	          });
 
 	          animate(this.controls.target, {
-	            x: cabin.x * this.normalFactor,
+	            x: cabin.x,
 	            y: 0,
-	            z: cabin.z * this.normalFactor
+	            z: cabin.z
 	          }, function () {
-	            _this6.controls.update();
+	            _this4.controls.update();
 	          });
 	        }
 
@@ -840,17 +698,76 @@
 	      }
 	    }
 	  }, {
-	    key: 'progress',
-	    set: function set(text) {
-	      var ctx = this._progress.getContext('2d');
-	      ctx.textAlign = "left";
-	      ctx.fontStyle = "red";
-	      ctx.fillText(text, this._progress.width - 5, this._progress.height / 2);
-	    }
-	  }, {
 	    key: 'rendererDomElement',
 	    get: function get() {
 	      return this.renderer.domElement;
+	    }
+	  }, {
+	    key: 'container',
+	    get: function get() {
+	      return this._container;
+	    }
+	  }, {
+	    key: 'cabinsData',
+	    set: function set(cabanes) {
+	      var _this5 = this;
+
+	      var i = 0;
+
+	      this._scene.remove(this._cabanes);
+	      this._cabanes = new THREE.Group();
+	      this._scene.add(this._cabanes);
+
+	      this._cabanesObject = {};
+	      this._meshToCabin = {};
+	      this._cabinCount = 0;
+
+	      var minX = cabanes[0].x,
+	          maxX = cabanes[0].x,
+	          minY = cabanes[0].y,
+	          maxY = cabanes[0].y,
+	          gridFactor = 2,
+	          dGridY = -(cabanes.length / this._cabinPerRow) / 2;
+
+	      cabanes.forEach(function (cabane) {
+	        cabane.colors = (0, _util.randomStripes)();
+
+	        minX = Math.min(minX, cabane.x);
+	        maxX = Math.max(maxX, cabane.x);
+	        minY = Math.min(minY, cabane.y);
+	        maxY = Math.max(maxY, cabane.y);
+
+	        var c = new Cabin(cabane, _this5);
+	        _this5._cabanesObject[c.id] = c;
+	        _this5._cabanes.add(c.mesh);
+
+	        _this5._meshToCabin[c.mesh.uuid] = c;
+
+	        c.gridX = -_this5._cabinPerRow / 2 + _this5._cabinCount % _this5._cabinPerRow;
+	        c.gridY = dGridY + Math.floor(_this5._cabinCount / _this5._cabinPerRow);
+	        c.gridX *= gridFactor;
+	        c.gridY *= gridFactor;
+
+	        _this5._cabinCount++;
+	      });
+
+	      this._center.set((minX + maxX) / 2, 0, (minY + maxY) / 2);
+	      requestAnimationFrame(this.render);
+	    }
+	  }, {
+	    key: 'colors',
+	    set: function set(colors) {
+	      for (var k in this._cabanesObject) {
+	        var color = colors[k];
+
+	        if (color) {
+	          this._cabanesObject[k].colors = color.stripes;
+	        } else {
+	          console.log("Missing color for cabin", k);
+	        }
+	      }
+
+	      requestAnimationFrame(this.render);
 	    }
 	  }]);
 	  return Renderer;
@@ -2839,11 +2756,11 @@
 	    this._unfold = false;
 	    this._renderer = renderer;
 
-	    //this._mesh = new THREE.Mesh(unfoldCube, whiteMaterial);
-	    this._mesh = new THREE.Mesh(cube, whiteMaterial); //convertColorsToMaterial(data.colors));
-	    this._mesh.position.x = this._x * renderer.normalFactor;
-	    this._mesh.position.z = this._z * renderer.normalFactor;
+	    this._mesh = new THREE.Mesh(cube, whiteMaterial);
+	    this._mesh.position.x = this._x;
+	    this._mesh.position.z = this._z;
 	    this._mesh.rotation.y = this._angle;
+
 	    this._mesh.matrixAutoUpdate = false;
 	    this._mesh.updateMatrix();
 	  }
@@ -2869,12 +2786,10 @@
 	      animate(this._mesh.rotation, { y: 0 });
 
 	      animate(this._mesh.position, {
-	        x: this.gridX * this._renderer.gridFactor,
-	        z: this.gridY * this._renderer.gridFactor
+	        x: this.gridX,
+	        z: this.gridY
 	      }, function () {
-	        _this._mesh.matrixAutoUpdate = false;
 	        _this._mesh.updateMatrix();
-
 	        _this._renderer.askForRendering();
 	      });
 	    }
@@ -2886,12 +2801,10 @@
 	      animate(this._mesh.rotation, { y: this._angle });
 
 	      animate(this._mesh.position, {
-	        x: this._renderer.normalFactor * this._x,
-	        z: this._renderer.normalFactor * this._z
+	        x: this._x,
+	        z: this._z
 	      }, function () {
-	        _this2._mesh.matrixAutoUpdate = false;
 	        _this2._mesh.updateMatrix();
-
 	        _this2._renderer.askForRendering();
 	      });
 	    }
@@ -2914,6 +2827,20 @@
 	    key: 'z',
 	    get: function get() {
 	      return this._z;
+	    }
+	  }, {
+	    key: 'scale',
+	    set: function set(factor) {
+	      var _this3 = this;
+
+	      animate(this._mesh.scale, {
+	        x: factor,
+	        y: factor,
+	        z: factor
+	      }, function () {
+	        _this3._mesh.updateMatrix();
+	        _this3._renderer.askForRendering();
+	      });
 	    }
 	  }, {
 	    key: 'colors',
@@ -3126,11 +3053,30 @@
 	    }
 
 	    this._renderer.rendererDomElement.addEventListener('click', function (e) {
+	      if (_this._disableClick) {
+	        return;
+	      }
+
 	      var cabin = _this._renderer.getCabinAt(e.clientX / window.innerWidth * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
 
 	      if (cabin != null) {
 	        _this._renderer.trackedCabin = cabin.id;
 	      }
+	    });
+
+	    var cb = function cb() {
+	      _this._disableClick = true;
+	    };
+
+	    this._renderer.rendererDomElement.addEventListener('mousedown', function (e) {
+	      _this._renderer.rendererDomElement.addEventListener('mousemove', cb);
+	    });
+
+	    this._renderer.rendererDomElement.addEventListener('mouseup', function (e) {
+	      _this._renderer.rendererDomElement.removeEventListener('mousemove', cb);
+	      setTimeout(function () {
+	        _this._disableClick = false;
+	      }, 250);
 	    });
 	  }
 
@@ -3157,7 +3103,8 @@
 	          this._renderer.toggleDisplay();
 	          break;
 	        case 'set-grid-factor':
-	          this._renderer.gridFactor = parseInt(target.value);
+	          //this._renderer.gridFactor = parseInt(target.value);
+	          this._renderer.scale = parseFloat(target.value);
 	          break;
 	        case 'reset-camera':
 	          this._renderer.resetCamera();
@@ -3184,6 +3131,107 @@
 	}();
 
 	module.exports = ActionListener;
+
+/***/ },
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _classCallCheck2 = __webpack_require__(6);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(7);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CABINS_URL = 'cabins.json';
+	var COLORS_URL = 'colors.json';
+
+	var CabinsLoader = function () {
+	  function CabinsLoader(renderer) {
+	    (0, _classCallCheck3.default)(this, CabinsLoader);
+
+	    this._renderer = renderer;
+	  }
+
+	  (0, _createClass3.default)(CabinsLoader, [{
+	    key: 'load',
+	    value: function load() {
+	      var _this = this;
+
+	      this._renderer.container.querySelector('.loader').classList.add('active');
+
+	      var req = new XMLHttpRequest();
+	      req.open('GET', CABINS_URL, true);
+
+	      /*req.onprogress = (e) => {
+	        let percentComplete = Math.floor((e.position / e.totalSize) * 100);
+	        this.progress = `Downloading cabanes list... [${percentComplete}%]`;
+	      };*/
+
+	      req.onreadystatechange = function () {
+	        if (req.readyState == 4) {
+	          if (req.status == 200) {
+	            //this.progress = "Creating cabanes mesh...";
+
+	            var cabins = JSON.parse(req.responseText).cabins;
+
+	            console.log("Loading", cabins.length, "cabins...");
+	            _this._renderer.cabinsData = cabins;
+	            console.log("Done");
+
+	            _this._renderer.container.querySelector('.loader').classList.remove('active');
+
+	            //
+	            // Load colors
+	            //
+
+	            _this.loadColors();
+	          } else {
+	            console.log("Impossible de télécharger la liste des cabanes.");
+	          }
+	        }
+	      };
+
+	      req.send(null);
+	    }
+	  }, {
+	    key: 'loadColors',
+	    value: function loadColors() {
+	      var _this2 = this;
+
+	      var req = new XMLHttpRequest();
+	      req.open('GET', COLORS_URL, true);
+
+	      this._renderer.container.querySelector('.loader').classList.add('active');
+
+	      req.onreadystatechange = function () {
+	        if (req.readyState == 4) {
+	          if (req.status == 200) {
+	            var colors = JSON.parse(req.responseText).colors;
+
+	            console.log("Loading colors...");
+	            _this2._renderer.colors = colors;
+	            console.log("Done.");
+	          } else {
+	            console.log("Impossible de télécharger la liste des couleurs.");
+	          }
+	        }
+
+	        _this2._renderer.container.querySelector('.loader').classList.remove('active');
+	      };
+
+	      req.send(null);
+	    }
+	  }]);
+	  return CabinsLoader;
+	}();
+
+	module.exports = CabinsLoader;
 
 /***/ }
 /******/ ]);
