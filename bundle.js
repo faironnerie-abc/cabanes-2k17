@@ -97,7 +97,7 @@
 
 
 	// module
-	exports.push([module.id, "html, body {\n  margin: 0px;\n  background-color: #111111; }\n\n#container {\n  min-height: 100%;\n  min-width: 100%;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  position: relative; }\n  #container .on-grid-display {\n    display: none; }\n  #container .on-normal-display {\n    display: block; }\n  #container.grid-display .on-grid-display {\n    display: block; }\n  #container.grid-display .on-normal-display {\n    display: none; }\n  #container .on-unfold {\n    display: none; }\n  #container .on-fold {\n    display: block; }\n  #container.fold .on-unfold {\n    display: block; }\n  #container.fold .on-fold {\n    display: none; }\n  #container canvas {\n    width: 100%;\n    height: 100%; }\n  #container .progress {\n    position: absolute;\n    bottom: 15px;\n    right: 15px;\n    width: 256px;\n    height: 64px;\n    background-color: transparent;\n    color: #efefef;\n    font-size: 16px;\n    font-weight: bold; }\n  #container .action-stack-icon .fa-stack-2x {\n    color: #2e0e4b; }\n  #container .finder {\n    position: absolute;\n    top: 15px;\n    right: 15px; }\n    #container .finder .open-finder, #container .finder .loader {\n      position: absolute;\n      right: 0px;\n      top: 0px; }\n    #container .finder .loader {\n      top: 4px;\n      right: 3em;\n      display: none; }\n      #container .finder .loader.active {\n        display: block; }\n    #container .finder .finder-content {\n      display: none;\n      background-color: rgba(85, 26, 139, 0.75);\n      color: #efefef;\n      border-radius: 6px;\n      padding: 10px;\n      padding-top: 40px;\n      list-style-type: none; }\n      #container .finder .finder-content li {\n        margin: 5px; }\n    #container .finder.opened .finder-content {\n      display: block; }\n    #container .finder input, #container .finder button {\n      padding: 10px;\n      font-size: 16px;\n      width: 100%;\n      border: 1px solid #2e0e4b;\n      border-radius: 4px;\n      color: #efefef; }\n    #container .finder input {\n      background-color: rgba(98, 30, 160, 0.5); }\n    #container .finder input::-webkit-input-placeholder {\n      color: #200a35; }\n    #container .finder button {\n      background-color: #2e0e4b; }\n      #container .finder button:hover {\n        background-color: #481676; }\n    #container .finder .search-box {\n      position: relative; }\n      #container .finder .search-box .fa-search {\n        position: absolute;\n        top: 10px;\n        left: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box .action.clear {\n        position: absolute;\n        top: 10px;\n        right: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box input {\n        padding-left: 26px;\n        padding-right: 26px; }\n    #container .finder input[type=\"range\"] {\n      -webkit-appearance: none !important;\n      /*Needed to reset default slider styles */\n      width: 100%;\n      height: 15px;\n      background-color: rgba(98, 30, 160, 0.5);\n      border: 1px solid #2e0e4b;\n      border-radius: 10px;\n      margin: auto;\n      transition: all 0.3s ease; }\n      #container .finder input[type=\"range\"]:hover {\n        background-color: #3b1260; }\n    #container .finder input[type=\"range\"]::-webkit-slider-thumb {\n      -webkit-appearance: none !important;\n      width: 20px;\n      height: 20px;\n      background-color: #2e0e4b;\n      border-radius: 30px;\n      box-shadow: 0px 0px 3px #2e0e4b;\n      transition: all 0.5s ease; }\n      #container .finder input[type=\"range\"]::-webkit-slider-thumb:hover {\n        background-color: #200a35; }\n", ""]);
+	exports.push([module.id, "html, body {\n  margin: 0px;\n  background-color: #111111;\n  font-family: 'Open Sans'; }\n\n#container {\n  min-height: 100%;\n  min-width: 100%;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  position: relative; }\n  #container .on-grid-display {\n    display: none; }\n  #container .on-normal-display {\n    display: block; }\n  #container.grid-display .on-grid-display {\n    display: block; }\n  #container.grid-display .on-normal-display {\n    display: none; }\n  #container .on-unfold {\n    display: none; }\n  #container .on-fold {\n    display: block; }\n  #container.fold .on-unfold {\n    display: block; }\n  #container.fold .on-fold {\n    display: none; }\n  #container canvas {\n    width: 100%;\n    height: 100%; }\n  #container .progress {\n    position: absolute;\n    bottom: 15px;\n    right: 15px;\n    width: 256px;\n    height: 64px;\n    background-color: transparent;\n    color: #efefef;\n    font-size: 16px;\n    font-weight: bold; }\n  #container .action-stack-icon .fa-stack-2x {\n    color: #2e0e4b; }\n  #container .finder {\n    position: absolute;\n    top: 15px;\n    right: 15px; }\n    #container .finder .open-finder, #container .finder .loader {\n      position: absolute;\n      right: 0px;\n      top: 0px; }\n    #container .finder .loader {\n      top: 4px;\n      right: 3em;\n      display: none; }\n      #container .finder .loader.active {\n        display: block; }\n    #container .finder .finder-content {\n      display: none;\n      background-color: rgba(85, 26, 139, 0.75);\n      color: #efefef;\n      border-radius: 6px;\n      padding: 10px;\n      padding-top: 40px;\n      list-style-type: none; }\n      #container .finder .finder-content li {\n        margin: 5px; }\n    #container .finder.opened .finder-content {\n      display: block; }\n    #container .finder input, #container .finder button {\n      padding: 10px;\n      font-size: 16px;\n      width: 100%;\n      border: 1px solid #2e0e4b;\n      border-radius: 4px;\n      color: #efefef; }\n    #container .finder input {\n      background-color: rgba(98, 30, 160, 0.5); }\n    #container .finder input::-webkit-input-placeholder {\n      color: #200a35; }\n    #container .finder button {\n      background-color: #2e0e4b; }\n      #container .finder button:hover {\n        background-color: #481676; }\n    #container .finder .search-box {\n      position: relative; }\n      #container .finder .search-box .fa-search {\n        position: absolute;\n        top: 10px;\n        left: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box .action.clear {\n        position: absolute;\n        top: 10px;\n        right: 5px;\n        color: #2e0e4b; }\n      #container .finder .search-box input {\n        padding-left: 26px;\n        padding-right: 26px; }\n    #container .finder input[type=\"range\"] {\n      -webkit-appearance: none !important;\n      /*Needed to reset default slider styles */\n      width: 100%;\n      height: 11px;\n      background-color: rgba(98, 30, 160, 0.5);\n      border: 1px solid #2e0e4b;\n      border-radius: 10px;\n      margin: auto;\n      transition: all 0.3s ease; }\n      #container .finder input[type=\"range\"]:hover {\n        background-color: #3b1260; }\n    #container .finder input[type=\"range\"]::-webkit-slider-thumb {\n      -webkit-appearance: none !important;\n      width: 20px;\n      height: 20px;\n      background-color: #200a35;\n      border-radius: 30px;\n      box-shadow: 0px 0px 3px #2e0e4b;\n      transition: all 0.5s ease; }\n", ""]);
 
 	// exports
 
@@ -505,7 +505,7 @@
 	      this.render();
 	      this._gridDisplay = true;
 
-	      document.getElementById('container').classList.add('grid-display');
+	      this._container.classList.add('grid-display');
 	    }
 	  }, {
 	    key: 'normalDisplay',
@@ -517,7 +517,7 @@
 	      this.render();
 	      this._gridDisplay = false;
 
-	      document.getElementById('container').classList.remove('grid-display');
+	      this._container.classList.remove('grid-display');
 	    }
 	  }, {
 	    key: 'toggleDisplay',
@@ -3049,7 +3049,9 @@
 	    var actioners = container.querySelectorAll('.action');
 
 	    for (var i = 0; i < actioners.length; i++) {
-	      actioners[i].addEventListener(actioners[i].dataset.type || 'click', this.actionPerformed.bind(this, actioners[i]));
+	      var type = actioners[i].dataset.type || 'click';
+	      console.log(type);
+	      actioners[i].addEventListener(type, this.actionPerformed.bind(this, actioners[i]));
 	    }
 
 	    this._renderer.rendererDomElement.addEventListener('click', function (e) {
@@ -3083,7 +3085,7 @@
 	  (0, _createClass3.default)(ActionListener, [{
 	    key: 'actionPerformed',
 	    value: function actionPerformed(target, e) {
-	      var found = true;
+	      var preventDefault = true;
 
 	      switch (target.dataset.action) {
 	        case 'toggle-finder':
@@ -3103,7 +3105,6 @@
 	          this._renderer.toggleDisplay();
 	          break;
 	        case 'set-grid-factor':
-	          //this._renderer.gridFactor = parseInt(target.value);
 	          this._renderer.scale = parseFloat(target.value);
 	          break;
 	        case 'reset-camera':
@@ -3114,15 +3115,18 @@
 	            var cabinId = target.value;
 	            console.log("tracked cabin", cabinId, cabinId.length);
 	            this._renderer.trackedCabin = cabinId.length == 0 ? null : cabinId;
+	          } else {
+	            preventDefault = false;
 	          }
+
 	          break;
 	        default:
 	          console.log("Unknown action", target.dataset.action);
-	          found = false;
+	          preventDefault = false;
 	          break;
 	      }
 
-	      if (found) {
+	      if (preventDefault) {
 	        e.preventDefault();
 	      }
 	    }
