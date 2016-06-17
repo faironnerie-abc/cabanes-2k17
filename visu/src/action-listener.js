@@ -44,7 +44,8 @@ class ActionListener {
       this._renderer.toggleDisplay();
       break;
     case 'set-grid-factor':
-      this._renderer.gridFactor = parseInt(target.value);
+      //this._renderer.gridFactor = parseInt(target.value);
+      this._renderer.scale = parseFloat(target.value);
       break;
     case 'reset-camera':
       this._renderer.resetCamera();

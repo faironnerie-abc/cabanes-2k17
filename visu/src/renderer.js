@@ -13,13 +13,12 @@ class Renderer {
 
     this._center = new THREE.Vector3(0, 0, 0);
     this._gridDisplay = false;
-    this._gridFactor = 5;
     this._meshToCabin = {};
     this._cabinPerRow = 30;
     this._cabinCount = 0;
 
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    this.camera.position.z = 20;
+    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 500);
+    this.camera.position.set(0, 5, 20);
     this.camera.up = new THREE.Vector3(0, 1, 0);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -29,14 +28,9 @@ class Renderer {
     this._container = container;
     this._container.appendChild(this.renderer.domElement);
 
-    this._progress = document.createElement('canvas');
-    this._progress.classList.add('progress');
-    this._container.appendChild(this._progress);
-
     this._scene = new THREE.Scene();
     this._cabanes = new THREE.Group();
     this._cabanesObject = {};
-    this.loadCabins();
 
     this._scene.add(this._cabanes);
 
@@ -69,26 +63,15 @@ class Renderer {
 
     this.render();
 
-    document.getElementById('container').classList.toggle('fold');
+    this._container.classList.toggle('fold');
   }
 
-  set gridFactor(factor) {
-    this._gridFactor = factor;
-
-    if (this._gridDisplay) {
-      this.gridDisplay();
+  set scale(factor) {
+    for (let k in this._cabanesObject) {
+      this._cabanesObject[k].scale = factor;
     }
-    else {
-      this.normalDisplay();
-    }
-  }
 
-  get gridFactor() {
-    return this._gridFactor;
-  }
-
-  get normalFactor() {
-    return this._gridFactor / 5.0;
+    requestAnimationFrame(this.render);
   }
 
   set trackedCabin(cabinId) {
@@ -104,34 +87,34 @@ class Renderer {
 
       if (this._gridDisplay) {
         animate(this.camera.position, {
-          x: cabin.gridX * this.gridFactor,
+          x: cabin.gridX,
           y: 10,
-          z: (cabin.gridY + 1) * this.gridFactor
+          z: cabin.gridY + 1
         }, () => {
           this.camera.updateProjectionMatrix();
         });
 
         animate(this.controls.target, {
-          x: cabin.gridX * this.gridFactor,
+          x: cabin.gridX,
           y: 0,
-          z: cabin.gridY * this.gridFactor
+          z: cabin.gridY
         }, () => {
           this.controls.update();
         });
       }
       else {
         animate(this.camera.position, {
-          x: cabin.x * this.normalFactor,
+          x: cabin.x,
           y: 10,
-          z: (cabin.z + 10) * this.normalFactor
+          z: cabin.z + 10
         }, () => {
           this.camera.updateProjectionMatrix();
         });
 
         animate(this.controls.target, {
-          x: cabin.x * this.normalFactor,
+          x: cabin.x,
           y: 0,
-          z: cabin.z * this.normalFactor
+          z: cabin.z
         }, () => {
           this.controls.update();
         });
@@ -155,121 +138,66 @@ class Renderer {
     }
   }
 
-  set progress(text) {
-    let ctx = this._progress.getContext('2d');
-    ctx.textAlign = "left";
-    ctx.fontStyle = "red";
-    ctx.fillText(text, this._progress.width - 5, this._progress.height / 2);
-  }
-
   get rendererDomElement() {
     return this.renderer.domElement;
   }
 
-  loadCabins() {
-    document.querySelector('#container .loader').classList.add('active');
-
-    let req = new XMLHttpRequest();
-    req.open('GET', 'cabins.json', true);
-
-    req.onprogress = (e) => {
-      let percentComplete = Math.floor((e.position / e.totalSize) * 100);
-      this.progress = `Downloading cabanes list... [${percentComplete}%]`;
-    };
-
-    req.onreadystatechange = () => {
-      if (req.readyState == 4) {
-        if (req.status == 200) {
-          this.progress = "Creating cabanes mesh...";
-
-          let cabanes = JSON.parse(req.responseText).cabins
-            , i       = 0;
-
-          this._scene.remove(this._cabanes);
-          this._cabanes = new THREE.Group();
-          this._scene.add(this._cabanes);
-
-          this._cabanesObject = {};
-          this._meshToCabin = {};
-          this._cabinCount = 0;
-
-          let minX = cabanes[0].x
-            , maxX = cabanes[0].x
-            , minY = cabanes[0].y
-            , maxY = cabanes[0].y;
-
-          cabanes.forEach((cabane) => {
-            this.progress = `Creating cabanes mesh... ${++i}/${cabanes.length}`;
-            cabane.colors = randomStripes();
-
-            minX = Math.min(minX, cabane.x);
-            maxX = Math.max(maxX, cabane.x);
-            minY = Math.min(minY, cabane.y);
-            maxY = Math.max(maxY, cabane.y);
-
-            let c = new Cabin(cabane, this);
-            this._cabanesObject[c.id] = c;
-            this._cabanes.add(c.mesh);
-
-            this._meshToCabin[c.mesh.uuid] = c;
-
-            c.gridX = this._cabinCount % this._cabinPerRow;
-            c.gridY = Math.floor(this._cabinCount / this._cabinPerRow);
-            this._cabinCount++;
-
-            requestAnimationFrame(this.render);
-          });
-
-          this._center.set((minX + maxX) / 2, 0, (minY + maxY) / 2);
-
-          //this.progress = "";
-
-          //
-          // Load colors
-          //
-
-          this.loadColors();
-        }
-        else {
-          console.log("Impossible de télécharger la liste des cabanes.");
-        }
-      }
-    };
-
-    req.send(null);
+  get container() {
+    return this._container;
   }
 
-  loadColors() {
-    let req = new XMLHttpRequest();
-    req.open('GET', 'colors.json', true);
+  set cabinsData(cabanes) {
+    let i = 0;
 
-    req.onreadystatechange = () => {
-      if (req.readyState == 4) {
-        if (req.status == 200) {
-          let colors = JSON.parse(req.responseText).colors;
+    this._scene.remove(this._cabanes);
+    this._cabanes = new THREE.Group();
+    this._scene.add(this._cabanes);
 
-          for (let k in this._cabanesObject) {
-            let color = colors [k];
+    this._cabanesObject = {};
+    this._meshToCabin = {};
+    this._cabinCount = 0;
 
-            if (color) {
-              this._cabanesObject [k].colors = color.stripes;
-            }
-            else {
-              console.log("Missing color for cabin", k);
-            }
-          }
+    let minX = cabanes[0].x
+      , maxX = cabanes[0].x
+      , minY = cabanes[0].y
+      , maxY = cabanes[0].y;
 
-          requestAnimationFrame(this.render);
-        }
-        else {
-          console.log("Impossible de télécharger la liste des couleurs.");
-        }
+    cabanes.forEach((cabane) => {
+      cabane.colors = randomStripes();
+
+      minX = Math.min(minX, cabane.x);
+      maxX = Math.max(maxX, cabane.x);
+      minY = Math.min(minY, cabane.y);
+      maxY = Math.max(maxY, cabane.y);
+
+      let c = new Cabin(cabane, this);
+      this._cabanesObject[c.id] = c;
+      this._cabanes.add(c.mesh);
+
+      this._meshToCabin[c.mesh.uuid] = c;
+
+      c.gridX = this._cabinCount % this._cabinPerRow;
+      c.gridY = Math.floor(this._cabinCount / this._cabinPerRow);
+      this._cabinCount++;
+    });
+
+    this._center.set((minX + maxX) / 2, 0, (minY + maxY) / 2);
+    requestAnimationFrame(this.render);
+  }
+
+  set colors(colors) {
+    for (let k in this._cabanesObject) {
+      let color = colors [k];
+
+      if (color) {
+        this._cabanesObject[k].colors = color.stripes;
       }
+      else {
+        console.log("Missing color for cabin", k);
+      }
+    }
 
-      document.querySelector('#container .loader').classList.remove('active');
-    };
-
-    req.send(null);
+    requestAnimationFrame(this.render);
   }
 
   gridDisplay() {
@@ -306,17 +234,17 @@ class Renderer {
   resetCamera() {
     if (this._gridDisplay) {
       animate(this.camera.position, {
-        x:this._gridFactor * 5,
-        y:10,
-        z:5
+        x: 5,
+        y: 10,
+        z: 5
       }, () => {
         this.camera.updateProjectionMatrix();
       });
 
       animate(this.controls.target, {
-        x:this._gridFactor * 5,
-        y:0,
-        z:5
+        x: 5,
+        y: 0,
+        z: 5
       }, () => {
         this.controls.update();
       });
@@ -350,8 +278,8 @@ class Renderer {
   }
 
   topView() {
-    let x = this._gridDisplay ? this._cabinPerRow / 2 * this.gridFactor : this._center.x * this.normalFactor
-      , z = this._gridDisplay ? (this._cabinCount / this._cabinPerRow) / 2 * this.gridFactor : this._center.z * this.normalFactor;
+    let x = this._gridDisplay ? this._cabinPerRow / 2 : this._center.x
+      , z = this._gridDisplay ? (this._cabinCount / this._cabinPerRow) / 2 : this._center.z;
 
     animate(this.camera.position, {
       x: x,

@@ -7,8 +7,11 @@ const Renderer        = require('./renderer.js')
 
 let container       = document.querySelector('#container')
   , renderer        = new Renderer(container)
-  , actionListener  = new ActionListener(renderer, container);
+  , actionListener  = new ActionListener(renderer, container)
+  , CabinsLoader    = require('./loader.js');
+
+let loader = new CabinsLoader(renderer);
+loader.load();
 
 renderer.render();
 renderer.animate();
-renderer.rendererDomElement.focus();

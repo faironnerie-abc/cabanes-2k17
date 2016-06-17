@@ -80,12 +80,12 @@ class Cabin {
     this._angle = data.angle * Math.PI / 180;
     this._unfold = false;
     this._renderer = renderer;
-
-    //this._mesh = new THREE.Mesh(unfoldCube, whiteMaterial);
-    this._mesh = new THREE.Mesh(cube, whiteMaterial);//convertColorsToMaterial(data.colors));
-    this._mesh.position.x = this._x * renderer.normalFactor;
-    this._mesh.position.z = this._z * renderer.normalFactor;
+    
+    this._mesh = new THREE.Mesh(cube, whiteMaterial);
+    this._mesh.position.x = this._x;
+    this._mesh.position.z = this._z;
     this._mesh.rotation.y = this._angle;
+
     this._mesh.matrixAutoUpdate = false;
     this._mesh.updateMatrix();
   }
@@ -104,6 +104,17 @@ class Cabin {
 
   get z() {
     return this._z;
+  }
+
+  set scale(factor) {
+    animate(this._mesh.scale, {
+      x: factor,
+      y: factor,
+      z: factor
+    },() => {
+      this._mesh.updateMatrix();
+      this._renderer.askForRendering();
+    });
   }
 
   set colors(colors) {
@@ -165,12 +176,10 @@ class Cabin {
     animate(this._mesh.rotation, {y:0});
 
     animate(this._mesh.position, {
-      x:this.gridX * this._renderer.gridFactor,
-      z:this.gridY * this._renderer.gridFactor
+      x: this.gridX,
+      z: this.gridY
     }, () => {
-      this._mesh.matrixAutoUpdate = false;
       this._mesh.updateMatrix();
-
       this._renderer.askForRendering();
     });
   }
@@ -179,12 +188,10 @@ class Cabin {
     animate(this._mesh.rotation, {y:this._angle});
 
     animate(this._mesh.position, {
-      x:this._renderer.normalFactor * this._x,
-      z:this._renderer.normalFactor * this._z
+      x: this._x,
+      z: this._z
     }, () => {
-      this._mesh.matrixAutoUpdate = false;
       this._mesh.updateMatrix();
-
       this._renderer.askForRendering();
     });
   }
