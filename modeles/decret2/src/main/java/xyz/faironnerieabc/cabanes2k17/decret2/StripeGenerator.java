@@ -1,61 +1,64 @@
 package xyz.faironnerieabc.cabanes2k17.decret2;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 
-public class StripeGenerator implements Iterator<int[]> {
-    private static BigInteger[] SMALL_BIGS = new BigInteger[11];
-    static {
-        for (int i = 0; i <= 10; i++)
-            SMALL_BIGS[i] = BigInteger.valueOf(i);
-    }
+public class StripeGenerator implements Iterator<byte[]> {
+    private static Widths widths = new Widths();
+    private static Colors colors = new Colors();
 
-    BigInteger seed;
-    List<Integer> colors;
-    List<Integer> widths;
+    private BigInteger seed;
+    private byte w0, w5, c0, c5;
+
+    public StripeGenerator(BigInteger seed, byte s0, byte s5) {
+        this.seed = seed;
+        w0 = (byte)(s0 / 10);
+        c0 = (byte)(s0 % 10);
+        w5 = (byte)(s5 / 10);
+        c5 = (byte)(s5 % 10);
+    }
 
     public StripeGenerator(BigInteger seed) {
         this.seed = seed;
-        colors = new ArrayList<>();
-        widths = new ArrayList<>();
+        w0 = w5 = c0 = c5 = -1;
     }
 
     public boolean hasNext() {
-        return seed.bitCount() >= 42;
-        // return true;
+        long needed = (long)widths.getCount(w0, w5) * colors.getCount(c0, c5);
+        return seed.compareTo(BigInteger.valueOf(needed)) > 0;
     }
 
-    public int[] next() {
+    public byte[] next() {
         if (!hasNext()) throw new NoSuchElementException("out of bits!");
-
-        colors.clear();
-        for (int c = 0; c < 10; c++) colors.add(c);
-        widths.clear();
-        for (int w = 0; w < 6; w++) widths.add(w);
-        int w1 = nextSmall(6);
-        widths.add(w1);
-        int w2 = nextSmall(5);
-        if (w2 >= w1) w2++;
-        widths.add(w2);
-
-        int[] stripes = new int[8];
-        for (int i = 0; i < 8; i++) {
-            stripes[i] = colors.remove(nextSmall(colors.size())) +
-                10 * widths.remove(nextSmall(widths.size()));
-        }
-        return stripes;
+        byte[] w = widths.getWidths(w0, w5, nextInt(widths.getCount(w0, w5)));
+        byte[] c = colors.getColors(c0, c5, nextInt(colors.getCount(c0, c5)));
+        w0 = w[1]; w5 = w[4];
+        c0 = c[1]; c5 = c[4];
+        byte s[] = new byte[8];
+        for (int f = 0; f < 8; f++) s[f] = (byte)(10 * w[f] + c[f]);
+        return s;
     }
 
     public void remove() {
         throw new UnsupportedOperationException("remove not supported");
     }
 
-    private int nextSmall(int small) {
-        BigInteger[] dr = seed.divideAndRemainder(SMALL_BIGS[small]);
+    private int nextInt(int n) {
+        BigInteger[] dr = seed.divideAndRemainder(BigInteger.valueOf(n));
         seed = dr[0];
         return dr[1].intValue();
+    }
+
+    public static void main(String[] args) {
+        String s = "1234567890";
+        String b = "";
+        for (int i = 0; i < 10; i++) b += s;
+        Iterator<byte[]> gen = new StripeGenerator(new BigInteger(b));
+        while (gen.hasNext()) {
+            byte[] stripes = gen.next();
+            System.out.println(Arrays.toString(stripes));
+        }
     }
 }
