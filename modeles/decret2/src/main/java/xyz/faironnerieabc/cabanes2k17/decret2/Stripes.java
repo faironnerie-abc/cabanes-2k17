@@ -78,6 +78,37 @@ public class Stripes {
         return result;
     }
 
+    private static final double[] WIDTHS = {
+        2.0 / 11, 3.0 / 11, 5.0 / 11, 7.0 / 11, 9.0 / 11, 1.0
+    };
+
+    private static void addStripe(byte s, double[] total) {
+        total[s % 10] += WIDTHS[s / 10];
+    }
+
+    public double[] totalWidthsPerColor() {
+        double[] total = new double[10];
+        int i = 0;
+        for (int g = 0; g < GROUPS.length; g++) {
+            for (int c = 0; c < GROUPS[g]; c++) {
+                byte[] s = get(i++);
+                if (c == 0) {
+                    addStripe(s[6], total);
+                    addStripe(s[7], total);
+                }
+                if (c == GROUPS[g] - 1) {
+                    addStripe(s[2], total);
+                    addStripe(s[3], total);
+                }
+                addStripe(s[0], total);
+                addStripe(s[1], total);
+                addStripe(s[4], total);
+                addStripe(s[5], total);
+            }
+        }
+        return total;
+    }
+
     public byte[] get(int i) {
         return all.get(i);
     }
@@ -93,5 +124,16 @@ public class Stripes {
             System.out.println(Arrays.toString(stripes.get(i)));
         System.out.println("... etc\n\nDistribution of common stripes");
         stripes.commonDistribution();
+
+        System.out.println("\nSurfaces by color");
+        System.out.printf("%6s%10s%10s\n", "color", "surface", "litres");
+        double[] total = stripes.totalWidthsPerColor();
+        for (int color = 0; color < 10; color++) {
+            // une demi-face fait 2 m^2
+            double surface = total[color] * 2;
+            // le rendement de la peinture est 12 l / m^2 et il faut 2 couches
+            double litres = surface / 12 * 2;
+            System.out.printf("%6d%10.2f%10.2f%n", color, surface, litres);
+        }
     }
 }
