@@ -1,7 +1,6 @@
 package xyz.faironnerieabc.cabanes2k17.decret2;
 
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.math.BigInteger;
@@ -79,14 +78,20 @@ public class Stripes {
         return result;
     }
 
+    public byte[] get(int i) {
+        return all.get(i);
+    }
+
+    public int size() {
+        return all.size();
+    }
+
     public static void main(String[] args) throws FileNotFoundException, NoSuchAlgorithmException {
         Stripes stripes = new Stripes(args[0]);
-        System.out.println(stripes.all.size() + " cabins generated");
+        System.out.println(stripes.size() + " cabins generated");
         for (int i = 0; i < 6; i++)
-            System.out.println(Arrays.toString(stripes.all.get(i)));
-        System.out.println("... etc");
-        PrintStream ps = new PrintStream(args[1]);
-        ps.println(stripes.toJSON().toJSONString());
-        ps.close();
+            System.out.println(Arrays.toString(stripes.get(i)));
+        System.out.println("... etc\n\nDistribution of common stripes");
+        stripes.commonDistribution();
     }
 }
