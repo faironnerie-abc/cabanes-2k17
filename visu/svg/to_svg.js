@@ -2,9 +2,9 @@
 
 const fs = require('fs');
 
-const cabins = require('../modeles/data/all_cabins.json').cabins;
-const colors  = require('../modeles/decret2/colors.json').colors;
-const bandColors = require('./src/colors.json').colors;
+const cabins = require('../../modeles/data/all_cabins.json').cabins;
+const colors  = require('../../modeles/decret2/colors.json').colors;
+const bandColors = require('../src/colors.json').colors;
 
 const path_points = [[0, 0], [0, 1], [1, 1], [1, 0], [2, 0], [2, -1], [1, -1], [1, -2], [0, -2], [0, -1], [-1, -1], [-1, 0]];
 const factor = 100;
