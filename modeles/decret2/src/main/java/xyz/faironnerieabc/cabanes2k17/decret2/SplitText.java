@@ -2,7 +2,11 @@ package xyz.faironnerieabc.cabanes2k17.decret2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import static xyz.faironnerieabc.cabanes2k17.decret2.Groups.*;
 
@@ -48,6 +52,23 @@ public class SplitText {
         }
     }
 
+    public JSONObject toJSON() {
+        JSONObject chunks = new JSONObject();
+        for (int g = 0; g < GROUPS.length; g++) {
+            JSONArray a = new JSONArray();
+            for (int s = 0; s < SUBGROUPS[g].length; s++) {
+                JSONObject o = new JSONObject();
+                o.put("count", SUBGROUPS[g][s]);
+                o.put("text", getChunk(g, s));
+                a.add(o);
+            }
+            chunks.put(GROUP_IDS[g], a);
+        }
+        JSONObject result = new JSONObject();
+        result.put("chunks", chunks);
+        return result;
+    }
+
     public String getChunk(int g, int s) {
         return chunks[g][s];
     }
@@ -60,5 +81,8 @@ public class SplitText {
                 System.out.println(SUBGROUPS[g][s] + " : " + split.getChunk(g, s));
             }
         }
+        PrintStream ps = new PrintStream(args[1]);
+        ps.println(split.toJSON().toJSONString());
+        ps.close();
     }
 }
