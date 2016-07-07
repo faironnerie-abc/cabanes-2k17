@@ -9,7 +9,6 @@ class ActionListener {
 
     for (let i = 0; i < actioners.length; i++) {
       let type = actioners[i].dataset.type || 'click';
-      console.log(type);
       actioners[i].addEventListener(type, this.actionPerformed.bind(this, actioners[i]));
     }
 

@@ -76,7 +76,14 @@ html, body {
 
   .action-stack-icon {
     .fa-stack-2x {
-      color: darken($hl-color-bg, 15%);
+      color: darken($hl-color-bg, 10%);
+      transition: color 0.3s ease;
+    }
+
+    &:hover {
+      .fa-stack-2x {
+        color: darken($hl-color-bg, 15%);
+      }
     }
   }
 

@@ -80,7 +80,7 @@ class Cabin {
     this._angle = data.angle * Math.PI / 180;
     this._unfold = false;
     this._renderer = renderer;
-    
+
     this._mesh = new THREE.Mesh(cube, whiteMaterial);
     this._mesh.position.x = this._x;
     this._mesh.position.z = this._z;
@@ -190,6 +190,20 @@ class Cabin {
     animate(this._mesh.position, {
       x: this._x,
       z: this._z
+    }, () => {
+      this._mesh.updateMatrix();
+      this._renderer.askForRendering();
+    });
+  }
+
+  sph() {
+    let d = (this.gridX / this._renderer.gridFactor + this._renderer.gridColumns / 2) / this._renderer.gridColumns * 2 * Math.PI
+      , l = (this.gridY / this._renderer.gridFactor + this._renderer.gridRows / 2) / this._renderer.gridRows * 2 * Math.PI
+
+    animate(this._mesh.position, {
+      x: 30 * Math.cos(l) * Math.cos(d),
+      z: 30 * Math.cos(l) * Math.sin(d),
+      y: 30 * Math.sin(l)
     }, () => {
       this._mesh.updateMatrix();
       this._renderer.askForRendering();

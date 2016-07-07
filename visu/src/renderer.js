@@ -13,8 +13,10 @@ class Renderer {
 
     this._center = new THREE.Vector3(0, 0, 0);
     this._gridDisplay = false;
+    this._gridRows = 0;
+    this._gridColumns = 0;
+    this._gridFactor = 2;
     this._meshToCabin = {};
-    this._cabinPerRow = 30;
     this._cabinCount = 0;
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 500);
@@ -146,6 +148,22 @@ class Renderer {
     return this._container;
   }
 
+  get gridRows() {
+    return this._gridRows;
+  }
+
+  get gridColumns() {
+    return this._gridColumns;
+  }
+
+  get gridFactor() {
+    return this._gridFactor;
+  }
+
+  /**
+   * Load cabins data.
+   *
+   */
   set cabinsData(cabanes) {
     let i = 0;
 
@@ -157,12 +175,14 @@ class Renderer {
     this._meshToCabin = {};
     this._cabinCount = 0;
 
+    this._gridColumns = Math.ceil(Math.sqrt(cabanes.length));
+    this._gridRows    = Math.ceil(cabanes.length / this._gridColumns);
+
     let minX = cabanes[0].x
       , maxX = cabanes[0].x
       , minY = cabanes[0].y
       , maxY = cabanes[0].y
-      , gridFactor = 2
-      , dGridY   = -(cabanes.length / this._cabinPerRow) / 2;
+      , dGridY   = -(cabanes.length / this._gridColumns) / 2;
 
     cabanes.forEach((cabane) => {
       cabane.colors = randomStripes();
@@ -178,10 +198,10 @@ class Renderer {
 
       this._meshToCabin[c.mesh.uuid] = c;
 
-      c.gridX = -this._cabinPerRow / 2 + this._cabinCount % this._cabinPerRow;
-      c.gridY = dGridY + Math.floor(this._cabinCount / this._cabinPerRow);
-      c.gridX *= gridFactor;
-      c.gridY *= gridFactor;
+      c.gridX = -this._gridColumns / 2 + this._cabinCount % this._gridColumns;
+      c.gridY = dGridY + Math.floor(this._cabinCount / this._gridColumns);
+      c.gridX *= this._gridFactor;
+      c.gridY *= this._gridFactor;
 
       this._cabinCount++;
     });
@@ -264,12 +284,12 @@ class Renderer {
   }
 
   topView() {
-    let x = this._gridDisplay ? this._cabinPerRow / 2 : this._center.x
-      , z = this._gridDisplay ? (this._cabinCount / this._cabinPerRow) / 2 : this._center.z;
+    let x = this._gridDisplay ? 0 : this._center.x
+      , z = this._gridDisplay ? 0 : this._center.z;
 
     animate(this.camera.position, {
       x: x,
-      y: this._gridDisplay ? 150 : 300,
+      y: this._gridDisplay ? 50 : 300,
       z: z
     }, () => {
       this.camera.updateProjectionMatrix();
