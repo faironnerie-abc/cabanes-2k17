@@ -1,7 +1,7 @@
 'use strict';
 
 const animate = require('./animate.js');
-import { createUnfoldCube, UnfoldCubeGeometry } from './util.js';
+import { createUnfoldCube, UnfoldCubeGeometry, UnfoldCubeHelper } from './util.js';
 
 const COLORS        = require('./colors.json').colors
     , WIDTHS        = [2 / 11.0, 3 / 11.0, 5 / 11.0, 7 / 11.0, 9 / 11.0, 1]
@@ -81,13 +81,26 @@ class Cabin {
     this._unfold = false;
     this._renderer = renderer;
 
-    this._mesh = new THREE.Mesh(cube, whiteMaterial);
+    this._cabinMesh = new THREE.Mesh(cube, whiteMaterial);
+
+    this._cabinMesh.matrixAutoUpdate = false;
+    this._cabinMesh.updateMatrix();
+
+    this._cabinBox = new THREE.BoxHelper( this._cabinMesh );
+    this._cabinBox.material.color.set( 0x222222 );
+
+    this._cabinUnfoldBox = new UnfoldCubeHelper(0.5);
+    this._cabinUnfoldBox.visible = false;
+
+    let g = new THREE.Group();
+    g.add(this._cabinMesh);
+    g.add(this._cabinBox);
+    g.add(this._cabinUnfoldBox);
+
+    this._mesh = g;
     this._mesh.position.x = this._x;
     this._mesh.position.z = this._z;
     this._mesh.rotation.y = this._angle;
-
-    this._mesh.matrixAutoUpdate = false;
-    this._mesh.updateMatrix();
   }
 
   get id() {
@@ -96,6 +109,10 @@ class Cabin {
 
   get mesh() {
     return this._mesh;
+  }
+
+  get uuid() {
+    return this._cabinMesh.uuid;
   }
 
   get x() {
@@ -122,7 +139,7 @@ class Cabin {
     material.needsUpdate = true;
 
     this._colors = colors;
-    this._mesh.material = material;
+    this._cabinMesh.material = material;
   }
 
   set gridX(gridX) {
@@ -150,26 +167,30 @@ class Cabin {
       o = 1;
     }
 
-    for (let material of this._mesh.material.materials) {
+    for (let material of this._cabinMesh.material.materials) {
       material.transparent = t;
       material.opacity = o;
       material.needsUpdate = true;
     }
 
-    this._mesh.material.needsUpdate = true;
+    this._cabinMesh.material.needsUpdate = true;
   }
 
   toggleUnfold() {
     this._unfold = !this._unfold;
 
     if (this._unfold) {
-      this._mesh.geometry = unfoldCube;
+      this._cabinMesh.geometry = unfoldCube;
+      this._cabinUnfoldBox.visible = true;
+      this._cabinBox.visible = false;
     }
     else {
-      this._mesh.geometry = cube;
+      this._cabinMesh.geometry = cube;
+      this._cabinUnfoldBox.visible = false;
+      this._cabinBox.visible = true;
     }
 
-    this._mesh.geometry.needsUpdate = true;
+    this._cabinMesh.geometry.needsUpdate = true;
   }
 
   goOnGrid() {
