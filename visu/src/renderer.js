@@ -25,7 +25,7 @@ class Renderer {
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setClearColor(0x111111);
+    this.renderer.setClearColor(0xefefef);
 
     this._container = container;
     this._container.appendChild(this.renderer.domElement);
@@ -196,7 +196,7 @@ class Renderer {
       this._cabanesObject[c.id] = c;
       this._cabanes.add(c.mesh);
 
-      this._meshToCabin[c.mesh.uuid] = c;
+      this._meshToCabin[c.uuid] = c;
 
       c.gridX = -this._gridColumns / 2 + this._cabinCount % this._gridColumns;
       c.gridY = dGridY + Math.floor(this._cabinCount / this._gridColumns);
@@ -332,7 +332,12 @@ class Renderer {
     let intersects = raycaster.intersectObjects(this._scene.children, true);
 
     if (intersects.length > 0) {
-      return this._meshToCabin[intersects[0].object.uuid];
+      for (let i = 0; i < intersects.length; i++) {
+        let c = this._meshToCabin[intersects[i].object.uuid];
+
+        if (!!c)
+          return c;
+      }
     }
     else {
       console.log("no cabin found");

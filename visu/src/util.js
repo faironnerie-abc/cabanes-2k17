@@ -9,6 +9,51 @@ const uvs = [
   [[0, 1], [1, 1], [0, 0], [1, 0]]
 ];
 
+class UnfoldCubeHelper extends THREE.LineSegments {
+  constructor(base = 1, thickness = 0.1) {
+    let points = [
+      [-base / 2,    1.5 * base], // 0
+      [ base / 2,    1.5 * base], // 1
+      [-1.5 * base,  base / 2], // 2
+      [-base / 2,    base / 2], // 3
+      [ base / 2,    base / 2], // 4
+      [ 1.5 * base,  base / 2], // 5
+      [-1.5 * base, -base / 2], // 6
+      [-base / 2,   -base / 2], // 7
+      [ base / 2,   -base / 2], // 8
+      [ 1.5 * base, -base / 2], // 9
+      [-base / 2,   -1.5 * base], // 10
+      [ base / 2,   -1.5 * base] // 11
+    ];
+
+    let indices = new Uint16Array([
+      0, 1, 1, 4, 4, 5, 5, 9, 9, 8, 8, 11, 11, 10, 10, 7, 7, 6, 6, 2, 2, 3, 3, 0,
+      12, 13, 13, 16, 16, 17, 17, 21, 21, 20, 20, 23, 23, 22, 22, 19, 19, 18, 18, 14, 14, 15, 15, 12,
+      0, 12, 1, 13, 2, 14, 15, 3, 4, 16, 5, 17, 6, 18, 7, 19, 8, 20, 9, 21, 10, 22, 11, 23
+    ]);
+
+  	let positions = new Float32Array( 24 * 3 );
+
+    let counter = 0;
+
+    [thickness / 2, -thickness / 2].forEach(t => {
+      points.forEach(p => {
+        let a = [p[0], t, p[1]];
+        positions.set(a, counter++ * 3);
+      });
+    });
+
+    let geometry = new THREE.BufferGeometry();
+  	geometry.setIndex( new THREE.BufferAttribute( indices, 1 ) );
+  	geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+
+  	super( geometry, new THREE.LineBasicMaterial( { color: 0x222222 } ) );
+
+    this.geometry.attributes.position.needsUpdate = true;
+    this.geometry.computeBoundingSphere();
+  }
+}
+
 class UnfoldCubeBufferGeometry extends THREE.BufferGeometry {
   constructor(base = 1, thickness = 0.1) {
     super();
@@ -177,6 +222,8 @@ module.exports = {
   },
 
   UnfoldCubeGeometry: UnfoldCubeGeometry,
+
+  UnfoldCubeHelper: UnfoldCubeHelper,
 
   createUnfoldCube2: function(base = 1, thickness = 0.1) {
     let openedCube = new THREE.Geometry();
