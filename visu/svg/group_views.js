@@ -124,8 +124,11 @@ function pageOther(gStart, fileName) {
     writeFooter(out);
 }
 
-page1();
-page2();
-for (let p = 0; p < 4; p++) {
-    pageOther(14 + 6 * p, `p${p + 3}.svg`);
-}
+
+// page1();
+// page2();
+// for (let p = 0; p < 4; p++) {
+//     pageOther(14 + 6 * p, `p${p + 3}.svg`);
+// }
+
+console.log(startIndex(8));
