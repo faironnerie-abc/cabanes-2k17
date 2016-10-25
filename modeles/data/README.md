@@ -7,5 +7,5 @@ node create_grous.js > groups.json
 Create cabins from groups:
 
 ```
-node create_cabins.js > all_cabins.json
+node create_cabins.js > cabins.json
 ```

@@ -3,7 +3,7 @@
 'use strict';
 
 const fs = require('fs');
-const cabins = require('../../modeles/data/all_cabins.json').cabins;
+const cabins = require('../../modeles/data/cabins.json').cabins;
 const A = 44;
 const FSW = 9 * 1.25;
 
