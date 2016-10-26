@@ -1,9 +1,10 @@
 #!/bin/bash
 
-for f in *.svg; do
+for f in p*.svg; do
     out=`echo $f | sed 's/svg/pdf/'`
     inkscape -T -A $out $f
+    echo $out
 done
-pdftk *.pdf cat output PaintDocV1.2.pdf
-ls *.pdf | grep -v PaintDocV1.2.pdf | xargs rm
-rm *.svg
+pdftk p*.pdf cat output PaintDocV2.0.pdf
+rm p*.pdf
+rm p*.svg
