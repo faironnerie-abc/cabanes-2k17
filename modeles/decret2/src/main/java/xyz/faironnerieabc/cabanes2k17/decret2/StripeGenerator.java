@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 public class StripeGenerator implements Iterator<byte[]> {
     private static Widths widths = new Widths();
@@ -52,10 +53,7 @@ public class StripeGenerator implements Iterator<byte[]> {
     }
 
     public static void main(String[] args) {
-        String s = "1234567890";
-        String b = "";
-        for (int i = 0; i < 10; i++) b += s;
-        Iterator<byte[]> gen = new StripeGenerator(new BigInteger(b));
+        Iterator<byte[]> gen = new StripeGenerator(new BigInteger(512, new Random()));
         while (gen.hasNext()) {
             byte[] stripes = gen.next();
             System.out.println(Arrays.toString(stripes));

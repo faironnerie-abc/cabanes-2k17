@@ -11,31 +11,36 @@ import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
-import static xyz.faironnerieabc.cabanes2k17.decret2.Groups.*;
+import org.json.simple.JSONValue;
 
 public class Stripes {
     private List<byte[]> all;
+    private JSONArray cabins;
 
-    public Stripes(String fileName) throws FileNotFoundException, NoSuchAlgorithmException {
-        SplitText split = new SplitText(fileName);
+    public Stripes(String textFile, String cabinFile, int groups[]) throws FileNotFoundException, NoSuchAlgorithmException {
+        String chunks[] = Util.split(Util.readText(textFile), groups);
+        JSONObject o = (JSONObject)(JSONValue.parse(Util.readText(cabinFile)));
+        cabins = (JSONArray)(o.get("cabins"));
+
+        // sanity check
+        int s = 0;
+        for (int c : groups) s += c;
+        if (s != cabins.size())
+            throw new IllegalArgumentException(String.format("%d cabins read from %s but %d cabins in groups", cabins.size(), cabinFile, s));
+
         all = new ArrayList<>();
-        MessageDigest md = MessageDigest.getInstance("SHA-384");
-        for (int g = 0; g < GROUPS.length; g++) {
-            for (int s = 0; s < SUBGROUPS[g].length; s++) {
-                byte[] digest = md.digest(split.getChunk(g, s).getBytes());
-                BigInteger bi = new BigInteger(1, digest);
-                Iterator<byte[]> gen = null;
-                if (s == 0) {
-                    gen = new StripeGenerator(bi);
-                } else {
-                    byte[] last = all.get(all.size() - 1);
-                    gen = new StripeGenerator(bi, last[1], last[4]);
-                }
-                for (int c = 0; c < SUBGROUPS[g][s]; c++) {
-                    all.add(gen.next());
-                }
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        for (int g = 0; g < groups.length; g++) {
+            byte[] digest = md.digest(chunks[g].getBytes());
+            BigInteger bi = new BigInteger(1, digest);
+            Iterator<byte[]> gen;
+            if (g == 0)
+                gen = new StripeGenerator(bi);
+            else {
+                byte[] last = all.get(all.size() - 1);
+                gen = new StripeGenerator(bi, last[1], last[4]);
             }
+            for (int c = 0; c < groups[g]; c++) all.add(gen.next());
         }
     }
 
@@ -61,17 +66,14 @@ public class Stripes {
 
     public JSONObject toJSON() {
         JSONObject colors = new JSONObject();
-        int i = 0;
-        for (int g = 0; g < GROUPS.length; g++) {
-            for (int c = 0; c < GROUPS[g]; c++) {
-                byte[] s = all.get(i++);
-                JSONArray a = new JSONArray();
-                for (int j = 0; j < 8; j++) a.add(s[j]);
-                JSONObject stripes = new JSONObject();
-                stripes.put("stripes", a);
-                String id = GROUP_IDS[g] + "-" + c;
-                colors.put(id, stripes);
-            }
+        for (int i = 0; i < size(); i++) {
+            JSONArray a = new JSONArray();
+            for (int s : get(i)) a.add(s);
+            JSONObject stripes = new JSONObject();
+            stripes.put("stripes", a);
+            JSONObject o = (JSONObject)(cabins.get(i));
+            String id = (String)(o.get("id"));
+            colors.put(id, stripes);
         }
         JSONObject result = new JSONObject();
         result.put("colors", colors);
@@ -88,22 +90,21 @@ public class Stripes {
 
     public double[] totalWidthsPerColor() {
         double[] total = new double[10];
-        int i = 0;
-        for (int g = 0; g < GROUPS.length; g++) {
-            for (int c = 0; c < GROUPS[g]; c++) {
-                byte[] s = get(i++);
-                if (c == 0) {
-                    addStripe(s[6], total);
-                    addStripe(s[7], total);
-                }
-                if (c == GROUPS[g] - 1) {
-                    addStripe(s[2], total);
-                    addStripe(s[3], total);
-                }
-                addStripe(s[0], total);
-                addStripe(s[1], total);
-                addStripe(s[4], total);
-                addStripe(s[5], total);
+        for (int i = 0; i < size(); i++) {
+            JSONObject cab = (JSONObject)(cabins.get(i));
+            if (cab.get("paint") == null) continue;
+            byte[] s = get(i);
+            addStripe(s[0], total);
+            addStripe(s[1], total);
+            if (cab.get("gapRight") != null) {
+                addStripe(s[2], total);
+                addStripe(s[3], total);
+            }
+            addStripe(s[4], total);
+            addStripe(s[5], total);
+            if (cab.get("gapLeft") != null) {
+                addStripe(s[6], total);
+                addStripe(s[7], total);
             }
         }
         return total;
@@ -117,21 +118,21 @@ public class Stripes {
         return all.size();
     }
 
+
     public static void main(String[] args) throws FileNotFoundException, NoSuchAlgorithmException {
-        Stripes stripes = new Stripes(args[0]);
-        System.out.println(stripes.size() + " cabins generated");
+        Stripes stripes = new Stripes(args[0], args[1], Groups.GROUPS);
+        System.out.println(stripes.all.size() + " cabins generated");
         for (int i = 0; i < 6; i++)
-            System.out.println(Arrays.toString(stripes.get(i)));
+            System.out.println(Arrays.toString(stripes.all.get(i)));
         System.out.println("... etc\n\nDistribution of common stripes");
         stripes.commonDistribution();
-
         System.out.println("\nSurfaces by color");
-        System.out.printf("%6s%10s%10s\n", "color", "surface", "litres");
+        System.out.printf("%6s%10s%10s%n", "color", "surface", "litres");
         double[] total = stripes.totalWidthsPerColor();
         for (int color = 0; color < 10; color++) {
             // une demi-face fait 2 m^2
             double surface = total[color] * 2;
-            // le rendement de la peinture est 12 l / m^2 et il faut 2 couches
+            // le rendement de la peinture est 12 m^2 / l et il faut 2 couches
             double litres = surface / 12 * 2;
             System.out.printf("%6d%10.2f%10.2f%n", color, surface, litres);
         }
