@@ -44,7 +44,6 @@ function addParticipants() {
         cabins.forEach((v, k) => {
             if (m[v.id]) {
                 v.paint = true;
-                console.log(v.id);
             }
         });
         console.log(JSON.stringify({cabins: cabins}));
