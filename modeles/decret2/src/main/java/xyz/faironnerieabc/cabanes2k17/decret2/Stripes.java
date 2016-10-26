@@ -81,7 +81,7 @@ public class Stripes {
     }
 
     private static final double[] WIDTHS = {
-        2.0 / 11, 3.0 / 11, 5.0 / 11, 7.0 / 11, 9.0 / 11, 1.0
+        0.09, 0.27, 0.45, 0.63, 0.81, 0.99
     };
 
     private static void addStripe(byte s, double[] total) {
@@ -134,7 +134,7 @@ public class Stripes {
             double surface = total[color] * 2;
             // le rendement de la peinture est 12 m^2 / l et il faut 2 couches
             double litres = surface / 12 * 2;
-            System.out.printf("%6d%10.2f%10.2f%n", color, surface, litres);
+            System.out.printf("%6d%10.2f%10.2f%n", color + 1, surface, litres);
         }
     }
 }
