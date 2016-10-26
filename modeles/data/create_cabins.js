@@ -1,6 +1,7 @@
 'use strict';
 
 const GROUPS = require('./groups.json').groups;
+const xj = require("xls-to-json");
 let cabins = [];
 
 function createCabins() {
@@ -23,5 +24,32 @@ function createCabins() {
     });
 }
 
+function addParticipants() {
+    xj({
+        input: "participants.xls",
+        output: null,
+        sheet: "Feuille1"
+    }, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        let m = {};
+        result.forEach((v, k) => {
+            if (v["REPONSE"] == "Oui") {
+                let id = v["RANG"] + '/' + v["NUMERO"];
+                m[id] = true;
+            }
+        });
+        cabins.forEach((v, k) => {
+            if (m[v.id]) {
+                v.paint = true;
+                console.log(v.id);
+            }
+        });
+        console.log(JSON.stringify({cabins: cabins}));
+    });
+}
+
 createCabins();
-console.log(JSON.stringify({cabins: cabins}));
+addParticipants();
