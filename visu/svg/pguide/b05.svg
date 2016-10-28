@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   id="svg6697"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="b05.svg">
+  <metadata
+     id="metadata7173">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs7171" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1176"
+     id="namedview7169"
+     showgrid="false"
+     inkscape:zoom="0.89707532"
+     inkscape:cx="-104.08193"
+     inkscape:cy="372.04724"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6697" />
+  <text
+     x="526.17328"
+     y="714"
+     font-size="11.25"
+     id="text6703"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.25px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;writing-mode:lr;text-anchor:middle;"
+     sodipodi:linespacing="125%">
+    <tspan
+       sodipodi:role="line"
+       id="tspan36172">v</tspan>
+  </text>
+  <text
+     text-anchor="start"
+     font-family="Courier"
+     font-weight="bold"
+     font-size="22.5"
+     transform="translate(30 82.5)"
+     id="text6705"
+     style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:22.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%;"
+     sodipodi:linespacing="125%">
+    <tspan
+       sodipodi:role="line"
+       id="tspan19144">Quantités estimées</tspan>
+  </text>
+  <line
+     x1="30"
+     y1="92.500008"
+     x2="1022"
+     y2="92.500008"
+     id="line6707"
+     style="stroke:#000000" />
+  <flowRoot
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     id="flowRoot7235"
+     xml:space="preserve"
+     transform="translate(0,411.69939)"><flowRegion
+       id="flowRegion7237"><rect
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
+         y="125"
+         x="30"
+         height="150"
+         width="992"
+         id="rect7239" /></flowRegion><flowPara
+       id="flowPara19146">Ces quantités sont des estimations théoriques à prendre avec précaution. Les quantités réelles peuvent être supérieures à cause de petites variations des tailles des cabanes et des bandes, différents types de support, peinture perdue lors du nettoyage des outils, différence entre le rendement théorique et le rendement réel de la peinture, etc.</flowPara><flowPara
+       id="flowPara19148" /></flowRoot>  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="364.28363"
+     y="199.17001"
+     id="text19150"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan19154"
+       x="364.28363"
+       y="199.17001">+-------+-------------+------------+</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19156"
+       x="364.28363"
+       y="217.92001">|couleur|surface (m^2)|peinture (l)|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19158"
+       x="364.28363"
+       y="236.67001">+-------+-------------+------------+</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19160"
+       x="364.28363"
+       y="255.42001">|      1|          202|          34|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19162"
+       x="364.28363"
+       y="274.17001">|      2|          221|          37|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19164"
+       x="364.28363"
+       y="292.92001">|      3|          206|          34|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19166"
+       x="364.28363"
+       y="311.67001">|      4|          192|          32|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19168"
+       x="364.28363"
+       y="330.42001">|      5|          209|          35|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19170"
+       x="364.28363"
+       y="349.17001">|      6|          201|          34|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19172"
+       x="364.28363"
+       y="367.92001">|      7|          201|          33|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19174"
+       x="364.28363"
+       y="386.67001">|      8|          196|          33|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19176"
+       x="364.28363"
+       y="405.42001">|      9|          198|          33|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19178"
+       x="364.28363"
+       y="424.17001">|     10|          224|          37|</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19180"
+       x="364.28363"
+       y="442.92001">+-------+-------------+------------+</tspan><tspan
+       sodipodi:role="line"
+       id="tspan19182"
+       x="364.28363"
+       y="461.67001" /></text>
+</svg>

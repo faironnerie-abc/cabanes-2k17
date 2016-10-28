@@ -1,0 +1,16 @@
++-------+-------------+------------+
+|couleur|surface (m^2)|peinture (l)|
++-------+-------------+------------+
+|      1|          202|          34|
+|      2|          221|          37|
+|      3|          206|          34|
+|      4|          192|          32|
+|      5|          209|          35|
+|      6|          201|          34|
+|      7|          201|          33|
+|      8|          196|          33|
+|      9|          198|          33|
+|     10|          224|          37|
++-------+-------------+------------+
+
+Ces quantités sont des estimations théoriques à prendre avec précaution. Les quantités réelles peuvent être supérieures à cause de petites variations des tailles des cabanes et des bandes, différents types de support, peinture perdue lors du nettoyage des outils, différence entre le rendement théorique et le rendement réel de la peinture, etc.

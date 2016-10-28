@@ -127,14 +127,18 @@ public class Stripes {
         System.out.println("... etc\n\nDistribution of common stripes");
         stripes.commonDistribution();
         System.out.println("\nSurfaces by color");
-        System.out.printf("%6s%10s%10s%n", "color", "surface", "litres");
+        String sep = "+-------+-------------+------------+";
+        System.out.println(sep);
+        System.out.printf("|%7s|%13s|%12s|%n", "couleur", "surface (m^2)", "peinture (l)");
+        System.out.println(sep);
         double[] total = stripes.totalWidthsPerColor();
         for (int color = 0; color < 10; color++) {
-            // une demi-face fait 2 m^2
+            // la hauteur d'une cabane est 2 m
             double surface = total[color] * 2;
             // le rendement de la peinture est 12 m^2 / l et il faut 2 couches
             double litres = surface / 12 * 2;
-            System.out.printf("%6d%10.2f%10.2f%n", color + 1, surface, litres);
+            System.out.printf("|%7d|%13.0f|%12.0f|%n", color + 1, surface, litres);
         }
+        System.out.println(sep);
     }
 }

@@ -1,0 +1,2553 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   id="svg34036"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="test.svg">
+  <metadata
+     id="metadata34720">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs34718" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     id="namedview34716"
+     showgrid="false"
+     inkscape:zoom="0.89707532"
+     inkscape:cx="526.1811"
+     inkscape:cy="372.04724"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg34036" />
+  <g
+     id="g35264">
+    <text
+       id="text34038"
+       font-size="11.25"
+       font-weight="bold"
+       font-family="Courier"
+       text-anchor="middle"
+       y="152"
+       x="526">= promenade =</text>
+    <text
+       id="text34040"
+       transform="translate(526 592) rotate(180)"
+       font-size="11.25"
+       font-weight="bold"
+       font-family="Courier"
+       text-anchor="middle">~ mer ~</text>
+    <text
+       id="text34042"
+       font-size="11.25"
+       font-family="Courier"
+       text-anchor="middle"
+       y="714"
+       x="511">31</text>
+    <text
+       id="text34044"
+       transform="translate(30 82.5)"
+       font-size="22.5"
+       font-weight="bold"
+       font-family="Courier"
+       text-anchor="start">E3/13 &gt; E3/1 : couleur 1 (rouge)</text>
+    <line
+       id="line34046"
+       stroke="black"
+       y2="92.5"
+       x2="1022"
+       y1="92.5"
+       x1="30" />
+    <text
+       id="text34048"
+       transform="translate(1022 661.5) rotate(180)"
+       font-size="22.5"
+       font-weight="bold"
+       font-family="Courier"
+       text-anchor="start">E3/1 &gt; E3/13 : couleur 1 (rouge)</text>
+    <line
+       id="line34050"
+       stroke="black"
+       y2="651.5"
+       x2="1022"
+       y1="651.5"
+       x1="30" />
+    <g
+       id="g34052"
+       transform="translate(228, 460)">
+      <rect
+         id="rect34054"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34056"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/13</text>
+      <g
+         id="g34058"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34060"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34062"
+           fill="#ef3340"
+           height="44"
+           width="6"
+           y="0"
+           x="30" />
+        <text
+           id="text34064"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">27</text>
+        <rect
+           id="rect34066"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34068"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34070"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34072"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34074"
+         transform="rotate(90)">
+        <rect
+           id="rect34076"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34078"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34080"
+       transform="translate(228, 240)">
+      <rect
+         id="rect34082"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34084"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/13</text>
+      <g
+         id="g34086"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34088"
+           fill="#3f4444"
+           height="44"
+           width="2"
+           y="0"
+           x="10" />
+        <text
+           id="text34090"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">9</text>
+        <rect
+           id="rect34092"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34094"
+           fill="#ef3340"
+           height="44"
+           width="6"
+           y="0"
+           x="30" />
+        <text
+           id="text34096"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">27</text>
+        <rect
+           id="rect34098"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34100"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34102"
+           fill="#f6e500"
+           height="44"
+           width="10"
+           y="0"
+           x="6" />
+        <text
+           id="text34104"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">45</text>
+        <rect
+           id="rect34106"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34108"
+           fill="#753bbd"
+           height="44"
+           width="6"
+           y="0"
+           x="30" />
+        <text
+           id="text34110"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">27</text>
+        <rect
+           id="rect34112"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34114"
+         transform="rotate(90)">
+        <rect
+           id="rect34116"
+           fill="#ecc7cd"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <text
+           id="text34118"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">99</text>
+        <rect
+           id="rect34120"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34122"
+           fill="#aeeffc"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34124"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34126"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34128"
+       transform="translate(274, 460)">
+      <rect
+         id="rect34130"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34132"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/12</text>
+      <g
+         id="g34134"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34136"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34138"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34140"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34142"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34144"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34146"
+       transform="translate(274, 240)">
+      <rect
+         id="rect34148"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34150"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/12</text>
+      <g
+         id="g34152"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34154"
+           fill="#78be20"
+           height="44"
+           width="2"
+           y="0"
+           x="10" />
+        <text
+           id="text34156"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">9</text>
+        <rect
+           id="rect34158"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34160"
+           fill="#753bbd"
+           height="44"
+           width="18"
+           y="0"
+           x="24" />
+        <text
+           id="text34162"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">81</text>
+        <rect
+           id="rect34164"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34166"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34168"
+           fill="#ecc7cd"
+           height="44"
+           width="14"
+           y="0"
+           x="4" />
+        <text
+           id="text34170"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">63</text>
+        <rect
+           id="rect34172"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34174"
+           fill="#aeeffc"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+        <text
+           id="text34176"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">99</text>
+        <rect
+           id="rect34178"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34180"
+       transform="translate(320, 460)">
+      <rect
+         id="rect34182"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34184"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/11</text>
+      <g
+         id="g34186"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34188"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34190"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34192"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34194"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34196"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34198"
+       transform="translate(320, 240)">
+      <rect
+         id="rect34200"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34202"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/11</text>
+      <g
+         id="g34204"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34206"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34208"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34210"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34212"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34214"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34216"
+       transform="translate(366, 460)">
+      <rect
+         id="rect34218"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34220"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/10</text>
+      <g
+         id="g34222"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34224"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34226"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34228"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34230"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34232"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34234"
+       transform="translate(366, 240)">
+      <rect
+         id="rect34236"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34238"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/10</text>
+      <g
+         id="g34240"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34242"
+           fill="#aeeffc"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <text
+           id="text34244"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">99</text>
+        <rect
+           id="rect34246"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34248"
+           fill="#919d9d"
+           height="44"
+           width="10"
+           y="0"
+           x="28" />
+        <text
+           id="text34250"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">45</text>
+        <rect
+           id="rect34252"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34254"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34256"
+           fill="#f6e500"
+           height="44"
+           width="14"
+           y="0"
+           x="4" />
+        <text
+           id="text34258"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">63</text>
+        <rect
+           id="rect34260"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34262"
+           fill="#78be20"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+        <text
+           id="text34264"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">99</text>
+        <rect
+           id="rect34266"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34268"
+       transform="translate(412, 460)">
+      <rect
+         id="rect34270"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34272"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/9</text>
+      <g
+         id="g34274"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34276"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34278"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34280"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34282"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34284"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34286"
+       transform="translate(412, 240)">
+      <rect
+         id="rect34288"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34290"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/9</text>
+      <g
+         id="g34292"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34294"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34296"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34298"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34300"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34302"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34304"
+       transform="translate(458, 460)">
+      <rect
+         id="rect34306"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34308"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/8</text>
+      <g
+         id="g34310"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34312"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34314"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34316"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34318"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34320"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34322"
+       transform="translate(458, 240)">
+      <rect
+         id="rect34324"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34326"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/8</text>
+      <g
+         id="g34328"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34330"
+           fill="#ecc7cd"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <text
+           id="text34332"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">99</text>
+        <rect
+           id="rect34334"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34336"
+           fill="#aeeffc"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34338"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34340"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34342"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34344"
+           fill="#f6e500"
+           height="44"
+           width="18"
+           y="0"
+           x="2" />
+        <text
+           id="text34346"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">81</text>
+        <rect
+           id="rect34348"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34350"
+           fill="#007ec6"
+           height="44"
+           width="6"
+           y="0"
+           x="30" />
+        <text
+           id="text34352"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">27</text>
+        <rect
+           id="rect34354"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34356"
+       transform="translate(504, 460)">
+      <rect
+         id="rect34358"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34360"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/7</text>
+      <g
+         id="g34362"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34364"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34366"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34368"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34370"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34372"
+           fill="#ef3340"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34374"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34376"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34378"
+       transform="translate(504, 240)">
+      <rect
+         id="rect34380"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34382"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/7</text>
+      <g
+         id="g34384"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34386"
+           fill="#ff9000"
+           height="44"
+           width="18"
+           y="0"
+           x="2" />
+        <text
+           id="text34388"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">81</text>
+        <rect
+           id="rect34390"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34392"
+           fill="#919d9d"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+        <text
+           id="text34394"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">99</text>
+        <rect
+           id="rect34396"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34398"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34400"
+           fill="#753bbd"
+           height="44"
+           width="18"
+           y="0"
+           x="2" />
+        <text
+           id="text34402"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">81</text>
+        <rect
+           id="rect34404"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34406"
+           fill="#ef3340"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34408"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34410"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34412"
+       transform="translate(550, 460)">
+      <rect
+         id="rect34414"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34416"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/6</text>
+      <g
+         id="g34418"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34420"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34422"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34424"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34426"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34428"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34430"
+       transform="translate(550, 240)">
+      <rect
+         id="rect34432"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34434"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/6</text>
+      <g
+         id="g34436"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34438"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34440"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34442"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34444"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34446"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34448"
+       transform="translate(596, 460)">
+      <rect
+         id="rect34450"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34452"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/5</text>
+      <g
+         id="g34454"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34456"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34458"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34460"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34462"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34464"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34466"
+       transform="translate(596, 240)">
+      <rect
+         id="rect34468"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34470"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/5</text>
+      <g
+         id="g34472"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34474"
+           fill="#ecc7cd"
+           height="44"
+           width="6"
+           y="0"
+           x="8" />
+        <text
+           id="text34476"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">27</text>
+        <rect
+           id="rect34478"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34480"
+           fill="#ff9000"
+           height="44"
+           width="2"
+           y="0"
+           x="32" />
+        <text
+           id="text34482"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">9</text>
+        <rect
+           id="rect34484"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34486"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34488"
+           fill="#919d9d"
+           height="44"
+           width="18"
+           y="0"
+           x="2" />
+        <text
+           id="text34490"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">81</text>
+        <rect
+           id="rect34492"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34494"
+           fill="#3f4444"
+           height="44"
+           width="2"
+           y="0"
+           x="32" />
+        <text
+           id="text34496"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">9</text>
+        <rect
+           id="rect34498"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34500"
+       transform="translate(642, 460)">
+      <rect
+         id="rect34502"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34504"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/4</text>
+      <g
+         id="g34506"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34508"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34510"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34512"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34514"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34516"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34518"
+       transform="translate(642, 240)">
+      <rect
+         id="rect34520"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34522"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/4</text>
+      <g
+         id="g34524"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34526"
+           fill="#f6e500"
+           height="44"
+           width="6"
+           y="0"
+           x="8" />
+        <text
+           id="text34528"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">27</text>
+        <rect
+           id="rect34530"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34532"
+           fill="#919d9d"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+        <text
+           id="text34534"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">99</text>
+        <rect
+           id="rect34536"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34538"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34540"
+           fill="#aeeffc"
+           height="44"
+           width="10"
+           y="0"
+           x="6" />
+        <text
+           id="text34542"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">45</text>
+        <rect
+           id="rect34544"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34546"
+           fill="#3f4444"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34548"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34550"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34552"
+       transform="translate(688, 460)">
+      <rect
+         id="rect34554"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34556"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/3</text>
+      <g
+         id="g34558"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34560"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34562"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34564"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34566"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34568"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34570"
+       transform="translate(688, 240)">
+      <rect
+         id="rect34572"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34574"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/3</text>
+      <g
+         id="g34576"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34578"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34580"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34582"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34584"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34586"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34588"
+       transform="translate(734, 460)">
+      <rect
+         id="rect34590"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34592"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/2</text>
+      <g
+         id="g34594"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34596"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34598"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34600"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34602"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34604"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34606"
+       transform="translate(734, 240)">
+      <rect
+         id="rect34608"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34610"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/2</text>
+      <g
+         id="g34612"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34614"
+           fill="#ecc7cd"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <text
+           id="text34616"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">99</text>
+        <rect
+           id="rect34618"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34620"
+           fill="#007ec6"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34622"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34624"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34626"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34628"
+           fill="#f6e500"
+           height="44"
+           width="10"
+           y="0"
+           x="6" />
+        <text
+           id="text34630"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">45</text>
+        <rect
+           id="rect34632"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34634"
+           fill="#3f4444"
+           height="44"
+           width="18"
+           y="0"
+           x="24" />
+        <text
+           id="text34636"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">81</text>
+        <rect
+           id="rect34638"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34640"
+       transform="translate(780, 460)">
+      <rect
+         id="rect34642"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34644"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/1</text>
+      <g
+         id="g34646"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34648"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34650"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34652"
+         transform="translate(44 44) rotate(-90)">
+        <rect
+           id="rect34654"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34656"
+           fill="#ef3340"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34658"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34660"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34662"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34664"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34666"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <g
+       id="g34668"
+       transform="translate(780, 240)">
+      <rect
+         id="rect34670"
+         stroke-width="0.5"
+         stroke="black"
+         fill="none"
+         height="44"
+         width="44"
+         y="0"
+         x="0" />
+      <text
+         id="text34672"
+         transform="rotate(0 22 22)"
+         font-size="11.25"
+         font-weight="bold"
+         font-family="Courier"
+         text-anchor="middle"
+         y="42"
+         x="22">E3/1</text>
+      <g
+         id="g34674"
+         transform="translate(0, 44)">
+        <rect
+           id="rect34676"
+           fill="#ecc7cd"
+           height="44"
+           width="6"
+           y="0"
+           x="8" />
+        <text
+           id="text34678"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">27</text>
+        <rect
+           id="rect34680"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34682"
+           fill="#753bbd"
+           height="44"
+           width="10"
+           y="0"
+           x="28" />
+        <text
+           id="text34684"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">45</text>
+        <rect
+           id="rect34686"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34688"
+         transform="translate(44 44) rotate(-90)">
+        <rect
+           id="rect34690"
+           fill="#f6e500"
+           height="44"
+           width="2"
+           y="0"
+           x="10" />
+        <text
+           id="text34692"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">9</text>
+        <rect
+           id="rect34694"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34696"
+           fill="#ef3340"
+           height="44"
+           width="14"
+           y="0"
+           x="26" />
+        <text
+           id="text34698"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">63</text>
+        <rect
+           id="rect34700"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+      <g
+         id="g34702"
+         transform="translate(44 0) rotate(180)">
+        <rect
+           id="rect34704"
+           fill="#919d9d"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <text
+           id="text34706"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="11">99</text>
+        <rect
+           id="rect34708"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="0" />
+        <rect
+           id="rect34710"
+           fill="#3f4444"
+           height="44"
+           width="6"
+           y="0"
+           x="30" />
+        <text
+           id="text34712"
+           font-size="11.25"
+           font-family="Courier"
+           text-anchor="middle"
+           y="53"
+           x="33">27</text>
+        <rect
+           id="rect34714"
+           stroke-width="0.5"
+           stroke="black"
+           fill="none"
+           height="44"
+           width="22"
+           y="0"
+           x="22" />
+      </g>
+    </g>
+    <rect
+       y="-1.9055119"
+       x="2"
+       height="744"
+       width="1052"
+       id="rect35262"
+       style="fill:none;fill-opacity:0.14202899;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  </g>
+  <ellipse
+     style="fill:none;fill-opacity:0.14202899;stroke:#cccccc;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.50196081"
+     id="path35606"
+     cx="191.07838"
+     cy="75.483795"
+     rx="170.55424"
+     ry="30.097807" />
+  <ellipse
+     style="fill:none;fill-opacity:0.14202899;stroke:#cccccc;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.50196081"
+     id="path35608"
+     cx="527.72791"
+     cy="148.72832"
+     rx="60.195614"
+     ry="15.048903" />
+  <circle
+     style="fill:none;fill-opacity:0.14202899;stroke:#cccccc;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.50196078"
+     id="path35610"
+     cx="791.09973"
+     cy="262.75903"
+     r="95.867088" />
+  <circle
+     r="95.867088"
+     cy="480.75903"
+     cx="791.09973"
+     id="circle35612"
+     style="fill:none;fill-opacity:0.14202899;stroke:#cccccc;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.50196078" />
+  <circle
+     style="fill:none;fill-opacity:0.14202899;stroke:#cccccc;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.50196078"
+     id="path35614"
+     cx="261.40503"
+     cy="549.14716"
+     r="20.622572" />
+  <circle
+     style="fill:none;fill-opacity:0.14202899;stroke:#cccccc;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.50196078"
+     id="path35616"
+     cx="571.98938"
+     cy="481.77533"
+     r="38.458309" />
+</svg>
