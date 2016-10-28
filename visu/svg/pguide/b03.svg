@@ -37,11 +37,11 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1176"
+     inkscape:window-height="1056"
      id="namedview7169"
      showgrid="false"
      inkscape:zoom="0.89707532"
-     inkscape:cx="177.2423"
+     inkscape:cx="452.56482"
      inkscape:cy="372.04724"
      inkscape:window-x="0"
      inkscape:window-y="24"
@@ -83,7 +83,7 @@
   <flowRoot
      xml:space="preserve"
      id="flowRoot7179"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      transform="translate(0,-1.3764148e-5)"><flowRegion
        id="flowRegion7181"><rect
          id="rect7183"
@@ -91,8 +91,8 @@
          height="200"
          x="30"
          y="125"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
-       id="flowPara5735">Chaque face de cabane se voit attribuer deux bandes verticales de couleurs et largeurs spécifiques. Il y a 10 couleurs et 6 largeurs possibles donnant 60 bandes différentes.</flowPara></flowRoot>  <g
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;writing-mode:lr;text-anchor:start;" /></flowRegion><flowPara
+       id="flowPara10443">Chaque face de cabane se voit attribuer deux bandes verticales de couleur et de largeur spécifiques. Il y a 10 couleurs et 6 largeurs possibles donnant 60 bandes différentes.</flowPara></flowRoot>  <g
      id="g6818"
      transform="translate(0,24.134924)">
     <rect

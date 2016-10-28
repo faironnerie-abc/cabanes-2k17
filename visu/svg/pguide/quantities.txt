@@ -12,5 +12,7 @@
 |      9|          198|          33|
 |     10|          224|          37|
 +-------+-------------+------------+
+|  total|         2051|         342|
++-------+-------------+------------+
 
-Ces quantités sont des estimations théoriques à prendre avec précaution. Les quantités réelles peuvent être supérieures à cause de petites variations des tailles des cabanes et des bandes, différents types de support, peinture perdue lors du nettoyage des outils, différence entre le rendement théorique et le rendement réel de la peinture, etc.
+Ces quantités sont des estimations théoriques à prendre avec précaution. Les quantités réelles peuvent être supérieures dû à de petites variations des tailles des cabanes et des bandes, différents types de support, peinture perdue lors du nettoyage des outils, différence entre le rendement théorique et le rendement réel de la peinture, etc.
