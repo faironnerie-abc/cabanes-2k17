@@ -4,7 +4,7 @@ const animate = require('./animate.js');
 import { createUnfoldCube, UnfoldCubeGeometry, UnfoldCubeHelper } from './util.js';
 
 const COLORS        = require('./colors.json').colors
-    , WIDTHS        = [2 / 11.0, 3 / 11.0, 5 / 11.0, 7 / 11.0, 9 / 11.0, 1]
+    , WIDTHS        = [1 / 11.0, 3 / 11.0, 5 / 11.0, 7 / 11.0, 9 / 11.0, 1]
     , cube          = new THREE.BoxGeometry(1.75, 1.75, 1.75)
     , unfoldCube    = new UnfoldCubeGeometry(0.5, 0.05)
     //, openCabin     = createUnfoldCube(1, 0.05)
