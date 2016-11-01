@@ -1,21 +1,7 @@
 'use strict;'
 
 const fs = require('fs');
-// const colors = require('../src/colors.json').colors;
-
-// modified colors for better view
-const colors = [
-    "#ef3340", // rouge
-    "#ff9000", // orange (plus clair)
-    "#f6e500", // jaune
-    "#78be20", // vert
-    "#007ec6", // bleu (plus foncé)
-    "#753bbd", // violet
-    "#aeeffc", // bleu clair (plus clair)
-    "#ecc7cd", // rose pale
-    "#919d9d", // gris clair
-    "#3f4444"  // gris anthracite
-]
+const colors = require('../src/colors.json').colors;
 
 const colorNames = ['rouge', 'orange', 'jaune', 'vert', 'bleu', 'violet', 'bleu clair', 'rose pale', 'gris clair', 'gris anthracite'];
 
