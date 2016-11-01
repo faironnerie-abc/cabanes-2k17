@@ -96,13 +96,13 @@ public class Stripes {
             byte[] s = get(i);
             addStripe(s[0], total);
             addStripe(s[1], total);
-            if (cab.get("leftGap") != null) {
+            if (cab.get("rightGap") != null) {
                 addStripe(s[2], total);
                 addStripe(s[3], total);
             }
             addStripe(s[4], total);
             addStripe(s[5], total);
-            if (cab.get("rightGap") != null) {
+            if (cab.get("leftGap") != null) {
                 addStripe(s[6], total);
                 addStripe(s[7], total);
             }

@@ -1,7 +1,7 @@
 'use strict;'
 
 const fs = require('fs');
-const colors = require('../src/colors.json').colors;
+const colors = require('../../src/colors.json').colors;
 
 const colorNames = ['rouge', 'orange', 'jaune', 'vert', 'bleu', 'violet', 'bleu clair', 'rose pale', 'gris clair', 'gris anthracite'];
 
