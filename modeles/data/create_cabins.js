@@ -36,7 +36,7 @@ function addParticipants() {
         }
         let m = {};
         result.forEach((v, k) => {
-            if (v["REPONSE"] == "Oui") {
+            if (v["REPONSE"].toUpperCase() === "OUI") {
                 let id = v["RANG"] + '/' + v["NUMERO"];
                 m[id] = true;
             }
