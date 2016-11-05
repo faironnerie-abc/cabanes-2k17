@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 let groups = [
     {
         "id": "E6",
@@ -296,5 +298,13 @@ function completeGroups() {
     }
 }
 
+function writeGroups() {
+    let out = fs.createWriteStream('groups.json');
+    out.write(JSON.stringify({groups: groups}));
+    out.write('\n');
+    out.end();
+    console.log('data written in groups.json')
+}
+
 completeGroups();
-console.log(JSON.stringify({groups: groups}));
+writeGroups();

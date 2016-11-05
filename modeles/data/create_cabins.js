@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 const GROUPS = require('./groups.json').groups;
 const xj = require("xls-to-json");
 let cabins = [];
@@ -24,7 +26,7 @@ function createCabins() {
     });
 }
 
-function addParticipants() {
+function addParticipants(callback) {
     xj({
         input: "participants.xls",
         output: null,
@@ -41,14 +43,24 @@ function addParticipants() {
                 m[id] = true;
             }
         });
+        console.log(`${cabins.length} cabins / ${Object.keys(m).length} participants`);
         cabins.forEach((v, k) => {
             if (m[v.id]) {
                 v.paint = true;
             }
         });
-        console.log(JSON.stringify({cabins: cabins}));
+        callback();
     });
 }
 
+function writeCabins() {
+    let out = fs.createWriteStream('cabins.json');
+    out.write(JSON.stringify({cabins: cabins}));
+    out.write('\n');
+    out.end();
+    console.log('data written in cabins.json');
+}
+
+
 createCabins();
-addParticipants();
+addParticipants(writeCabins);
