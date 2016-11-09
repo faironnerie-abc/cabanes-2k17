@@ -3,9 +3,9 @@
 node pguide.js
 for f in `ls a*.svg b*.svg p*.svg`; do
     out=`echo $f | sed 's/svg/pdf/'`
-    inkscape -T -A $out $f
-    echo $out
-done
+    echo -A $out $f
+done | inkscape --shell
+echo
 
 # hack for the hyperlinks p. ii
 svglinkify.py b02.svg b02.pdf b02_links.pdf
