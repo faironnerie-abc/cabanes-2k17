@@ -12,6 +12,7 @@ const A = 44;
 const WIDTHS = [1, 3, 5, 7, 9, 11];
 const FSW = 9 * 1.25;
 const GAP = 2;
+const LW = 0.3;
 
 function writeHeader(out) {
     out.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n');
@@ -31,7 +32,7 @@ function writeFace(out, s1, s2) {
         out.write(`<rect x="${(A / 2 - sw) / 2}" y="0" width="${sw}" height="${A}" fill="${colors[c]}"/>\n`);
         out.write(`<text x="${A / 4}" y="${A + FSW / 1.25}" text-anchor="middle" font-family="Courier" font-size="${FSW}">${9 * WIDTHS[w]}</text>\n`)
     }
-    out.write(`<rect x="0" y="0" width="${A/2}" height="${A}" fill="none" stroke="black" stroke-width="0.5" />\n`);
+    out.write(`<rect x="0" y="0" width="${A/2}" height="${A}" fill="none" stroke="black" stroke-width="${LW}" />\n`);
     if (s2 >= 0) {
         let w = Math.floor(s2 / 10);
         let c = s2 % 10;
@@ -40,7 +41,7 @@ function writeFace(out, s1, s2) {
         out.write(`<text x="${A / 2 + A / 4}" y="${A + FSW / 1.25}" text-anchor="middle" font-family="Courier" font-size="${FSW}">${9 * WIDTHS[w]}</text>\n`)
 
     }
-    out.write(`<rect x="${A / 2}" y="0" width="${A/2}" height="${A}" fill="none" stroke="black" stroke-width="0.5" />\n`);
+    out.write(`<rect x="${A / 2}" y="0" width="${A/2}" height="${A}" fill="none" stroke="black" stroke-width="${LW}" />\n`);
 }
 
 function getS(s, participate, only) {
@@ -155,4 +156,4 @@ function writeAll() {
 
 writeAll();
 
-//writeRow('test.svg', 36, 13, true, 0, 31);
+// writeRow('test.svg', 36, 13, true, 0, 31);

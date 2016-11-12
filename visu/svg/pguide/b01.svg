@@ -21,7 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -37,11 +37,11 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1176"
+     inkscape:window-height="1056"
      id="namedview7169"
      showgrid="false"
      inkscape:zoom="0.89707532"
-     inkscape:cx="518.58686"
+     inkscape:cx="470.09595"
      inkscape:cy="372.04724"
      inkscape:window-x="0"
      inkscape:window-y="24"
@@ -88,71 +88,71 @@
      id="text4173"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
-       id="tspan18336">À propos ......................................... ii</tspan><tspan
+       id="tspan10751">À propos ......................................... ii</tspan><tspan
        sodipodi:role="line"
-       id="tspan18338">Couleurs et largeurs ............................ iii</tspan><tspan
+       id="tspan10753">Couleurs et largeurs ............................ iii</tspan><tspan
        sodipodi:role="line"
-       id="tspan18340">Comment utiliser ce guide ........................ iv</tspan><tspan
+       id="tspan10755">Comment peindre une cabane ....................... iv</tspan><tspan
        sodipodi:role="line"
-       id="tspan18342">Quantités estimées ................................ v</tspan><tspan
+       id="tspan10757">Comment utiliser ce guide ......................... v</tspan><tspan
        sodipodi:role="line"
-       id="tspan18344"></tspan><tspan
+       id="tspan10759">Quantités estimées ............................... vi</tspan><tspan
        sodipodi:role="line"
-       id="tspan18346">E6/10 &gt; E6/1 ...................................... 1</tspan><tspan
+       id="tspan10761">E6/10 &gt; E6/1 ...................................... 1</tspan><tspan
        sodipodi:role="line"
-       id="tspan18348">E5/12 &gt; E5/1 ..................................... 11</tspan><tspan
+       id="tspan10763">E5/12 &gt; E5/1 ..................................... 11</tspan><tspan
        sodipodi:role="line"
-       id="tspan18350">E4/14 &gt; E4/1 ..................................... 21</tspan><tspan
+       id="tspan10765">E4/14 &gt; E4/1 ..................................... 21</tspan><tspan
        sodipodi:role="line"
-       id="tspan18352">E3/13 &gt; E3/1 ..................................... 31</tspan><tspan
+       id="tspan10767">E3/13 &gt; E3/1 ..................................... 31</tspan><tspan
        sodipodi:role="line"
-       id="tspan18354">E2/13 &gt; E2/0 ..................................... 41</tspan><tspan
+       id="tspan10769">E2/13 &gt; E2/0 ..................................... 41</tspan><tspan
        sodipodi:role="line"
-       id="tspan18356">E1/30 &gt; E1/13 .................................... 51</tspan><tspan
+       id="tspan10771">E1/30 &gt; E1/13 .................................... 51</tspan><tspan
        sodipodi:role="line"
-       id="tspan18358">E1/12b &gt; E1/4 .................................... 61</tspan><tspan
+       id="tspan10773">E1/12b &gt; E1/4 .................................... 61</tspan><tspan
        sodipodi:role="line"
-       id="tspan18360">P/-2 &gt; P/9 ....................................... 71</tspan><tspan
+       id="tspan10775">P/-2 &gt; P/9 ....................................... 71</tspan><tspan
        sodipodi:role="line"
-       id="tspan18362">P/10 &gt; P/19b ..................................... 81</tspan><tspan
+       id="tspan10777">P/10 &gt; P/19b ..................................... 81</tspan><tspan
        sodipodi:role="line"
-       id="tspan18364">P/20 &gt; P/33 ...................................... 91</tspan><tspan
+       id="tspan10779">P/20 &gt; P/33 ...................................... 91</tspan><tspan
        sodipodi:role="line"
-       id="tspan18366">P/34 &gt; P/46 ..................................... 101</tspan><tspan
+       id="tspan10781">P/34 &gt; P/46 ..................................... 101</tspan><tspan
        sodipodi:role="line"
-       id="tspan18368">R1/0 &gt; R1/10 .................................... 111</tspan><tspan
+       id="tspan10783">R1/0 &gt; R1/10 .................................... 111</tspan><tspan
        sodipodi:role="line"
-       id="tspan18370">R2/0 &gt; R2/10 .................................... 121</tspan><tspan
+       id="tspan10785">R2/0 &gt; R2/10 .................................... 121</tspan><tspan
        sodipodi:role="line"
-       id="tspan18372">R3/0 &gt; R3/10 .................................... 131</tspan><tspan
+       id="tspan10787">R3/0 &gt; R3/10 .................................... 131</tspan><tspan
        sodipodi:role="line"
-       id="tspan18374">R4/0 &gt; R4/10 .................................... 141</tspan><tspan
+       id="tspan10789">R4/0 &gt; R4/10 .................................... 141</tspan><tspan
        sodipodi:role="line"
-       id="tspan18376">R5/0 &gt; R5/10 .................................... 151</tspan><tspan
+       id="tspan10791">R5/0 &gt; R5/10 .................................... 151</tspan><tspan
        sodipodi:role="line"
-       id="tspan18378">R6/0 &gt; R6/10 .................................... 161</tspan><tspan
+       id="tspan10793">R6/0 &gt; R6/10 .................................... 161</tspan><tspan
        sodipodi:role="line"
-       id="tspan18380">R7/1 &gt; R7/16 .................................... 171</tspan><tspan
+       id="tspan10795">R7/1 &gt; R7/16 .................................... 171</tspan><tspan
        sodipodi:role="line"
-       id="tspan18382">R8/1 &gt; R8/16 .................................... 181</tspan><tspan
+       id="tspan10797">R8/1 &gt; R8/16 .................................... 181</tspan><tspan
        sodipodi:role="line"
-       id="tspan18384">R9/1 &gt; R9/16 .................................... 191</tspan><tspan
+       id="tspan10799">R9/1 &gt; R9/16 .................................... 191</tspan><tspan
        sodipodi:role="line"
-       id="tspan18386">R10/1 &gt; R10/16 .................................. 201</tspan><tspan
+       id="tspan10801">R10/1 &gt; R10/16 .................................. 201</tspan><tspan
        sodipodi:role="line"
-       id="tspan18388">R11/1 &gt; R11/16 .................................. 211</tspan><tspan
+       id="tspan10803">R11/1 &gt; R11/16 .................................. 211</tspan><tspan
        sodipodi:role="line"
-       id="tspan18390">R12/1 &gt; R12/16 .................................. 221</tspan><tspan
+       id="tspan10805">R12/1 &gt; R12/16 .................................. 221</tspan><tspan
        sodipodi:role="line"
-       id="tspan18392">R13/1 &gt; R13/9 ................................... 231</tspan><tspan
+       id="tspan10807">R13/1 &gt; R13/9 ................................... 231</tspan><tspan
        sodipodi:role="line"
-       id="tspan18394">R13/10 &gt; R13/18 ................................. 241</tspan><tspan
+       id="tspan10809">R13/10 &gt; R13/18 ................................. 241</tspan><tspan
        sodipodi:role="line"
-       id="tspan18396">R14/1 &gt; R14/9 ................................... 251</tspan><tspan
+       id="tspan10811">R14/1 &gt; R14/9 ................................... 251</tspan><tspan
        sodipodi:role="line"
-       id="tspan18398">R14/10 &gt; R14/18 ................................. 261</tspan><tspan
+       id="tspan10813">R14/10 &gt; R14/18 ................................. 261</tspan><tspan
        sodipodi:role="line"
-       id="tspan18400"></tspan></text>
+       id="tspan10815"></tspan></text>
   <text
      sodipodi:linespacing="125%"
      id="text4857"
@@ -291,5 +291,5 @@
        sodipodi:role="line"
        id="tspan5263"
        x="546.72968"
-       y="713.08502"></tspan></text>
+       y="713.08502" /></text>
 </svg>
