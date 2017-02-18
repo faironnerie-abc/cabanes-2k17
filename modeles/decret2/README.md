@@ -16,6 +16,12 @@ Print some stats:
 java -cp target/decret2-1.0-SNAPSHOT-jar-with-dependencies.jar xyz.faironnerieabc.cabanes2k17.decret2.Stripes ../decret/decret1517.txt ../data/cabins.json
 ```
 
+Generate chunks of text and export them to `chunks.json`
+
+```
+java -cp target/decret2-1.0-SNAPSHOT-jar-with-dependencies.jar xyz.faironnerieabc.cabanes2k17.decret2.Chunks ../decret/decret1517.txt ../data/chunks.json
+```
+
 For the moment the model integrates the following constraints:
  1. The eight stripes of each cabin are of eight different colors.
  2. Each of the six possible widths appears once or twice on each cabin. (That means there are four widths appearing once and two widths appearing twice).
