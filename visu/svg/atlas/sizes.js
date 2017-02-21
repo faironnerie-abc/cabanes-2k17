@@ -8,5 +8,5 @@ for (let l = 30; l <= 40; l++) {
     let c = Math.ceil(713 / l);
     let h = Math.round(1.5 * acm * l);
     let w = Math.round(4 * acm * c);
-    console.log(l, ' x ', c, ' - > ', h, ' x ', w);
+    console.log(l, c , h , w);
 }

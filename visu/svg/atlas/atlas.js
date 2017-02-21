@@ -9,7 +9,7 @@ const chunks = require('../../../modeles/data/chunks.json').chunks;
 const A = 11 * 16;
 const WIDTHS = [1, 3, 5, 7, 9, 11];
 const LW = 0.2;
-const FSL = 15 * 4 / 3;
+const FSL = 21 * 4 / 3;
 const FST = 48 * 4 / 3;
 const COLS = 21;
 const X0 = 2150;
@@ -56,7 +56,7 @@ function writeAll(out) {
     out.write(`<g transform="translate(${X0}, ${Y0})">\n`);
     let row = 0;
     let col = 0;
-    cabins.forEach((cab, k) => {
+    cabins.forEach(cab => {
         writeCabin(out, row, col, cab);
         col++;
         if (col == COLS) {
@@ -70,7 +70,7 @@ function writeAll(out) {
 
 function distributeChunks() {
     let start = 0;
-    chunks.forEach((chunk, k) => {
+    chunks.forEach(chunk => {
         let t = chunk.text;
         let col = start % COLS;
         let chars = (COLS - col) * 16;
