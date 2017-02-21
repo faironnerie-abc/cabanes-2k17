@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const cabins = require('../../modeles/data/cabins.json').cabins;
-const WIDTH = 390; // in cm
+const WIDTH = 440; // in cm
 const STROKE = 0.5; // in px
 
 function writeMap(out) {
