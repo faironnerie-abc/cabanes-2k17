@@ -9,11 +9,12 @@ const chunks = require('../../../modeles/data/chunks.json').chunks;
 const A = 11 * 16;
 const WIDTHS = [1, 3, 5, 7, 9, 11];
 const LW = 0.2;
-const FSL = 21 * 4 / 3;
-const FST = 48 * 4 / 3;
+const FSL = 18 * 4 / 3;
+const FST = 51 * 4 / 3;
 const COLS = 21;
 const X0 = 2150;
 const Y0 = 1590;
+const ALLCOLORS = true;
 
 function writeHeader(out) {
     out.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n');
@@ -32,9 +33,11 @@ function writeStripe(out, x, y, s) {
     out.write(`<rect x="${x + (A / 2 - sw) / 2}" y="${y}" width="${sw}" height="${A}" fill="${colors[c]}"/>\n`);
 }
 
-function writeFace(out, x, y, s1, s2) {
-    writeStripe(out, x, y, s1);
-    writeStripe(out, x + A / 2, y, s2);
+function writeFace(out, x, y, s1, s2, stripes) {
+    if (stripes) {
+        writeStripe(out, x, y, s1);
+        writeStripe(out, x + A / 2, y, s2);
+    }
     out.write(`<rect x="${x}" y="${y}" width="${A}" height="${A}" fill="none" stroke="black" stroke-width="${LW}"/>\n`);
 }
 
@@ -42,12 +45,14 @@ function writeCabin(out, row, col, cab) {
     let s = stripes[cab.id].stripes;
     let x = 4 * A * col;
     let y = 1.5 * A * row;
+    let show = [true, cab.rightGap, true, cab.leftGap];
     for (let i = 0; i < 4; i++) {
-        writeFace(out, x + A * i, y, s[2 * i], s[2 * i + 1]);
+        let stripes = ALLCOLORS || (cab.paint && show[i]);
+        writeFace(out, x + A * i, y, s[2 * i], s[2 * i + 1], stripes);
     }
     out.write(`<text text-anchor="start" font-family="Courier" font-size="${FSL}" x="${x}" y="${y + A + FSL}">${cab.id}</text>\n`);
     if (cab.text) {
-        out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="5.5" x="${x}" y="${y - FSL / 2}">${cab.text}</text>\n`);
+        out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="9.5" x="${x}" y="${y - FST / 4}">${cab.text}</text>\n`);
     }
 }
 
@@ -73,7 +78,7 @@ function distributeChunks() {
     chunks.forEach(chunk => {
         let t = chunk.text;
         let col = start % COLS;
-        let chars = (COLS - col) * 16;
+        let chars = (COLS - col) * 14;
         if (chars < t.length) {
             while (t.charAt(chars) != ' ') chars--;
             cabins[start + COLS - col].text = t.substr(chars + 1);
