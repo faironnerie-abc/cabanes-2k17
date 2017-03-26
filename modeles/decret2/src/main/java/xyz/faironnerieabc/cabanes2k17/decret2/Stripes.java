@@ -137,12 +137,12 @@ public class Stripes {
             // la hauteur d'une cabane est 2 m
             double surface = total[color] * 2;
             totalSurface += surface;
-            // le rendement de la peinture est 12 m^2 / l et il faut 2 couches
-            double litres = surface / 12 * 2;
+            // le rendement de la peinture est 7 m^2 / l et il faut 2 couches
+            double litres = surface / 7 * 2;
             System.out.printf("|%7d|%13.0f|%12.0f|%n", color + 1, surface, litres);
         }
         System.out.println(sep);
-        System.out.printf("|%7s|%13.0f|%12.0f|%n", "total", totalSurface, totalSurface / 12 * 2);
+        System.out.printf("|%7s|%13.0f|%12.0f|%n", "total", totalSurface, totalSurface / 7 * 2);
         System.out.println(sep);
     }
 }

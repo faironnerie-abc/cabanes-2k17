@@ -11,8 +11,8 @@
    height="210mm"
    id="svg4652"
    version="1.1"
-   inkscape:version="0.91 r"
-   sodipodi:docname="p00.svg">
+   inkscape:version="0.92.1 unknown"
+   sodipodi:docname="a0.svg">
   <metadata
      id="metadata5128">
     <rdf:RDF>
@@ -21,7 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,65 +41,66 @@
      id="namedview5124"
      showgrid="false"
      inkscape:zoom="1.1920529"
-     inkscape:cx="525.34221"
+     inkscape:cx="344.98109"
      inkscape:cy="372.04724"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4652" />
   <text
-     x="526"
-     y="383.74725"
+     x="561.06665"
+     y="409.33041"
      font-weight="bold"
      font-size="11.25"
      id="text4654"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:45px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle"
-     sodipodi:linespacing="125%">
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;line-height:0%;font-family:Courier;-inkscape-font-specification:'Courier, Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:1.06666672">
     <tspan
        sodipodi:role="line"
        id="tspan5138"
-       x="526"
-       y="383.74725">Guide des peintres</tspan>
+       x="561.06665"
+       y="409.33041"
+       style="font-size:48px;line-height:1.25;stroke-width:1.06666672">Guide des peintres</tspan>
   </text>
   <text
-     text-anchor="left"
-     font-family="Courier"
      font-weight="bold"
      font-size="22.5"
-     transform="translate(30 82.5)"
      id="text4660"
-     style="text-anchor:start;text-align:start;writing-mode:lr;line-height:125%;"
-     sodipodi:linespacing="125%">
+     style="font-weight:bold;font-size:24px;line-height:0%;font-family:Courier;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.06666672"
+     x="32"
+     y="88">
     <tspan
        sodipodi:role="line"
-       id="tspan5130">Couleurs sur la plage</tspan>
+       id="tspan5130"
+       x="32"
+       y="88"
+       style="font-size:24px;line-height:1.25;stroke-width:1.06666672">Couleurs sur la plage</tspan>
   </text>
   <line
-     x1="30"
-     y1="92.5"
-     x2="1022"
-     y2="92.5"
-     stroke="black"
-     id="line4662" />
+     x1="32"
+     y1="98.666664"
+     x2="1090.1333"
+     y2="98.666664"
+     id="line4662"
+     style="stroke:#000000;stroke-width:1.06666672" />
   <line
-     x1="30"
-     y1="651.5"
-     x2="1022"
-     y2="651.5"
-     stroke="black"
-     id="line4666" />
+     x1="32"
+     y1="694.93335"
+     x2="1090.1333"
+     y2="694.93335"
+     id="line4666"
+     style="stroke:#000000;stroke-width:1.06666672" />
   <text
-     sodipodi:linespacing="125%"
-     style="font-weight:bold;font-size:22.5px;line-height:125%;font-family:Courier;text-align:end;writing-mode:lr-tb;text-anchor:end"
+     style="font-weight:bold;font-size:24px;line-height:0%;font-family:Courier;text-align:end;writing-mode:lr-tb;text-anchor:end;stroke-width:1.06666672"
      id="text5132"
      font-size="22.5"
      font-weight="bold"
-     x="1023.8362"
-     y="674.37">
+     x="1092.0919"
+     y="719.328">
     <tspan
        sodipodi:role="line"
        id="tspan5136"
-       x="1023.8362"
-       y="674.37">Un projet de Karel Martens</tspan>
+       x="1092.0919"
+       y="719.328"
+       style="font-size:24px;line-height:1.25;stroke-width:1.06666672">Un projet de Karel Martens</tspan>
   </text>
 </svg>
