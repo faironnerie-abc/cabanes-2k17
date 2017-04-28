@@ -4,6 +4,7 @@
 
 const fs = require('fs');
 const cabins = require('../../modeles/data/cabins.json').cabins;
+const groups = require('../../modeles/data/groups.json').groups;
 const WIDTH = 440; // in cm
 const STROKE = 0.5; // in px
 
@@ -32,11 +33,22 @@ function writeMap(out) {
     out.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n');
     out.write(`<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}cm" height="${height}cm" viewBox="${xMin} ${yMin} ${xMax - xMin} ${yMax - yMin}">\n`);
     cabins.forEach(c => {
-        out.write(`<g transform="translate(${c.x} ${c.y}) rotate(${-c.angle})">\n`)
-        out.write(`<rect x="-1" y="-1" width="2" height="2" fill="none" stroke="black" stroke-width="${stroke}" />\n`);
-        out.write(`<text x="0" y="0.9" text-anchor="middle" font-family="Courier" font-size="0.5" transform="rotate(${-90 * c.door})">${c.id}</text>"\n`);
+        let nb = c.id.substring(c.id.indexOf('/') + 1);
+        out.write(`<g transform="translate(${c.x} ${c.y}) rotate(${-c.angle})">\n`);
+        let fill = c.paint ? "#919d9d" : "none"
+        out.write(`<rect x="-1" y="-1" width="2" height="2" fill="${fill}" stroke="black" stroke-width="${stroke}" />\n`);
+        out.write(`<text x="0" y="2" text-anchor="middle" font-family="Courier" font-size="1" transform="rotate(${-90 * c.door})">${nb}</text>"\n`);
         out.write('</g>\n');
     });
+
+    groups.forEach(g => {
+        let alpha = -g.angle * Math.PI /180;
+        let x = g.x - 2 * Math.cos(alpha);
+        let y = g.y - 2.5 * Math.sin(alpha);
+        let angle = g.id.startsWith('R') ? 0 : -g.angle;
+        out.write(`<text x="${x}" y="${y}" transform="rotate(${angle} ${x} ${y})" text-anchor="middle" font-family="Courier" font-size="1">${g.id}</text>\n`);
+    });
+
     out.write('</svg>\n');
     out.end();
 
