@@ -11,21 +11,21 @@ function mm2px(mm) {
     return mm * 96 / 25.4;
 }
 
-const H = mm2px(6.2);
-const W = mm2px(5.4);
-const LS = mm2px(3.3);
+const H = mm2px(6.7);
+const W = mm2px(6.7);
+const LS = mm2px(4.3);
 
 const WIDTHS = [1, 3, 5, 7, 9, 11];
 const LW = 0.1;
 const FSL = 4 * 4 / 3;
 const FST = 8 * 4 / 3;
-const COLS = 15;
+const COLS = 12;
 const X0 = 0;
 const Y0 = 0;
 const ALLCOLORS = true;
 
-const LETTER_SPACING = 1.77;
-const LETTERS_PER_CABIN = 10;
+const LETTER_SPACING = 2.05;
+const LETTERS_PER_CABIN = 12;
 
 function writeHeader(out) {
     out.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n');
@@ -62,15 +62,15 @@ function writeCabin(out, row, col, cab) {
         let stripes = ALLCOLORS || (cab.paint && show[i]);
         writeFace(out, x + W * i, y, s[2 * i], s[2 * i + 1], stripes);
     }
-    out.write(`<text text-anchor="start" font-family="Courier" font-size="${FSL}" x="${x}" y="${y + H + FSL * 3 / 4}">${cab.id}</text>\n`);
+    out.write(`<text text-anchor="start" font-family="Courier" font-size="${FSL}" x="${x}" y="${y + H + FSL}">${cab.id}</text>\n`);
     out.write('</g>\n');
     if (cab.text) {
-        let ltm = (7 - col + 0.5) * LETTERS_PER_CABIN;
-        if (col <= 7 && cab.text.length > ltm) {
-            out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="${LETTER_SPACING}" x="${x}" y="${y - FST / 6}">${cab.text.substr(0, ltm)}</text>\n`);
-            out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="${LETTER_SPACING}" x="${7.5 * 4 * W}" y="${y - FST / 6}">${cab.text.substr(ltm)}</text>\n`);
+        let ltm = (COLS / 2 - col) * LETTERS_PER_CABIN;
+        if (col < COLS / 2 && cab.text.length > ltm) {
+            out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="${LETTER_SPACING}" x="${x}" y="${y - FST / 4}">${cab.text.substr(0, ltm)}</text>\n`);
+            out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="${LETTER_SPACING}" x="${COLS / 2 * 4 * W}" y="${y - FST / 4}">${cab.text.substr(ltm)}</text>\n`);
         } else {
-            out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="${LETTER_SPACING}" x="${x}" y="${y - FST / 6}">${cab.text}</text>\n`);
+            out.write(`<text text-anchor="start" font-family="Courier" font-size="${FST}" letter-spacing="${LETTER_SPACING}" x="${x}" y="${y - FST / 4}">${cab.text}</text>\n`);
         }
     }
 }
@@ -81,7 +81,7 @@ function writeAll(out) {
     let row = 0;
     let col = 0;
     cabins.forEach(cab => {
-        if (row >= 24) writeCabin(out, row, col, cab);
+        if (row >= 40) writeCabin(out, row, col, cab);
         col++;
         if (col == COLS) {
             row++;
